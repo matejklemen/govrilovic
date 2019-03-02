@@ -13,7 +13,6 @@ predefined .gov.si websites and extracts data from them. It is implemented for t
 first assignment in the **Web information extraction and retrieval** course.
 
 ## Brief guidelines
-1. Write tests when/if possible.
-2. When writing regex, either explain it (comment the code) like you would explain it to a monkey
+1. When writing regex, either explain it (comment the code) like you would explain it to a monkey
 or use something other than regex for solving the problem.
-3. Comment non-obvious code.
+2. Comment non-obvious code.
