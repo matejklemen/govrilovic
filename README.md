@@ -12,7 +12,31 @@ them is bound to be correct!
 predefined .gov.si websites and extracts data from them. It is implemented for the purposes of
 first assignment in the **Web information extraction and retrieval** course.
 
-## Brief guidelines
+## Setup
+**[Optional]** Create a virtualenv and activate it.
+```
+$ virtualenv --python=python3 --system-site-packages wiervenv
+$ source wiervenv/bin/activate
+```
+  
+Install required dependencies.
+```
+$ pip3 install -r requirements.txt
+```
+  
+Install in dev mode.
+```
+$ python3 setup.py develop
+```
+  
+Note: you might need to replace `pip3` and `python3` with `pip` and `python` (respectively) if you 
+are using Windows or just do not have these aliases on your system.  
+(And no, this does not mean this works with Python 2.)
+
+## Running the crawler
+TBD (when something is actually done).
+
+## Brief guidelines (for development)
 1. When writing regex, either explain it (comment the code) like you would explain it to a monkey
 or use something other than regex for solving the problem.
 2. Comment non-obvious code.
