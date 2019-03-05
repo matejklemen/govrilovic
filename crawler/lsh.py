@@ -63,10 +63,11 @@ class LocalitySensitiveHashing:
         # create a mapping from words to indices
         self.vocab = {item: idx for idx, item in enumerate(vocab)}
         vocab_size = len(vocab)
-        if hash_funcs is None:
+
+        if not hash_funcs:
             if num_hash is None:
                 raise ValueError("If hash functions are not provided, number of hash functions "
-                                 "used should be given")
+                                 "to be used (num_hash) should be given")
 
             # TODO: better default hash functions (e.g. md5(idx) XOR random number)
             # construct random hashing functions for signature computation
@@ -75,11 +76,12 @@ class LocalitySensitiveHashing:
         else:
             self.hash_funcs = hash_funcs
 
-        if num_hash % num_bands > 0:
+        self.num_hash = len(self.hash_funcs)
+        if self.num_hash % num_bands > 0:
+            # also handles the case that `num_bands` needs to be <= number of hash functions
             raise ValueError("Dense vector representation needs to be equally divisible between "
                              "bands ('num_hash' needs to be a multiple of 'num_bands')")
 
-        self.num_hash = len(self.hash_funcs)
         self.num_bands = num_bands
 
         # default to single characters
