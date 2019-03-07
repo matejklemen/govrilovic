@@ -7,7 +7,7 @@ Example usage:
 
 ##### config.yaml: #####
 
-threads: 2
+workers: 2
 some_other_parameter: foobar
 
 ##### example.py #####
@@ -17,7 +17,7 @@ from settings import SettingsReader
 > config = SettingsReader('./config.yaml').config
 > config
 
-{'threads': 2, 'some_other_parameter': 'foobar'}
+{'workers': 2, 'some_other_parameter': 'foobar'}
 
 """
 
@@ -30,7 +30,7 @@ class SettingsReader:
     Default settings for the crawler.
     """
     config = {
-        'threads': 5
+        'workers': 5
     }
 
     def __init__(self, config_file_path):
