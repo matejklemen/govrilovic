@@ -57,22 +57,6 @@ class Database:
         # TODO
         pass
 
-    # Basic insert, delete and select all tests.
-    def test_db(self):
-        insert_test = "INSERT INTO data_type (code) VALUES ('TEST_VALUE');"
-        select_all_query = "SELECT * FROM crawldb.data_type;"
-        delete_test = "DELETE FROM data_type WHERE code = 'TEST_VALUE';"
-
-        self.alter(insert_test)        
-        if str(self.return_all(select_all_query)) == "[('PDF',), ('DOC',), ('DOCX',), ('PPT',), ('PPTX',), ('TEST_VALUE',)]":
-            print("Insert OK")
-            self.alter(delete_test)
-            if str(self.return_all(select_all_query)) == "[('PDF',), ('DOC',), ('DOCX',), ('PPT',), ('PPTX',)]":
-                print("Delete OK")
-        else:
-            print("Insert FAIL")
-
 if __name__ == "__main__":
     db = Database()
-    db.test_db()
     db.close_connection()
