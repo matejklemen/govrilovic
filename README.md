@@ -34,7 +34,8 @@ are using Windows or just do not have these aliases on your system.
 (And no, this does not mean this works with Python 2.)
 
 ## Running the crawler
-TBD (when something is actually done).
+Running `docker-compose up` in the `/docker` directory sets up the database and runs `baza.sql` script (only the first time).
+PostgreSQL is then available on port 5432 and mounted locally in `/db_data` directory.
 
 ## Brief guidelines (for development)
 1. When writing regex, either explain it (comment the code) like you would explain it to a monkey
