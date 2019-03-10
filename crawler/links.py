@@ -16,7 +16,7 @@ class Links:
         Example:
 
         >>> url = 'HTTP://www.Python.org/doc/#'
-        >>> sanitize_url(url)
+        >>> Links.sanitize(url)
         'http://www.Python.org/doc/'
 
         HTTP gets fixed as capitalization there doesn't matter
@@ -33,10 +33,10 @@ class Links:
 
         Examples:
 
-        >>> Links.is_parsable('http://docs.python-requests.org/en/master/user/quickstart/#response-status-codes')
+        >>> Links.has_parsable_content('http://docs.python-requests.org/en/master/user/quickstart/#response-status-codes')
         True
 
-        >>> Links.is_parsable('http://www.africau.edu/images/default/sample.pdf')
+        >>> Links.has_parsable_content('http://www.africau.edu/images/default/sample.pdf')
         False
         """
         return 'text/html' in requests.head(url).headers['Content-Type']
