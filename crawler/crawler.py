@@ -1,6 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
+import multiprocessing as mp
+from time import sleep
 
 """
 This file contains the main crawler class along with
@@ -39,7 +41,7 @@ def find_links(current_url, soup_obj):
         link = anchor.get("href")
         if link:
             processed_link = link
-            if link[0] == "/":
+            if link[0] in {"/", "?"}:
                 processed_link = urljoin(current_url, link)
             elif link[0] == "#":
                 continue
@@ -50,32 +52,88 @@ def find_links(current_url, soup_obj):
 
 
 class Agent:
-    # ["http://evem.gov.si", "http://e-uprava.gov.si", "http://podatki.gov.si", "http://e-prostor.gov.si"] + 5 other gov sites
-    # contains links for the next level of crawling (using BFS strategy)
-    link_queue = set(["http://podatki.gov.si"])
-    visited = set()
-    user_agent = "govrilovic-crawler/v0.1"
+    USER_AGENT = "govrilovic-crawler/v0.1"
 
-    def __init__(self):
-        pass
+    def __init__(self, seed_pages, num_workers=None, sleep_period=5):
+        # contains links for the next level of crawling (using BFS strategy)
+        self.link_queue = set(seed_pages)
+        self.visited = set()
+        self.num_workers = num_workers if num_workers is not None else mp.cpu_count()
+        self.sleep_period = sleep_period
 
-    @staticmethod
-    def crawl_level():
+    def crawl(self, max_level=2):
+        """ Performs breadth-first search up to a certain level or while there are links to be
+        crawled (if `max_level` is None).
+
+        Parameters
+        ----------
+        max_level: int, optional
+            Max depth up to which to perform breadth first search
+        """
+        curr_level = 0
+        if max_level is None:
+            # set the depth limit ridiculously high which essentially means 'no limit'
+            max_level = 2 ** 31 - 1
+
+        while self.link_queue:
+            if curr_level == max_level:
+                print("Reached specified maximal level. Exiting...")
+                break
+            print("[Level %d] Links to be crawled: %d..." % (curr_level, len(self.link_queue)))
+            self.crawl_level()
+            print("[Level %d] New links produced: %d..." % (curr_level, len(self.link_queue)))
+            curr_level += 1
+
+    def crawl_level(self):
+        """ Performs a single level of breadth-first search."""
         # get pages for the next level and clear the queue
-        curr_level_links = Agent.link_queue
-        Agent.link_queue = set()
+        curr_level_links = self.link_queue
+        self.link_queue = set()
 
         # remove duplicate links before dividing among workers so that the tasks
         # are more evenly split
-        relevant_links = [link for link in curr_level_links if link not in Agent.visited]
+        relevant_links = [link for link in curr_level_links if link not in self.visited]
+        num_links = len(relevant_links)
 
-        # TODO: divide `relevant_links` among workers
-        # ...
+        next_level_links = set()
+        # TODO: concurrency
+        # divide relevant links among workers (as evenly as possible)
+        for id_worker in range(self.num_workers):
+            idx_start = int(float(id_worker) * num_links / self.num_workers)
+            idx_end = int(float(id_worker + 1) * num_links / self.num_workers)
 
-        pass
+            links_to_crawl = relevant_links[idx_start: idx_end + 1]
+            new_links = self.worker_task(links_to_crawl, id_worker=id_worker)
+            next_level_links.update(new_links)
 
-    @staticmethod
-    def crawl_page(url):
+        self.visited.update(relevant_links)
+        self.link_queue = next_level_links
+
+    def worker_task(self, urls, id_worker=None):
+        """ Work to be done in a single worker (thread/process).
+
+        Parameters
+        ----------
+        urls: list of str
+            URLs to be crawled by current worker
+
+        id_worker: int, optional
+            Unique identifier for current worker
+
+        Returns
+        -------
+        TODO:
+            decide (see `crawl_page(...)` TODO)
+        """
+        produced_links = set()
+        for url in urls:
+            new_urls = self.crawl_page(url=url)
+            produced_links.update(new_urls)
+            sleep(self.sleep_period)
+
+        return produced_links
+
+    def crawl_page(self, url):
         """ Crawl a single web page denoted by `url`. The URL is expected to be preprocessed
         (if needed) and VALID.
 
@@ -91,9 +149,9 @@ class Agent:
         """
         links = []
 
-        if url not in Agent.visited:
-            print("Crawling page '%s'..." % url)
-            response = requests.get(url, headers={"User-Agent": Agent.user_agent},
+        if url not in self.visited:
+            print("Crawling '%s'..." % url)
+            response = requests.get(url, headers={"User-Agent": Agent.USER_AGENT},
                                     timeout=TIMEOUT_PERIOD)
 
             # TODO: there are other status codes that indicate success
@@ -114,8 +172,8 @@ class Agent:
                 # find links on current site
                 links = find_links(url, soup)
 
-                # TODO: only keep links that point to '.gov.si' websites
-                # ...
+                # only keep links that point to '.gov.si' websites
+                links = [l for l in links if ".gov.si" in l]
 
                 # TODO: parse HTML content
                 # ...
@@ -124,12 +182,18 @@ class Agent:
                 # TODO: store the document that is present in response
                 pass
 
-            Agent.link_queue.remove(url)
-            Agent.visited.add(url)
-
+        # TODO: should return more data than just links
+        # e.g. a 4-tuple (links, HTML, images, documents) <- is there a nicer way?
         return links
 
 
 if __name__ == "__main__":
-    l = Agent.crawl_page("http://podatki.gov.si")
-    print(l)
+    SEED_PAGES_ALL = ["http://evem.gov.si", "http://e-uprava.gov.si", "http://podatki.gov.si",
+                      "http://e-prostor.gov.si", "http://www.mz.gov.si/", "http://www.mnz.gov.si/",
+                      "http://www.up.gov.si/", "http://www.ti.gov.si/", "http://www.mf.gov.si/"]
+    SEED_PAGES_SAMPLE = SEED_PAGES_ALL[:3]
+
+    a = Agent(seed_pages=SEED_PAGES_SAMPLE,
+              num_workers=1)
+    a.crawl()
+
