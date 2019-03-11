@@ -3,6 +3,11 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 import multiprocessing as mp
 from time import sleep
+import time
+# from selenium import webdriver
+# import selenium
+from urllib.parse import urlparse
+from os.path import splitext
 
 """
 This file contains the main crawler class along with
@@ -16,6 +21,14 @@ DOWNLOADABLE_CONTENT_TYPES = {"application/vnd.openxmlformats-officedocument.pre
                               "application/vnd.openxmlformats-officedocument.wordprocessingml.document"}
 # how long the crawler waits before giving up on a page (in seconds)
 TIMEOUT_PERIOD = 5.0
+
+
+def get_url_extension(url):
+    # Returns the filename extension or '' if none. For example "png", "html", ...
+
+    parsed = urlparse(url)
+    root, extension = splitext(parsed.path)
+    return extension[1:]
 
 
 def find_links(current_url, soup_obj):
@@ -50,6 +63,36 @@ def find_links(current_url, soup_obj):
 
     return links
 
+def find_images(current_url, soup_obj):
+    """ Find links inside <a> tags.
+
+    Parameters
+    ----------
+    current_url: str
+        URL of page whose content `soup_obj` contains
+
+    soup_obj: bs4.BeautifulSoup
+        BeautifulSoup's object, containing the response for `current_url`
+
+    Returns
+    -------
+    list of str:
+        List of absolute URLs
+    """
+    images = []
+    for image in soup_obj.find_all('img'):
+        src = image.get('src')
+        if src:
+            processed_src = src     
+            if src[0] in {"/", "?"}:
+                processed_src = urljoin(current_url, src)
+            elif src[0] == "#":
+                continue
+            if get_url_extension(processed_src) in ["png", "jpeg", "jpg"]:
+                # Download the image?
+                images.append(processed_src)
+
+    return images
 
 class Agent:
     USER_AGENT = "govrilovic-crawler/v0.1"
@@ -128,6 +171,7 @@ class Agent:
         produced_links = set()
         for url in urls:
             new_urls = self.crawl_page(url=url)
+            # Insert new data into the database
             produced_links.update(new_urls)
             sleep(self.sleep_period)
 
@@ -151,9 +195,22 @@ class Agent:
 
         if url not in self.visited:
             print("Crawling '%s'..." % url)
+            start = time.time()
             response = requests.get(url, headers={"User-Agent": Agent.USER_AGENT},
                                     timeout=TIMEOUT_PERIOD)
-
+            end = time.time()
+            print("Request time: ", round(end - start, 2), " seconds.")
+            # Selenium
+            # start = time.time()
+            # chromedriver = '/usr/local/bin/chromedriver'
+            # chrome_options = webdriver.ChromeOptions()
+            # chrome_options.add_argument('--headless')
+            # driver = webdriver.Chrome(chrome_options=chrome_options, executable_path=chromedriver)
+            # driver.get(url)
+            # driver.close()
+            # end = time.time()
+            # print("Selenium time: ", end - start)
+            
             # TODO: there are other status codes that indicate success
             if not response or response.status_code != 200:
                 return
@@ -168,6 +225,9 @@ class Agent:
 
                 # TODO: detect unrendered javascript and process it using headless browser
                 # ...
+
+                # find images on the current site
+                images = find_images(url, soup)
 
                 # find links on current site
                 links = find_links(url, soup)
