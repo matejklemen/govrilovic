@@ -49,11 +49,11 @@ class Links:
 
         Example:
 
-        >>> Links.sanitize_url_query('http://www.Python.org/doc/neki?hack=* from USERS; DROP * WHERE user.id < 300000;#ezgg')
-        'http://www.Python.org/doc/neki?hack%3D%2A%20from%20KURAC%3B%20drop%20where%20id%20%3C%20300000%3B#asdasd'
+        >>> Links.sanitize_url_query('http://www.Python.org/doc/neki?hack=* from USERS; DROP * WHERE user.id < 300000&hack2=yeet;#ezgg')
+        'http://www.Python.org/doc/neki?hack=%2A%20from%20USERS%3B%20DROP%20%2A%20WHERE%20user.id%20%3C%20300000&hack2=yeet%3B#ezgg'
         """
         url = urlsplit(url)
         return "".join([url.scheme,
                         "://", url.netloc, url.path,
-                        "?", quote(url.query),
-                        "#", quote(url.fragment)])
+                        "?", quote(url.query, safe="=&"),
+                        "#", quote(url.fragment, safe="=&")])
