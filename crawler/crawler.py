@@ -100,12 +100,14 @@ def find_images(current_url, soup_obj):
 class Agent:
     USER_AGENT = "govrilovic-crawler/v0.1"
 
-    def __init__(self, seed_pages, num_workers=None, sleep_period=5):
+    def __init__(self, seed_pages, num_workers=None, sleep_period=5, get_images=False):
         # contains links for the next level of crawling (using BFS strategy)
         self.link_queue = set(seed_pages)
         self.visited = set()
         self.num_workers = num_workers if num_workers is not None else mp.cpu_count()
         self.sleep_period = sleep_period
+        self.get_images = get_images
+
         # Selenium webdriver initialization
         chromedriver = environ["CHROME_DRIVER"]
         chrome_options = webdriver.ChromeOptions()
@@ -256,7 +258,8 @@ class Agent:
                 # ...
 
                 # find images on the current site
-                images = find_images(url, soup)
+                if self.get_images:
+                    images = find_images(url, soup)
 
                 # find links on current site
                 links = find_links(url, soup)
@@ -284,13 +287,21 @@ if __name__ == "__main__":
     except KeyError: 
         print("Please set the environment variable CHROME_DRIVER and reopen terminal. Read README.md for more information.")
         sys.exit(1)
+
+    # We will first run our crawler with these seed pages only. Crawler will download images and binary data here.
+    SEED_PAGES_THAT_REQUIRE_IMAGE_DOWNLOADS = ["http://evem.gov.si", "http://e-uprava.gov.si", "http://podatki.gov.si",
+                      "http://e-prostor.gov.si"]
+
+    # Crawler will not download images and binary data here.
+    # No need to even include image links and binary files in the database.
+    # Only data from tables site, page, link and page_type will be present in the actual DB dump
     SEED_PAGES_ALL = ["http://evem.gov.si", "http://e-uprava.gov.si", "http://podatki.gov.si",
                       "http://e-prostor.gov.si", "http://www.mz.gov.si/", "http://www.mnz.gov.si/",
                       "http://www.up.gov.si/", "http://www.ti.gov.si/", "http://www.mf.gov.si/"]
     SEED_PAGES_SAMPLE = SEED_PAGES_ALL[:3]
 
     a = Agent(seed_pages=SEED_PAGES_SAMPLE,
-              num_workers=1)
+              num_workers=1, get_images=True)
     # TODO: On specific key press, stop the script and save current state
     a.crawl()
 
