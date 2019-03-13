@@ -4,10 +4,13 @@ from urllib.parse import urljoin
 import multiprocessing as mp
 from time import sleep
 import time
-# from selenium import webdriver
-# import selenium
+from selenium import webdriver
+import selenium
+from selenium.common.exceptions import TimeoutException
 from urllib.parse import urlparse
 from os.path import splitext
+from os import environ
+import sys
 
 """
 This file contains the main crawler class along with
@@ -103,6 +106,16 @@ class Agent:
         self.visited = set()
         self.num_workers = num_workers if num_workers is not None else mp.cpu_count()
         self.sleep_period = sleep_period
+        # Selenium webdriver initialization
+        chromedriver = environ["CHROME_DRIVER"]
+        chrome_options = webdriver.ChromeOptions()
+        # Accepts untrusted certificates and thus prevents some SSLErrors
+        chrome_options.accept_untrusted_certs = True
+        chrome_options.add_argument('--headless')
+        self.driver = webdriver.Chrome(chrome_options=chrome_options, executable_path=chromedriver)
+        # Set timeout for the request
+        self.driver.set_page_load_timeout(TIMEOUT_PERIOD)
+
 
     def crawl(self, max_level=2):
         """ Performs breadth-first search up to a certain level or while there are links to be
@@ -193,27 +206,43 @@ class Agent:
         """
         links = []
 
+        # TODO - if url in self.visited, make a link between them.
         if url not in self.visited:
-            print("Crawling '%s'..." % url)
-            start = time.time()
-            response = requests.get(url, headers={"User-Agent": Agent.USER_AGENT},
-                                    timeout=TIMEOUT_PERIOD)
-            end = time.time()
-            print("Request time: ", round(end - start, 2), " seconds.")
+            try:
+                # Will be omitted in next version. Use only HEAD to determine status_code and headers.
+                response = requests.get(url, headers={"User-Agent": Agent.USER_AGENT},
+                                        timeout=TIMEOUT_PERIOD)
+                # We can not read head using Selenium, hence use requests.head -- produces weird status codes often - differ from response.status_code
+                head = requests.head(url)
+            except Exception as e:
+                print("Requests error - ", e)
+                return links
+
             # Selenium
-            # start = time.time()
-            # chromedriver = '/usr/local/bin/chromedriver'
-            # chrome_options = webdriver.ChromeOptions()
-            # chrome_options.add_argument('--headless')
-            # driver = webdriver.Chrome(chrome_options=chrome_options, executable_path=chromedriver)
-            # driver.get(url)
-            # driver.close()
-            # end = time.time()
-            # print("Selenium time: ", end - start)
+            print("Selenium crawling '%s'..." % url)
+            try:
+                start = time.time()
+                self.driver.get(url)
+                page_source = self.driver.page_source
+                end = time.time()
+                print("Request time: ", round(end - start, 2), " seconds.")
+            except TimeoutException:
+                print("Timeout for this request reached.")
+                return links
+            except Exception as e:
+                # Exception for everything else: bad handshakes, various errors
+                print("Unexpected error:", e)
+                return links
+
             
+            # In the case of a redirect, head returns 302, while response returns 200. In one specific case, head even returned 403, while response was 200.
+            print("Head: ", head.status_code )
+            print("Response ", response.status_code)
+
             # TODO: there are other status codes that indicate success
-            if not response or response.status_code != 200:
-                return
+            if not response or response.status_code not in [200, 201, 203]:
+                return links
+
 
             # if Content-Type is not present in header (is this even possible?), assume it's HTML
             content_type = response.headers.get("Content-Type", "text/html")
@@ -221,7 +250,7 @@ class Agent:
             # https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types
             # possible to have {"Content-Type": "text/html; charset=utf-8"}
             if "text/html" in content_type:
-                soup = BeautifulSoup(response.content, "html.parser")
+                soup = BeautifulSoup(page_source, "html.parser")
 
                 # TODO: detect unrendered javascript and process it using headless browser
                 # ...
@@ -248,6 +277,13 @@ class Agent:
 
 
 if __name__ == "__main__":
+
+    # Check if environment variable is set
+    try:  
+        environ["CHROME_DRIVER"]
+    except KeyError: 
+        print("Please set the environment variable CHROME_DRIVER and reopen terminal. Read README.md for more information.")
+        sys.exit(1)
     SEED_PAGES_ALL = ["http://evem.gov.si", "http://e-uprava.gov.si", "http://podatki.gov.si",
                       "http://e-prostor.gov.si", "http://www.mz.gov.si/", "http://www.mnz.gov.si/",
                       "http://www.up.gov.si/", "http://www.ti.gov.si/", "http://www.mf.gov.si/"]
@@ -255,5 +291,9 @@ if __name__ == "__main__":
 
     a = Agent(seed_pages=SEED_PAGES_SAMPLE,
               num_workers=1)
+    # TODO: On specific key press, stop the script and save current state
     a.crawl()
+
+    
+
 

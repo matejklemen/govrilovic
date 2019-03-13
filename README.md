@@ -28,6 +28,12 @@ Install in dev mode.
 ```
 $ python3 setup.py develop
 ```
+Download [ChromeDriver](http://chromedriver.chromium.org).
+
+Create environment variable for the location of Chrome Webdriver.
+```
+$CHROME_DRIVER="/path/to/chromedriver"
+```
   
 Note: you might need to replace `pip3` and `python3` with `pip` and `python` (respectively) if you 
 are using Windows or just do not have these aliases on your system.  
