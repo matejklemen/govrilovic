@@ -31,6 +31,7 @@ class Database:
         self.connection.close()
         print("PostgreSQL connection closed")
 
+    # Not safe - perform self query escapes etc.
     # Method for create/update/delete (CUD) queries
     def alter(self, query):
         try:
@@ -40,8 +41,28 @@ class Database:
             print("Failed to run query: ", query)
             self.connection.rollback()
 
-    # Method for return (R) query (Single result).
+    # Parameterized queries - sql injection safe. Use this from now on.
+    def param_query(self, query, parameters):
+        """ 
+        Parameters
+        ----------
+        query: str
+            Parameterized query statement. Example: "INSERT INTO x VALUES (%s, %s, ... , %s)
 
+        parameters: list/array
+            Values to be placed into statement. For example: [val1, val2, ... , valN]
+            
+        -------
+        """
+        try:
+            self.cursor.execute(query, parameters)
+            self.connection.commit()
+        except:
+            print("Failed to run parameterized query: ", query)
+            self.connection.rollback()
+
+
+    # Method for return (R) query (Single result).
     def return_one(self, query):
         self.cursor.execute(query)
         return self.cursor.fetchone()
@@ -60,9 +81,9 @@ class Database:
 
     # Helpers for adding pages to the database
     def add_site_info_to_db(self, domain, robots, sitemap):
-        insert_query = "INSERT INTO site (domain, robots_content, sitemap_content) VALUES ('" + \
-            domain + "', '"+robots+"', '"+sitemap+"');"
-        self.alter(insert_query)
+        insert_parameterized_query = "INSERT INTO site (domain, robots_content, sitemap_content) VALUES (%s, %s, %s)"
+        self.param_query(insert_parameterized_query, [domain, robots, sitemap])
+
 
 
 if __name__ == "__main__":
