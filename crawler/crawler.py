@@ -8,9 +8,10 @@ from selenium import webdriver
 import selenium
 from selenium.common.exceptions import TimeoutException
 from urllib.parse import urlparse
-from os.path import splitext
-from os import environ
+from os.path import splitext, exists, abspath, join, dirname
+from os import environ, makedirs
 import sys
+from urllib.request import urlretrieve
 
 """
 This file contains the main crawler class along with
@@ -66,6 +67,39 @@ def find_links(current_url, soup_obj):
 
     return links
 
+
+def save_image(current_url, image_src):
+    """
+    Saves an image to the disk under the current crawled page's URL.
+
+    Parameters
+    ----------
+    current_url: str
+        URL of the page which we are currently crawling so we can
+        locate the correct folder we need to save the image in.
+
+    image_src: str
+        URL of image which you want to download.
+    """
+    # cross-platform path to the file/images directory
+    images_dir = abspath(join(dirname(__file__), '..', 'files', 'images'))
+
+    # the path to the folder of the current crawled page
+    current_url_directory = images_dir + '/' + urlparse(current_url).netloc
+
+    # getting the URL element from the last slash onwards and treating it as the filename
+    image_filename = image_src.rsplit('/', 1)[-1]
+
+    # filename (path) of the downloaded image
+    image_destination = current_url_directory + '/' + image_filename
+
+    if not exists(current_url_directory):
+        makedirs(current_url_directory)
+
+    urlretrieve(image_src, image_destination)
+    return image_destination
+
+
 def find_images(current_url, soup_obj):
     """ Find links inside <a> tags.
 
@@ -86,16 +120,26 @@ def find_images(current_url, soup_obj):
     for image in soup_obj.find_all('img'):
         src = image.get('src')
         if src:
-            processed_src = src     
+            processed_src = src
             if src[0] in {"/", "?"}:
                 processed_src = urljoin(current_url, src)
             elif src[0] == "#":
                 continue
             if get_url_extension(processed_src) in ["png", "jpeg", "jpg"]:
-                # Download the image?
+                # Download the image to the disk
+                image_path = save_image(current_url, processed_src)
+
+                # TODO: add a record for this saved file to the DB (path is in image_path var)
+                # TODO: check why this slows down selenium
+
+                # TODO: check whether we need to return the images links list at all
+                # we could extract the save_image call to another function called save images,
+                # which would accept a list of links to images to save (but that calls for
+                # another iteration over all links)
                 images.append(processed_src)
 
     return images
+
 
 class Agent:
     USER_AGENT = "govrilovic-crawler/v0.1"
@@ -114,10 +158,10 @@ class Agent:
         # Accepts untrusted certificates and thus prevents some SSLErrors
         chrome_options.accept_untrusted_certs = True
         chrome_options.add_argument('--headless')
-        self.driver = webdriver.Chrome(chrome_options=chrome_options, executable_path=chromedriver)
+        self.driver = webdriver.Chrome(
+            chrome_options=chrome_options, executable_path=chromedriver)
         # Set timeout for the request
         self.driver.set_page_load_timeout(TIMEOUT_PERIOD)
-
 
     def crawl(self, max_level=2):
         """ Performs breadth-first search up to a certain level or while there are links to be
@@ -137,9 +181,11 @@ class Agent:
             if curr_level == max_level:
                 print("Reached specified maximal level. Exiting...")
                 break
-            print("[Level %d] Links to be crawled: %d..." % (curr_level, len(self.link_queue)))
+            print("[Level %d] Links to be crawled: %d..." %
+                  (curr_level, len(self.link_queue)))
             self.crawl_level()
-            print("[Level %d] New links produced: %d..." % (curr_level, len(self.link_queue)))
+            print("[Level %d] New links produced: %d..." %
+                  (curr_level, len(self.link_queue)))
             curr_level += 1
 
     def crawl_level(self):
@@ -150,7 +196,8 @@ class Agent:
 
         # remove duplicate links before dividing among workers so that the tasks
         # are more evenly split
-        relevant_links = [link for link in curr_level_links if link not in self.visited]
+        relevant_links = [
+            link for link in curr_level_links if link not in self.visited]
         num_links = len(relevant_links)
 
         next_level_links = set()
@@ -236,15 +283,13 @@ class Agent:
                 print("Unexpected error:", e)
                 return links
 
-            
             # In the case of a redirect, head returns 302, while response returns 200. In one specific case, head even returned 403, while response was 200.
-            print("Head: ", head.status_code )
+            print("Head: ", head.status_code)
             print("Response ", response.status_code)
 
             # TODO: there are other status codes that indicate success
             if not response or response.status_code not in [200, 201, 203]:
                 return links
-
 
             # if Content-Type is not present in header (is this even possible?), assume it's HTML
             content_type = response.headers.get("Content-Type", "text/html")
@@ -282,15 +327,16 @@ class Agent:
 if __name__ == "__main__":
 
     # Check if environment variable is set
-    try:  
+    try:
+        print()
         environ["CHROME_DRIVER"]
-    except KeyError: 
+    except KeyError:
         print("Please set the environment variable CHROME_DRIVER and reopen terminal. Read README.md for more information.")
         sys.exit(1)
 
     # We will first run our crawler with these seed pages only. Crawler will download images and binary data here.
     SEED_PAGES_THAT_REQUIRE_IMAGE_DOWNLOADS = ["http://evem.gov.si", "http://e-uprava.gov.si", "http://podatki.gov.si",
-                      "http://e-prostor.gov.si"]
+                                               "http://e-prostor.gov.si"]
 
     # Crawler will not download images and binary data here.
     # No need to even include image links and binary files in the database.
@@ -304,7 +350,3 @@ if __name__ == "__main__":
               num_workers=1, get_images=True)
     # TODO: On specific key press, stop the script and save current state
     a.crawl()
-
-    
-
-
