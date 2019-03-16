@@ -63,8 +63,8 @@ class Database:
 
 
     # Method for return (R) query (Single result).
-    def return_one(self, query):
-        self.cursor.execute(query)
+    def return_one(self, query, parameters):
+        self.cursor.execute(query, parameters)
         return self.cursor.fetchone()
 
     # Method for return (R) query (All results).
@@ -76,15 +76,24 @@ class Database:
     # Tables NOT to clear: data_type, page_type
     # Tables to truncate: link, image, page_data, page, site
     def truncate_everything(self):
-        # TODO
-        pass
+        query = "TRUNCATE link, image, page_data, page, site"
+        self.alter(query)
+
+    # 
+    def root_site_id(self, root_site):
+        query = "SELECT id FROM site WHERE domain = (%s)"
+        return self.return_one(query, [root_site])
 
     # Helpers for adding pages to the database
     def add_site_info_to_db(self, domain, robots, sitemap):
         insert_parameterized_query = "INSERT INTO site (domain, robots_content, sitemap_content) VALUES (%s, %s, %s)"
         self.param_query(insert_parameterized_query, [domain, robots, sitemap])
 
-
+    # Helper for adding a page into the database
+    def add_page(self, site_id, page_type_code, url, html_content, http_status_code, accessed_time):
+        insert_parameterized_query = """INSERT INTO page (site_id, page_type_code, url, html_content, http_status_code, 
+        accessed_time) VALUES (%s, %s, %s, %s, %s, %s)"""
+        self.param_query(insert_parameterized_query, [site_id, page_type_code, url, html_content, http_status_code, accessed_time])
 
 if __name__ == "__main__":
     db = Database()

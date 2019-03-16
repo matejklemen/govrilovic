@@ -12,6 +12,9 @@ from os.path import splitext, exists, abspath, join, dirname
 from os import environ, makedirs
 import sys
 from urllib.request import urlretrieve
+from datetime import datetime
+import db
+
 
 """
 This file contains the main crawler class along with
@@ -20,9 +23,11 @@ the frontier, adding links to the crawled set, etc.).
 """
 
 # In order: '.pptx', '.pdf', '.doc', '.ppt' and '.docx' files
-DOWNLOADABLE_CONTENT_TYPES = {"application/vnd.openxmlformats-officedocument.presentationml.presentation",
-                              "application/pdf", "application/msword", "application/vnd.ms-powerpoint",
-                              "application/vnd.openxmlformats-officedocument.wordprocessingml.document"}
+DOWNLOADABLE_CONTENT_TYPES = {"application/vnd.openxmlformats-officedocument.presentationml.presentation":"PPTX",
+                              "application/pdf":"PDF",
+                              "application/msword":"DOC",
+                              "application/vnd.ms-powerpoint":"PPT",
+                              "application/vnd.openxmlformats-officedocument.wordprocessingml.document":"DOCX"}
 # how long the crawler waits before giving up on a page (in seconds)
 TIMEOUT_PERIOD = 5.0
 
@@ -148,6 +153,7 @@ class Agent:
         # contains links for the next level of crawling (using BFS strategy)
         self.link_queue = set(seed_pages)
         self.visited = set()
+        self.sites = set() # Unique sites, each has its own (possibly) robots.txt file etc.
         self.num_workers = num_workers if num_workers is not None else mp.cpu_count()
         self.sleep_period = sleep_period
         self.get_images = get_images
@@ -162,6 +168,45 @@ class Agent:
             chrome_options=chrome_options, executable_path=chromedriver)
         # Set timeout for the request
         self.driver.set_page_load_timeout(TIMEOUT_PERIOD)
+
+        # Database
+        self.db = db.Database()
+
+    def insert_page_into_db(self, url, content_type, html_content, status_code, site_url, page_type="HTML"):
+        """ Inserts page into the database
+
+        Parameters
+        ----------
+        url:
+
+        content_type: available content types are PDF, DOC, DOCX, PPT, PPTX
+            
+        html_content: if it is not html, this is None
+
+        status_code: 200, other 200 codes
+
+        site_url: ROOT url of the website. This page is connected to site table with site_url value.
+
+        page_type: available page types are HTML, BINARY, DUPLICATE and FRONTIER
+        """
+
+        root_site_id = self.db.root_site_id(site_url)
+        print("Website ID: ", root_site_id)
+        accessed_time = datetime.now()
+        if content_type == "HTML":
+            print("url: ", url,
+            "\n status_code: ", status_code,
+            "\n page_type: ", page_type) 
+            # TODO: Make an insertion, add page
+            # self.db.add_page(self, site_id, page_type_code, url, html_content, http_status_code, accessed_time)
+            if page_type == "DUPLICATE":
+                # TODO: Make an insertion into "link" table
+                print("dup")
+        else:
+            pass
+            # TODO: Make in insertion into page_data
+            # content_type tells us if it is .doc, .pptx etc.
+        
 
     def crawl(self, max_level=2):
         """ Performs breadth-first search up to a certain level or while there are links to be
@@ -294,17 +339,27 @@ class Agent:
             # if Content-Type is not present in header (is this even possible?), assume it's HTML
             content_type = response.headers.get("Content-Type", "text/html")
 
+            # URL of the site. This is the base url, which possibly has robots.txt etc.
+            site_url = urlparse(url).netloc
+            if site_url not in self.sites:
+                # TODO: real robots and sitemap values
+                # TODO: Parse robots and sitemap!
+                self.db.add_site_info_to_db(site_url, "robots", "sitemap")
+                self.sites.add(site_url)
+                print("New root website found: ", site_url)
+
+
             # https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types
             # possible to have {"Content-Type": "text/html; charset=utf-8"}
             if "text/html" in content_type:
                 soup = BeautifulSoup(page_source, "html.parser")
 
-                # TODO: detect unrendered javascript and process it using headless browser
-                # ...
+                # Insert page into the database
+                self.insert_page_into_db(url, "HTML", soup, response.status_code, site_url, "HTML")
 
                 # find images on the current site
-                if self.get_images:
-                    images = find_images(url, soup)
+                # if self.get_images:
+                    # images = find_images(url, soup)
 
                 # find links on current site
                 links = find_links(url, soup)
@@ -315,8 +370,12 @@ class Agent:
                 # TODO: parse HTML content
                 # ...
 
-            elif content_type in DOWNLOADABLE_CONTENT_TYPES:
+            elif content_type in DOWNLOADABLE_CONTENT_TYPES.keys():
                 # TODO: store the document that is present in response
+                print(content_type)
+                # Insert page into the database. Html_content is NULL
+                self.insert_page_into_db(url, DOWNLOADABLE_CONTENT_TYPES[content_type], None, response.status_code, site_url, "BINARY")
+         
                 pass
 
         # TODO: should return more data than just links
@@ -349,4 +408,9 @@ if __name__ == "__main__":
     a = Agent(seed_pages=SEED_PAGES_SAMPLE,
               num_workers=1, get_images=True)
     # TODO: On specific key press, stop the script and save current state
+
+    # Truncates every table except data_type, page_type --- they have fixed types in them
+    # WARNING: disable this when you want to start from a saved state
+    a.db.truncate_everything()
+
     a.crawl()
