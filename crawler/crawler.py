@@ -131,7 +131,7 @@ def save_file(current_url, file_src, file_extension):
     files_dir = abspath(join(dirname(__file__), '..', 'files', file_extension))
 
     # the path to the folder of the current crawled page
-    current_url_directory = files_dir + '/' + urlparse(current_url).netloc
+    current_url_directory = files_dir + '/' + current_url
 
     # getting the URL element from the last slash onwards and treating it as the filename
     file_filename = file_src.rsplit('/', 1)[-1]
