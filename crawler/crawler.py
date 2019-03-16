@@ -75,7 +75,8 @@ def find_links(current_url, soup_obj):
 
 def save_image(current_url, image_src):
     """
-    Saves an image to the disk under the current crawled page's URL.
+    Saves an image to the disk under the current crawled page's URL. The image's
+    path will look something like '../files/images/example.com/image_name.png'
 
     Parameters
     ----------
