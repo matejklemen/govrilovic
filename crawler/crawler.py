@@ -23,11 +23,11 @@ the frontier, adding links to the crawled set, etc.).
 """
 
 # In order: '.pptx', '.pdf', '.doc', '.ppt' and '.docx' files
-DOWNLOADABLE_CONTENT_TYPES = {"application/vnd.openxmlformats-officedocument.presentationml.presentation":"PPTX",
-                              "application/pdf":"PDF",
-                              "application/msword":"DOC",
-                              "application/vnd.ms-powerpoint":"PPT",
-                              "application/vnd.openxmlformats-officedocument.wordprocessingml.document":"DOCX"}
+DOWNLOADABLE_CONTENT_TYPES = {"application/vnd.openxmlformats-officedocument.presentationml.presentation": "PPTX",
+                              "application/pdf": "PDF",
+                              "application/msword": "DOC",
+                              "application/vnd.ms-powerpoint": "PPT",
+                              "application/vnd.openxmlformats-officedocument.wordprocessingml.document": "DOCX"}
 # how long the crawler waits before giving up on a page (in seconds)
 TIMEOUT_PERIOD = 5.0
 
@@ -103,6 +103,46 @@ def save_image(current_url, image_src):
 
     urlretrieve(image_src, image_destination)
     return image_destination
+
+
+def save_file(current_url, file_src, file_extension):
+    """
+    Saves a file to the disk under the current crawled page's URL. The file's
+    path will look something like '../files/pptx/example.com/some_pres.pptx'
+
+    Parameters
+    ----------
+    current_url: str
+        URL of the page which we are currently crawling so we can
+        locate the correct folder we need to save the file in.
+
+    file_src: str
+        URL of the file from which you want to download it.
+
+    file_extension: str
+        The extension of the file that you have detected from the response's
+        content-type. It will be used to save the file under a correct folder
+        inside the files directory.
+
+        E.g. files/pptx/example.com/pres.pptx or files/pdf/example.com/pricelist.pdf
+    """
+    # cross-platform path to the files/extension directory
+    files_dir = abspath(join(dirname(__file__), '..', 'files', file_extension))
+
+    # the path to the folder of the current crawled page
+    current_url_directory = files_dir + '/' + urlparse(current_url).netloc
+
+    # getting the URL element from the last slash onwards and treating it as the filename
+    file_filename = file_src.rsplit('/', 1)[-1]
+
+    # filename (path) of the downloaded file
+    file_destination = current_url_directory + '/' + file_filename
+
+    if not exists(current_url_directory):
+        makedirs(current_url_directory)
+
+    urlretrieve(file_src, file_destination)
+    return file_destination
 
 
 def find_images(current_url, soup_obj):
@@ -371,11 +411,14 @@ class Agent:
                 # ...
 
             elif content_type in DOWNLOADABLE_CONTENT_TYPES.keys():
-                # TODO: store the document that is present in response
-                print(content_type)
+
+                file_extension = DOWNLOADABLE_CONTENT_TYPES[content_type]
+                save_file(site_url, url, file_extension)
+
                 # Insert page into the database. Html_content is NULL
-                self.insert_page_into_db(url, DOWNLOADABLE_CONTENT_TYPES[content_type], None, response.status_code, site_url, "BINARY")
-         
+                self.insert_page_into_db(
+                    url, file_extension, None, response.status_code, site_url, "BINARY")
+
                 pass
 
         # TODO: should return more data than just links
