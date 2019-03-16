@@ -4,3 +4,4 @@ numpy
 psycopg2
 PyYAML
 selenium
+lxml
