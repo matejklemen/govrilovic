@@ -10,13 +10,14 @@ class Robots(RobotFileParser):
     that reads the robots.txt on creation of the object.
 
     To call custom functions needed from urllib.robotsparser.RobotsFileParser,
-    use the self.parser object.
+    call it in the same way you do with the RobotsFileParser as we are extending
+    the class.
     """
 
     def __init__(self, website_url):
         """
         Initializes the Robots object and parses the robots.txt file if it exists.
-        If the file doesn't exists, it will respond with True on every can_fetch() call.
+        If the file doesn't exist, it will respond with True on every can_fetch() call.
 
         Parameters
         ----------
@@ -109,8 +110,12 @@ class Robots(RobotFileParser):
             self._add_entry(entry)
 
     def crawl_delay(self):
-        # .crawl_delay tells us how many requests per second we can perform
-        # NOTE: can be None if there is no Crawl-Delay in the robots.txt file
+        """
+        Returns
+        ----------
+        crawl_delay: int
+            The delay between two requests to the current domain in seconds.
+        """
 
         return super().crawl_delay('*')
 
