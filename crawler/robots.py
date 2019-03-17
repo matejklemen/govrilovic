@@ -1,6 +1,4 @@
 from urllib.robotparser import RobotFileParser, Entry, RuleLine, RequestRate
-from urllib.request import urlopen
-from urllib.error import HTTPError
 import urllib
 
 
