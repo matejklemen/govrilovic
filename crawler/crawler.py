@@ -14,6 +14,8 @@ import sys
 from urllib.request import urlretrieve
 from datetime import datetime
 import db
+import robots as rb
+import sitemap as sm
 
 
 """
@@ -106,7 +108,7 @@ def save_image(current_url, image_src):
     return image_destination
 
 
-def save_file(current_url, file_src, file_extension):
+def save_file(current_url, file_src, file_extension, db):
     """
     Saves a file to the disk under the current crawled page's URL. The file's
     path will look something like '../files/pptx/example.com/some_pres.pptx'
@@ -124,6 +126,8 @@ def save_file(current_url, file_src, file_extension):
         The extension of the file that you have detected from the response's
         content-type. It will be used to save the file under a correct folder
         inside the files directory.
+    db: 
+        Database connection
 
         E.g. files/pptx/example.com/pres.pptx or files/pdf/example.com/pricelist.pdf
     """
@@ -143,10 +147,13 @@ def save_file(current_url, file_src, file_extension):
         makedirs(current_url_directory)
 
     urlretrieve(file_src, file_destination)
-    return file_destination
+
+    # Save the file into the database
 
 
-def find_images(current_url, soup_obj):
+    return (file_destination, file_filename)
+
+def find_images(current_url, soup_obj, db):
     """ Find links inside <a> tags.
 
     Parameters
@@ -173,9 +180,11 @@ def find_images(current_url, soup_obj):
                 continue
             if get_url_extension(processed_src) in ["png", "jpeg", "jpg"]:
                 # Download the image to the disk
-                image_path = save_image(current_url, processed_src)
+                (image_path, image_name) = save_image(current_url, processed_src)
+                # Save the image information to DB
+                db.add_image(current_url, image_name, "IMG", image_path)
 
-                # TODO: add a record for this saved file to the DB (path is in image_path var)
+
                 # TODO: check why this slows down selenium
 
                 # TODO: check whether we need to return the images links list at all
@@ -183,6 +192,7 @@ def find_images(current_url, soup_obj):
                 # which would accept a list of links to images to save (but that calls for
                 # another iteration over all links)
                 images.append(processed_src)
+                # Probably no need to even return images. They will be saved into db in this function.
 
     return images
 
@@ -198,6 +208,8 @@ class Agent:
         self.num_workers = num_workers if num_workers is not None else mp.cpu_count()
         self.sleep_period = sleep_period
         self.get_images = get_images
+        # Each root URL gets its own robots_file. Check this to see if new url is allowed.
+        self.robots_file = {}
 
         # Selenium webdriver initialization
         chromedriver = environ["CHROME_DRIVER"]
@@ -222,7 +234,7 @@ class Agent:
 
         content_type: available content types are PDF, DOC, DOCX, PPT, PPTX
             
-        html_content: if it is not html, this is None
+        html_content: if it is not html, this is None. If it is a duplicate also None.
 
         status_code: 200, other 200 codes
 
@@ -232,16 +244,13 @@ class Agent:
         """
 
         root_site_id = self.db.root_site_id(site_url)
-        print("Website ID: ", root_site_id)
-        accessed_time = datetime.now()
         if content_type == "HTML":
-            print("url: ", url,
-            "\n status_code: ", status_code,
-            "\n page_type: ", page_type) 
-            # TODO: Make an insertion, add page
-            # self.db.add_page(self, site_id, page_type_code, url, html_content, http_status_code, accessed_time)
+            self.db.add_page(root_site_id, page_type, url, html_content, status_code)
             if page_type == "DUPLICATE":
+                # html_content will be None
+                self.db.add_page(root_site_id, page_type, url, html_content, status_code)
                 # TODO: Make an insertion into "link" table
+                # TODO: Have the information about the site, this one was equal to - link them
                 print("dup")
         else:
             pass
@@ -340,21 +349,28 @@ class Agent:
             decide on what is to be returned (need links, HTML content, images, documents)
         """
         links = []
+        
+        # Parsing URL
+        parsed_url = urlparse(url)
+        # URL of the site. This is the base url, which possibly has robots.txt etc.
+        site_url = parsed_url.netloc
+        # Relative path
+        path_url = parsed_url.path
 
-        # TODO - if url in self.visited, make a link between them.
+        # TODO: LSH compare here
         if url not in self.visited:
+            # Check if you can crawl this page in robots file.
+            if site_url in self.robots_file and not self.robots_file[site_url].can_fetch(path_url):
+                return links
             try:
-                # Will be omitted in next version. Use only HEAD to determine status_code and headers.
                 response = requests.get(url, headers={"User-Agent": Agent.USER_AGENT},
                                         timeout=TIMEOUT_PERIOD)
-                # We can not read head using Selenium, hence use requests.head -- produces weird status codes often - differ from response.status_code
-                head = requests.head(url)
             except Exception as e:
                 print("Requests error - ", e)
                 return links
 
             # Selenium
-            print("Selenium crawling '%s'..." % url)
+            print("Crawling '%s'..." % url)
             try:
                 start = time.time()
                 self.driver.get(url)
@@ -369,25 +385,44 @@ class Agent:
                 print("Unexpected error:", e)
                 return links
 
-            # In the case of a redirect, head returns 302, while response returns 200. In one specific case, head even returned 403, while response was 200.
-            print("Head: ", head.status_code)
-            print("Response ", response.status_code)
+            print("Response code ", response.status_code)
 
             # TODO: there are other status codes that indicate success
-            if not response or response.status_code not in [200, 201, 203]:
+            if not response or response.status_code not in [200, 203, 302]:
                 return links
 
             # if Content-Type is not present in header (is this even possible?), assume it's HTML
             content_type = response.headers.get("Content-Type", "text/html")
 
-            # URL of the site. This is the base url, which possibly has robots.txt etc.
-            site_url = urlparse(url).netloc
             if site_url not in self.sites:
-                # TODO: real robots and sitemap values
-                # TODO: Parse robots and sitemap!
-                self.db.add_site_info_to_db(site_url, "robots", "sitemap")
+                robots = None
+                sitemap = None
+                try:
+                    robots = rb.Robots(site_url)
+                    sitemap =  sm.Sitemap(robots.sitemap_location)
+                    # Add entire sitemap to 'links' array
+                    links.extend(sitemap.urls)
+                except Exception as e:
+                    print("No robots file found.")
+                    # Robots failed. Try sitemap alone.
+                    try:
+                        sitemap = sm.Sitemap(site_url)
+                        # Add entire sitemap to 'links' array
+                        links.extend(sitemap.urls)
+                    except Exception as e:
+                        print("No sitemap nor robots file found.")
+                        # Sitemap and robots failed.
+                        pass
+                    pass
+                # TODO: what to add for robots,sitemap into the db?
+                # Insert this new Site into the DB 
+                self.db.add_site_info_to_db(site_url, robots, sitemap)
+                # Add the new site into the set.
                 self.sites.add(site_url)
-                print("New root website found: ", site_url)
+                print("New root website added: ", site_url)
+
+
+                
 
 
             # https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types
@@ -396,17 +431,20 @@ class Agent:
                 soup = BeautifulSoup(page_source, "html.parser")
 
                 # Insert page into the database
-                self.insert_page_into_db(url, "HTML", soup, response.status_code, site_url, "HTML")
+                self.insert_page_into_db(url, "HTML", str(soup), response.status_code, site_url, "HTML")
 
                 # find images on the current site
                 # if self.get_images:
-                    # images = find_images(url, soup)
+                    # images = find_images(url, soup, self.db)
 
                 # find links on current site
-                links = find_links(url, soup)
+                found_links = find_links(url, soup)
 
                 # only keep links that point to '.gov.si' websites
-                links = [l for l in links if ".gov.si" in l]
+                found_links = [l for l in found_links if ".gov.si" in l]
+
+                # Extend to links. There might be some from sitemap.
+                links.extend(found_links)
 
                 # TODO: parse HTML content
                 # ...
@@ -414,13 +452,25 @@ class Agent:
             elif content_type in DOWNLOADABLE_CONTENT_TYPES.keys():
 
                 file_extension = DOWNLOADABLE_CONTENT_TYPES[content_type]
-                save_file(site_url, url, file_extension)
 
                 # Insert page into the database. Html_content is NULL
                 self.insert_page_into_db(
                     url, file_extension, None, response.status_code, site_url, "BINARY")
+                save_file(site_url, url, file_extension, self.db)
 
-                pass
+        else:
+            # We still want to insert html status code into the db
+            try:
+                response = requests.get(url, headers={"User-Agent": Agent.USER_AGENT},
+                                        timeout=TIMEOUT_PERIOD)
+            except Exception as e:
+                print("Requests error - ", e)
+                return links
+
+            # TODO: Have information about the website this one is equal to. Link between them.
+            self.insert_page_into_db(url, "HTML", None, response.status_code, site_url, "DUPLICATE")
+
+            pass
 
         # TODO: should return more data than just links
         # e.g. a 4-tuple (links, HTML, images, documents) <- is there a nicer way?

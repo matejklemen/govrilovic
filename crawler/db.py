@@ -1,4 +1,5 @@
 import psycopg2
+from datetime import datetime
 
 
 class Database:
@@ -57,10 +58,14 @@ class Database:
         try:
             self.cursor.execute(query, parameters)
             self.connection.commit()
-        except:
+        except Exception as e:
             print("Failed to run parameterized query: ", query)
+            print("Issue ", e)
             self.connection.rollback()
 
+    # Returns the current time.
+    def current_time(self):
+        return datetime.now()
 
     # Method for return (R) query (Single result).
     def return_one(self, query, parameters):
@@ -84,13 +89,31 @@ class Database:
         query = "SELECT id FROM site WHERE domain = (%s)"
         return self.return_one(query, [root_site])
 
+    
+    # Helper function for inserting an image into the database.
+    def add_image(self, page_url, filename, content_type, data):
+        accessed_time = self.current_time()
+        page_id = self.return_one("SELECT id FROM page WHERE url = (%s)", [page_url])
+        insert_parameterized_query = """
+                INSERT INTO image (page_id, filename, content_type, data, accessed_time) 
+                VALUES (%s, %s, %s, %s, %s)
+                """
+        self.param_query(insert_parameterized_query, [page_id, filename, content_type, data, accessed_time])
+
+
+    def add_page_data(self, page_url, data_type_code, data):
+        # Return foreign key ID of this page.
+        page_id = self.return_one("SELECT id FROM page WHERE url = (%s)", [page_url])
+        insert_parameterized_query = """INSERT INTO page (page_id, data_type_code, data) 
+        VALUES (%s, %s, %s)"""
     # Helpers for adding pages to the database
     def add_site_info_to_db(self, domain, robots, sitemap):
         insert_parameterized_query = "INSERT INTO site (domain, robots_content, sitemap_content) VALUES (%s, %s, %s)"
         self.param_query(insert_parameterized_query, [domain, robots, sitemap])
 
     # Helper for adding a page into the database
-    def add_page(self, site_id, page_type_code, url, html_content, http_status_code, accessed_time):
+    def add_page(self, site_id, page_type_code, url, html_content, http_status_code):
+        accessed_time = self.current_time()
         insert_parameterized_query = """INSERT INTO page (site_id, page_type_code, url, html_content, http_status_code, 
         accessed_time) VALUES (%s, %s, %s, %s, %s, %s)"""
         self.param_query(insert_parameterized_query, [site_id, page_type_code, url, html_content, http_status_code, accessed_time])
