@@ -9,6 +9,30 @@ class Links:
 
     @staticmethod
     def prune_to_max_depth(url, max_depth):
+        """
+        Prunes a URL to the max_depth (number of maximum allowed slashes).
+
+        Example:
+
+        >>> Links.prune_to_max_depth(
+                Links.sanitize('http://www.Python.org/ena/dva/tri/stiri/pet/sest?kveri=parameter#l'), 
+                4)
+        'http://www.Python.org/ena/dva/tri/stiri?kveri=parameter#l'
+
+        Parameters:
+        ----------
+
+        url: str
+            The URL we wish to prune.
+
+        max_depth: int
+            Number of maximum allowed slashes in the URL.
+
+        Returns:
+        ----------
+        pruned_url: str
+            The URL with the path cut off after max_depth number of slashes.
+        """
         if url[-1] == '/':
             print(
                 'Warning: pruning an unsanitized url to a maximum depth could cause issues.')
