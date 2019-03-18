@@ -53,7 +53,13 @@ class Links:
         'http://www.Python.org/doc/neki?hack=%2A%20from%20USERS%3B%20DROP%20%2A%20WHERE%20user.id%20%3C%20300000&hack2=yeet%3B#ezgg'
         """
         url = urlsplit(url)
-        return "".join([url.scheme,
-                        "://", url.netloc, url.path,
-                        "?", quote(url.query, safe="=&"),
-                        "#", quote(url.fragment, safe="=&")])
+        retval = "".join([url.scheme,
+                          "://", url.netloc, url.path])
+
+        if len(url.query) > 0:
+            retval += ''.join(["?", quote(url.query, safe="=&")])
+
+        if len(url.fragment) > 0:
+            retval += ''.join(["#", quote(url.fragment, safe="=&")])
+
+        return retval
