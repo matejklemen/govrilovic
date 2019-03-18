@@ -8,10 +8,32 @@ import requests
 class Links:
 
     @staticmethod
+    def prune_to_max_depth(url, max_depth):
+        if url[-1] == '/':
+            print(
+                'Warning: pruning an unsanitized url to a maximum depth could cause issues.')
+
+        url = urlsplit(url)
+        path = url.path.split('/')[1:]
+        pruning_index = min([len(path), max_depth])
+        pruned_path = '/' + '/'.join(path[:pruning_index])
+        retval = "".join([url.scheme,
+                          "://", url.netloc, pruned_path])
+
+        if len(url.query) > 0:
+            retval += ''.join(["?", url.query])
+
+        if len(url.fragment) > 0:
+            retval += ''.join(["#", url.fragment])
+
+        return retval
+
+    @staticmethod
     def sanitize(url):
         """
         Removes unnecessary symbols from the URL and fixes
         any capitalization inconsistencies.
+        Also removes the trailing slash if present.
 
         Example:
 
@@ -22,12 +44,16 @@ class Links:
         HTTP gets fixed as capitalization there doesn't matter
         whereas the actual URL's are case-sensitive.
         """
-        return urlsplit(url).geturl()
+        sanitized = urlsplit(url).geturl()
+        if sanitized[-1] == '/':
+            return sanitized[:-1]
+        else:
+            return sanitized
 
     @staticmethod
     def has_parsable_content(url):
         """
-        Tells whether a URL leads to a webpage. E.g. if the 
+        Tells whether a URL leads to a webpage. E.g. if the
         URL leads to a .pptx file, we don't consider adding
         it to the frontier.
 
