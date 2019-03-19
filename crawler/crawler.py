@@ -357,8 +357,11 @@ class Agent:
         # Relative path
         path_url = parsed_url.path
 
-        # TODO: LSH compare here
+        
         if url not in self.visited:
+            # TODO: LSH compare here
+            # self.insert_page_into_db(url, "HTML", None, response.status_code, site_url, "DUPLICATE")
+
             # Check if you can crawl this page in robots file.
             if site_url in self.robots_file and not self.robots_file[site_url].can_fetch(path_url):
                 return links
@@ -422,9 +425,6 @@ class Agent:
                 print("New root website added: ", site_url)
 
 
-                
-
-
             # https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types
             # possible to have {"Content-Type": "text/html; charset=utf-8"}
             if "text/html" in content_type:
@@ -457,20 +457,6 @@ class Agent:
                 self.insert_page_into_db(
                     url, file_extension, None, response.status_code, site_url, "BINARY")
                 save_file(site_url, url, file_extension, self.db)
-
-        else:
-            # We still want to insert html status code into the db
-            try:
-                response = requests.get(url, headers={"User-Agent": Agent.USER_AGENT},
-                                        timeout=TIMEOUT_PERIOD)
-            except Exception as e:
-                print("Requests error - ", e)
-                return links
-
-            # TODO: Have information about the website this one is equal to. Link between them.
-            self.insert_page_into_db(url, "HTML", None, response.status_code, site_url, "DUPLICATE")
-
-            pass
 
         # TODO: should return more data than just links
         # e.g. a 4-tuple (links, HTML, images, documents) <- is there a nicer way?
