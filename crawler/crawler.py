@@ -16,6 +16,7 @@ from datetime import datetime
 import db
 import robots as rb
 import sitemap as sm
+from links import Links
 
 
 """
@@ -70,6 +71,8 @@ def find_links(current_url, soup_obj):
             elif link[0] == "#":
                 continue
 
+            processed_link = Links.sanitize(processed_link)
+            processed_link = Links.prune_to_max_depth(processed_link, 10)
             links.append(processed_link)
 
     return links
