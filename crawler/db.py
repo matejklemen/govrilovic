@@ -89,7 +89,13 @@ class Database:
         query = "SELECT id FROM site WHERE domain = (%s)"
         return self.return_one(query, [root_site])
 
-    
+    # Helper function for inserting links (duplicate page links to the OG page)
+    def add_link(self, from_page_id, to_page_id):
+        query = """INSERT INTO link (from_page, to_page) 
+                   VALUES (%s, %s)
+                """
+        self.param_query(query, [from_page_id, to_page_id])
+
     # Helper function for inserting an image into the database.
     def add_image(self, page_url, filename, content_type, data):
         accessed_time = self.current_time()
@@ -101,11 +107,14 @@ class Database:
         self.param_query(insert_parameterized_query, [page_id, filename, content_type, data, accessed_time])
 
 
+    # Helper function for inserting page data
     def add_page_data(self, page_url, data_type_code, data):
         # Return foreign key ID of this page.
         page_id = self.return_one("SELECT id FROM page WHERE url = (%s)", [page_url])
         insert_parameterized_query = """INSERT INTO page (page_id, data_type_code, data) 
         VALUES (%s, %s, %s)"""
+        self.param_query(insert_parameterized_query, [page_id, data_type_code, data])
+
     # Helpers for adding pages to the database
     def add_site_info_to_db(self, domain, robots, sitemap):
         insert_parameterized_query = "INSERT INTO site (domain, robots_content, sitemap_content) VALUES (%s, %s, %s)"
