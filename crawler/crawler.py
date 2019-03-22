@@ -17,6 +17,7 @@ import db
 import robots as rb
 import sitemap as sm
 from links import Links
+import lsh
 
 
 """
