@@ -18,6 +18,7 @@ import robots as rb
 import sitemap as sm
 from links import Links
 import lsh
+import re
 
 
 """
@@ -44,7 +45,7 @@ def get_url_extension(url):
     return extension[1:]
 
 
-def find_links(current_url, soup_obj):
+def find_links(current_url, soup_obj, parse_js_redirects=False):
     """ Find links inside <a> tags.
 
     Parameters
@@ -55,16 +56,41 @@ def find_links(current_url, soup_obj):
     soup_obj: bs4.BeautifulSoup
         BeautifulSoup's object, containing the response for `current_url`
 
+    parse_js_redirects: bool
+        Boolean which tells the function whether it should also look for javascript
+        redirects inside onclick="window.location = 'somelink'"-like objects.
+
     Returns
     -------
     list of str:
         List of absolute URLs
     """
+
+    """
+    This regexp will extract links from value assignments of kind window.location(.href/.assign) = "link"
+    E.g. this example will result in "link".
+    """
+    regexp_set_value = "window.location(\.href|\.assign)?\s*=\s*'(.+)'"
+
+    """
+    This regexp will extract links from value of kind self/top.location = "link" (could be .replace)
+    E.g. this example will result in "link".
+    """
+    regexp_self_top = "(self|top)\.location\s*=\s*'(.+)'"
+
+    """
+    This regexp will extract links from functional calls of kind window.location.assign("yeet") (could be .replace)
+    E.g. this example will result in "yeet".
+    """
+    regexp_func_call = "window.location(\.assign|\.replace)\('(.+)'"
+
     a_tags = soup_obj.find_all("a")
+    button_tags = soup_obj.find_all("button")
     links = []
 
     for anchor in a_tags:
         link = anchor.get("href")
+        onclick = anchor.get("onclick")
         if link:
             processed_link = link
             if link[0] in {"/", "?"}:
@@ -75,6 +101,24 @@ def find_links(current_url, soup_obj):
             processed_link = Links.sanitize(processed_link)
             processed_link = Links.prune_to_max_depth(processed_link, 10)
             links.append(processed_link)
+        if onclick and parse_js_redirects:
+            links.extend([Links.prune_to_max_depth(Links.sanitize(second_el), 10)
+                          for _, second_el in re.findall(regexp_set_value, onclick)])
+            links.extend([Links.prune_to_max_depth(Links.sanitize(second_el), 10)
+                          for _, second_el in re.findall(regexp_self_top, onclick)])
+            links.extend([Links.prune_to_max_depth(Links.sanitize(second_el), 10)
+                          for _, second_el in re.findall(regexp_func_call, onclick)])
+
+    if parse_js_redirects:
+        for button in button_tags:
+            onclick = button.get("onclick")
+            if onclick:
+                links.extend([Links.prune_to_max_depth(Links.sanitize(second_el), 10)
+                              for _, second_el in re.findall(regexp_set_value, onclick)])
+                links.extend([Links.prune_to_max_depth(Links.sanitize(second_el), 10)
+                              for _, second_el in re.findall(regexp_self_top, onclick)])
+                links.extend([Links.prune_to_max_depth(Links.sanitize(second_el), 10)
+                              for _, second_el in re.findall(regexp_func_call, onclick)])
 
     return links
 
