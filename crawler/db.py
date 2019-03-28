@@ -117,8 +117,9 @@ class Database:
 
     # Helpers for adding pages to the database
     def add_site_info_to_db(self, domain, robots, sitemap):
-        insert_parameterized_query = "INSERT INTO site (domain, robots_content, sitemap_content) VALUES (%s, %s, %s)"
-        self.param_query(insert_parameterized_query, [domain, robots, sitemap])
+        if self.root_site_id(domain) == None:
+            insert_parameterized_query = "INSERT INTO site (domain, robots_content, sitemap_content) VALUES (%s, %s, %s)"
+            self.param_query(insert_parameterized_query, [domain, robots, sitemap])
 
     # Helper for adding a page into the database
     def add_page(self, site_id, page_type_code, url, html_content, http_status_code):
