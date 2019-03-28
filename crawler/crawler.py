@@ -152,8 +152,24 @@ def save_image(current_url, image_src):
     if not exists(current_url_directory):
         makedirs(current_url_directory)
 
-    urlretrieve(image_src, image_destination)
-    return image_destination
+    abs_image_url = current_url + '/' + image_src
+    try:
+        urlretrieve(image_src, image_destination)
+        print("Got image: ", image_filename)
+    except Exception as e:
+        try:
+            # Try with absolute URL
+            urlretrieve(abs_image_url, image_destination)
+            print("Got image (abs): ", image_filename)
+        except Exception as e2:
+            print("Failed to retrieve image")
+            # print(image_src)
+            # print(abs_image_url)
+            print(e)
+            print(e2)
+            
+
+    return (image_destination, image_filename)
 
 
 def save_file(current_url, file_src, file_extension, db):
@@ -194,10 +210,15 @@ def save_file(current_url, file_src, file_extension, db):
     if not exists(current_url_directory):
         makedirs(current_url_directory)
 
-    urlretrieve(file_src, file_destination)
+    try:
+        urlretrieve(file_src, file_destination)
+        print("Got file: ", file_filename)
+    except Exception as e:
+        print("Failed to retrieve file.")
+        print(e)
+       
 
-    # Save the file into the database
-
+    # TODO: Save the file into the database (link was saved already - foreign key)
 
     return (file_destination, file_filename)
 
@@ -232,9 +253,6 @@ def find_images(current_url, soup_obj, db):
                 # Save the image information to DB
                 db.add_image(current_url, image_name, "IMG", image_path)
 
-
-                # TODO: check why this slows down selenium
-
                 # TODO: check whether we need to return the images links list at all
                 # we could extract the save_image call to another function called save images,
                 # which would accept a list of links to images to save (but that calls for
@@ -248,14 +266,14 @@ def find_images(current_url, soup_obj, db):
 class Agent:
     USER_AGENT = "govrilovic-crawler/v0.1"
 
-    def __init__(self, seed_pages, num_workers=None, sleep_period=5, get_images=False):
+    def __init__(self, seed_pages, num_workers=None, sleep_period=5, get_files=False):
         # contains links for the next level of crawling (using BFS strategy)
         self.link_queue = set(seed_pages)
         self.visited = set()
         self.sites = set() # Unique sites, each has its own (possibly) robots.txt file etc.
         self.num_workers = num_workers if num_workers is not None else mp.cpu_count()
         self.sleep_period = sleep_period
-        self.get_images = get_images
+        self.get_files = get_files
         # Each root URL gets its own robots_file. Check this to see if new url is allowed.
         self.robots_file = {}
 
@@ -449,25 +467,30 @@ class Agent:
                 robots = None
                 sitemap = None
                 try:
-                    robots = rb.Robots(site_url)
+                    print(site_url)
+                    robots = rb.Robots(parsed_url.scheme + '://' + site_url)
+                    print("Found robots")
+                except:
+                    print("No robots file found.")
+                    # Robots failed.
+                try:
                     sitemap =  sm.Sitemap(robots.sitemap_location)
                     # Add entire sitemap to 'links' array
                     links.extend(sitemap.urls)
-                except Exception as e:
-                    print("No robots file found.")
-                    # Robots failed. Try sitemap alone.
+                    print("Found sitemap")
+                except:
+                    # Sitemap from robots failed.
                     try:
-                        sitemap = sm.Sitemap(site_url)
+                        sitemap = sm.Sitemap(parsed_url.scheme + '://' + site_url)
                         # Add entire sitemap to 'links' array
                         links.extend(sitemap.urls)
+                        print("Found sitemap")
                     except Exception as e:
-                        print("No sitemap nor robots file found.")
-                        # Sitemap and robots failed.
-                        pass
-                    pass
-                # TODO: what to add for robots,sitemap into the db?
+                        print("No sitemap found.")
+                        # Sitemap failed.
+   
                 # Insert this new Site into the DB 
-                self.db.add_site_info_to_db(site_url, robots, sitemap)
+                self.db.add_site_info_to_db(site_url, str(robots), str(sitemap))
                 # Add the new site into the set.
                 self.sites.add(site_url)
                 print("New root website added: ", site_url)
@@ -481,29 +504,28 @@ class Agent:
                 # Insert page into the database
                 self.insert_page_into_db(url, "HTML", str(soup), response.status_code, site_url, "HTML")
 
-                # find images on the current site
-                # if self.get_images:
-                    # images = find_images(url, soup, self.db)
+                # find images on the current site. Save to FS and DB
+                if self.get_files:
+                    find_images(url, soup, self.db)
 
                 # find links on current site
                 found_links = find_links(url, soup)
 
-                # only keep links that point to '.gov.si' websites
-                found_links = [l for l in found_links if ".gov.si" in l]
+                # LATER: only keep links that point to '.gov.si' websites
+                # CURRENT: only keep links that point to evem.gov.si and e-prostor.gov.si 
+                found_links = [l for l in found_links if "evem.gov.si" in l or "e-prostor.gov.si" in l]
 
                 # Extend to links. There might be some from sitemap.
                 links.extend(found_links)
 
-                # TODO: parse HTML content
-                # ...
-
-            elif content_type in DOWNLOADABLE_CONTENT_TYPES.keys():
-
+            # Check if content is downloadable AND we are downloading files
+            elif content_type in DOWNLOADABLE_CONTENT_TYPES.keys() and self.get_files:
                 file_extension = DOWNLOADABLE_CONTENT_TYPES[content_type]
 
                 # Insert page into the database. Html_content is NULL
                 self.insert_page_into_db(
                     url, file_extension, None, response.status_code, site_url, "BINARY")
+
                 save_file(site_url, url, file_extension, self.db)
 
         # TODO: should return more data than just links
@@ -522,8 +544,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # We will first run our crawler with these seed pages only. Crawler will download images and binary data here.
-    SEED_PAGES_THAT_REQUIRE_IMAGE_DOWNLOADS = ["http://evem.gov.si", "http://e-uprava.gov.si", "http://podatki.gov.si",
-                                               "http://e-prostor.gov.si"]
+    SEED_PAGES_THAT_REQUIRE_DOWNLOADS = ["http://evem.gov.si", "http://e-prostor.gov.si"]
 
     # Crawler will not download images and binary data here.
     # No need to even include image links and binary files in the database.
@@ -533,8 +554,8 @@ if __name__ == "__main__":
                       "http://www.up.gov.si/", "http://www.ti.gov.si/", "http://www.mf.gov.si/"]
     SEED_PAGES_SAMPLE = SEED_PAGES_ALL[:3]
 
-    a = Agent(seed_pages=SEED_PAGES_SAMPLE,
-              num_workers=1, get_images=True)
+    a = Agent(seed_pages=SEED_PAGES_THAT_REQUIRE_DOWNLOADS,
+              num_workers=1, get_files=True)
     # TODO: On specific key press, stop the script and save current state
 
     # Truncates every table except data_type, page_type --- they have fixed types in them

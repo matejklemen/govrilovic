@@ -83,8 +83,8 @@ class Database:
     def truncate_everything(self):
         query = "TRUNCATE link, image, page_data, page, site"
         self.alter(query)
-
-    # 
+        print("Database Truncated.")
+        
     def root_site_id(self, root_site):
         query = "SELECT id FROM site WHERE domain = (%s)"
         return self.return_one(query, [root_site])

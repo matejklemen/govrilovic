@@ -141,6 +141,9 @@ if __name__ == '__main__':
     print(r.can_fetch('/should_be_ok'))  # is allowed
     print(r.sitemap_location)
 
+    r = Robots('https://podatki.gov.si')
+    print(r.can_fetch('/knjiznica'))
+
     if not r.crawl_delay():
         print('Do as many requests as you want.')
     else:
