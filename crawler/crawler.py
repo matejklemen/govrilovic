@@ -45,16 +45,48 @@ def get_url_extension(url):
     return extension[1:]
 
 
-def find_links(current_url, soup_obj, parse_js_redirects=False):
+def get_base_href(soup_obj, fallback):
+    """ Gets the href from the <base href="some_url.com" /> tag.
+    Returns the fallback if no base element found.
+
+    Parameters
+    ----------
+    soup_obj: bs4.BeautifulSoup
+        BeautifulSoup's object, containing the response for `current_url`
+
+    fallback: str
+        Current site's URL to use if a base href is not found in the soup_obj.
+
+    Returns
+    -------
+    str:
+        Base href or default site's url from which we can download files/images.
+    """
+
+    if not fallback:
+        raise ValueError("Fallback url should be provided in case a base href is not found.")
+
+    href = fallback
+    try:
+        href = soup_obj.base.get('href')
+    except Exception as e:
+        pass
+
+    return href
+
+
+def find_links(base_url, soup_obj, parse_js_redirects=False):
     """ Find links inside <a> tags.
 
     Parameters
     ----------
-    current_url: str
+    base_url: str
         URL of page whose content `soup_obj` contains
 
+        Should be passed from the <base href=".."> element if it exists.
+
     soup_obj: bs4.BeautifulSoup
-        BeautifulSoup's object, containing the response for `current_url`
+        BeautifulSoup's object, containing the response for `base_url`
 
     parse_js_redirects: bool
         Boolean which tells the function whether it should also look for javascript
@@ -94,7 +126,7 @@ def find_links(current_url, soup_obj, parse_js_redirects=False):
         if link:
             processed_link = link
             if link[0] in {"/", "?"}:
-                processed_link = urljoin(current_url, link)
+                processed_link = urljoin(base_url, link)
             elif link[0] == "#":
                 continue
 
@@ -123,16 +155,18 @@ def find_links(current_url, soup_obj, parse_js_redirects=False):
     return links
 
 
-def save_image(current_url, image_src):
+def save_image(base_url, image_src):
     """
     Saves an image to the disk under the current crawled page's URL. The image's
     path will look something like '../files/images/example.com/image_name.png'
 
     Parameters
     ----------
-    current_url: str
+    base_url: str
         URL of the page which we are currently crawling so we can
         locate the correct folder we need to save the image in.
+
+        Should be passed from the <base href=".."> element if it exists.
 
     image_src: str
         URL of image which you want to download.
@@ -141,7 +175,7 @@ def save_image(current_url, image_src):
     images_dir = abspath(join(dirname(__file__), '..', 'files', 'images'))
 
     # the path to the folder of the current crawled page
-    current_url_directory = images_dir + '/' + urlparse(current_url).netloc
+    current_url_directory = images_dir + '/' + urlparse(base_url).netloc
 
     # getting the URL element from the last slash onwards and treating it as the filename
     image_filename = image_src.rsplit('/', 1)[-1]
@@ -152,7 +186,7 @@ def save_image(current_url, image_src):
     if not exists(current_url_directory):
         makedirs(current_url_directory)
 
-    abs_image_url = current_url + '/' + image_src
+    abs_image_url = base_url + '/' + image_src
     try:
         urlretrieve(image_src, image_destination)
         print("Got image: ", image_filename)
@@ -162,26 +196,28 @@ def save_image(current_url, image_src):
             urlretrieve(abs_image_url, image_destination)
             print("Got image (abs): ", image_filename)
         except Exception as e2:
+            print(abs_image_url)
             print("Failed to retrieve image")
             # print(image_src)
             # print(abs_image_url)
             print(e)
             print(e2)
-            
 
     return (image_destination, image_filename)
 
 
-def save_file(current_url, file_src, file_extension, db):
+def save_file(base_url, file_src, file_extension, db):
     """
     Saves a file to the disk under the current crawled page's URL. The file's
     path will look something like '../files/pptx/example.com/some_pres.pptx'
 
     Parameters
     ----------
-    current_url: str
+    base_url: str
         URL of the page which we are currently crawling so we can
         locate the correct folder we need to save the file in.
+
+        Should be passed from the <base href=".."> element if it exists.
 
     file_src: str
         URL of the file from which you want to download it.
@@ -199,7 +235,7 @@ def save_file(current_url, file_src, file_extension, db):
     files_dir = abspath(join(dirname(__file__), '..', 'files', file_extension))
 
     # the path to the folder of the current crawled page
-    current_url_directory = files_dir + '/' + current_url
+    current_url_directory = files_dir + '/' + base_url
 
     # getting the URL element from the last slash onwards and treating it as the filename
     file_filename = file_src.rsplit('/', 1)[-1]
@@ -474,46 +510,52 @@ class Agent:
                     print("No robots file found.")
                     # Robots failed.
                 try:
-                    sitemap =  sm.Sitemap(robots.sitemap_location)
+                    sitemap = sm.Sitemap(robots.sitemap_location)
                     # Add entire sitemap to 'links' array
                     links.extend(sitemap.urls)
                     print("Found sitemap")
                 except:
                     # Sitemap from robots failed.
                     try:
-                        sitemap = sm.Sitemap(parsed_url.scheme + '://' + site_url)
+                        sitemap = sm.Sitemap(
+                            parsed_url.scheme + '://' + site_url)
                         # Add entire sitemap to 'links' array
                         links.extend(sitemap.urls)
                         print("Found sitemap")
                     except Exception as e:
                         print("No sitemap found.")
                         # Sitemap failed.
-   
-                # Insert this new Site into the DB 
-                self.db.add_site_info_to_db(site_url, str(robots), str(sitemap))
+
+                # Insert this new Site into the DB
+                self.db.add_site_info_to_db(
+                    site_url, str(robots), str(sitemap))
                 # Add the new site into the set.
                 self.sites.add(site_url)
                 print("New root website added: ", site_url)
 
-
             # https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types
             # possible to have {"Content-Type": "text/html; charset=utf-8"}
             if "text/html" in content_type:
-                soup = BeautifulSoup(page_source, "html.parser")
+                soup = BeautifulSoup(page_source, "lxml")
+
+                # Check if there is a base href url from which we have to assemble file paths
+                base_url = get_base_href(soup, fallback=url)
 
                 # Insert page into the database
-                self.insert_page_into_db(url, "HTML", str(soup), response.status_code, site_url, "HTML")
+                self.insert_page_into_db(url, "HTML", str(
+                    soup), response.status_code, site_url, "HTML")
 
                 # find images on the current site. Save to FS and DB
                 if self.get_files:
-                    find_images(url, soup, self.db)
+                    find_images(base_url, soup, self.db)
 
                 # find links on current site
                 found_links = find_links(url, soup)
 
                 # LATER: only keep links that point to '.gov.si' websites
-                # CURRENT: only keep links that point to evem.gov.si and e-prostor.gov.si 
-                found_links = [l for l in found_links if "evem.gov.si" in l or "e-prostor.gov.si" in l]
+                # CURRENT: only keep links that point to evem.gov.si and e-prostor.gov.si
+                found_links = [
+                    l for l in found_links if "evem.gov.si" in l or "e-prostor.gov.si" in l]
 
                 # Extend to links. There might be some from sitemap.
                 links.extend(found_links)
@@ -544,7 +586,8 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # We will first run our crawler with these seed pages only. Crawler will download images and binary data here.
-    SEED_PAGES_THAT_REQUIRE_DOWNLOADS = ["http://evem.gov.si", "http://e-prostor.gov.si"]
+    SEED_PAGES_THAT_REQUIRE_DOWNLOADS = [
+        "http://evem.gov.si", "http://e-prostor.gov.si"]
 
     # Crawler will not download images and binary data here.
     # No need to even include image links and binary files in the database.
