@@ -70,19 +70,19 @@ def find_links(current_url, soup_obj, parse_js_redirects=False):
     This regexp will extract links from value assignments of kind window.location(.href/.assign) = "link"
     E.g. this example will result in "link".
     """
-    regexp_set_value = "window.location(\.href|\.assign)?\s*=\s*'(.+)'"
+    regexp_set_value = r"window.location(\.href|\.assign)?\s*=\s*'(.+)'"
 
     """
     This regexp will extract links from value of kind self/top.location = "link" (could be .replace)
     E.g. this example will result in "link".
     """
-    regexp_self_top = "(self|top)\.location\s*=\s*'(.+)'"
+    regexp_self_top = r"(self|top)\.location\s*=\s*'(.+)'"
 
     """
     This regexp will extract links from functional calls of kind window.location.assign("yeet") (could be .replace)
     E.g. this example will result in "yeet".
     """
-    regexp_func_call = "window.location(\.assign|\.replace)\('(.+)'"
+    regexp_func_call = r"window.location(\.assign|\.replace)\('(.+)'"
 
     a_tags = soup_obj.find_all("a")
     button_tags = soup_obj.find_all("button")
