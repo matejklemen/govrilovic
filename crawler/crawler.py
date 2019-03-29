@@ -287,7 +287,7 @@ def find_images(current_url, soup_obj, db):
                 # Download the image to the disk
                 (image_path, image_name) = save_image(current_url, processed_src)
                 # Save the image information to DB
-                db.add_image(current_url, image_name, "IMG", image_path)
+                db.add_image(current_url, image_name, get_url_extension(processed_src), image_path)
 
                 # TODO: check whether we need to return the images links list at all
                 # we could extract the save_image call to another function called save images,
