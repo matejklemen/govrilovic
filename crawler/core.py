@@ -168,6 +168,10 @@ def save_image(base_url, image_src):
 
     image_src: str
         URL of image which you want to download.
+
+    Returns
+    -------
+    TODO
     """
     # cross-platform path to the file/images directory
     images_dir = abspath(join(dirname(__file__), '..', 'files', 'images'))
@@ -201,7 +205,7 @@ def save_image(base_url, image_src):
             print(e)
             print(e2)
 
-    return (image_destination, image_filename)
+    return image_destination, image_filename
 
 
 def save_file(base_url, file_src, file_extension, db):
@@ -228,6 +232,10 @@ def save_file(base_url, file_src, file_extension, db):
         Database connection
 
         E.g. files/pptx/example.com/pres.pptx or files/pdf/example.com/pricelist.pdf
+
+    Returns
+    -------
+    TODO
     """
     # cross-platform path to the files/extension directory
     files_dir = abspath(join(dirname(__file__), '..', 'files', file_extension))
@@ -250,11 +258,12 @@ def save_file(base_url, file_src, file_extension, db):
     except Exception as e:
         print("Failed to retrieve file.")
         print(e)
-       
 
     # TODO: Save the file into the database (link was saved already - foreign key)
+    # ...
 
-    return (file_destination, file_filename)
+    return file_destination, file_filename
+
 
 def find_images(current_url, soup_obj, db):
     """ Find links inside <a> tags.
@@ -304,7 +313,8 @@ class Agent:
         # contains links for the next level of crawling (using BFS strategy)
         self.link_queue = set(seed_pages)
         self.visited = set()
-        self.sites = set() # Unique sites, each has its own (possibly) robots.txt file etc.
+        # Unique sites, each has its own (possibly) robots.txt file etc.
+        self.sites = set()
         self.num_workers = num_workers if num_workers is not None else mp.cpu_count()
         self.sleep_period = sleep_period
         self.get_files = get_files
@@ -326,21 +336,26 @@ class Agent:
         self.db = db.Database()
 
     def insert_page_into_db(self, url, content_type, html_content, status_code, site_url, page_type="HTML"):
-        """ Inserts page into the database
+        """ Inserts page into the database.
 
         Parameters
         ----------
-        url:
+        url: str
 
-        content_type: available content types are PDF, DOC, DOCX, PPT, PPTX
+        content_type: str
+            available content types are PDF, DOC, DOCX, PPT, PPTX
             
-        html_content: if it is not html, this is None. If it is a duplicate also None.
+        html_content: str or None
+            if it is not html, this is None. If it is a duplicate also None.
 
-        status_code: 200, other 200 codes
+        status_code: int
+            200, other 200 codes
 
-        site_url: ROOT url of the website. This page is connected to site table with site_url value.
+        site_url: str
+            ROOT url of the website. This page is connected to site table with site_url value.
 
-        page_type: available page types are HTML, BINARY, DUPLICATE and FRONTIER
+        page_type: str
+            available page types are HTML, BINARY, DUPLICATE and FRONTIER
         """
 
         root_site_id = self.db.root_site_id(site_url)
@@ -356,7 +371,6 @@ class Agent:
             pass
             # TODO: Make in insertion into page_data
             # content_type tells us if it is .doc, .pptx etc.
-        
 
     def crawl(self, max_level=2):
         """ Performs breadth-first search up to a certain level or while there are links to be
@@ -422,8 +436,9 @@ class Agent:
 
         Returns
         -------
-        TODO:
-            decide (see `crawl_page(...)` TODO)
+        set:
+            Obtained unique* links (there might be a link that is a duplicate of link
+            obtained from another worker!)
         """
         produced_links = set()
         for url in urls:
@@ -445,8 +460,8 @@ class Agent:
 
         Returns
         -------
-        TODO
-            decide on what is to be returned (need links, HTML content, images, documents)
+        list
+            Obtained links
         """
         links = []
         
@@ -457,7 +472,6 @@ class Agent:
         # Relative path
         path_url = parsed_url.path
 
-        
         if url not in self.visited:
             # TODO: LSH compare here
             # self.insert_page_into_db(url, "HTML", None, response.status_code, site_url, "DUPLICATE")
@@ -568,22 +582,21 @@ class Agent:
 
                 save_file(site_url, url, file_extension, self.db)
 
-        # TODO: should return more data than just links
-        # e.g. a 4-tuple (links, HTML, images, documents) <- is there a nicer way?
         return links
 
 
 if __name__ == "__main__":
-
     # Check if environment variable is set
     try:
         print()
         environ["CHROME_DRIVER"]
     except KeyError:
-        print("Please set the environment variable CHROME_DRIVER and reopen terminal. Read README.md for more information.")
+        print("Please set the environment variable CHROME_DRIVER and reopen terminal. "
+              "Read README.md for more information.")
         sys.exit(1)
 
-    # We will first run our crawler with these seed pages only. Crawler will download images and binary data here.
+    # We will first run our crawler with these seed pages only.
+    # Crawler will download images and binary data here.
     SEED_PAGES_THAT_REQUIRE_DOWNLOADS = [
         "http://evem.gov.si", "http://e-prostor.gov.si"]
 
