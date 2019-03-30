@@ -128,6 +128,16 @@ class Database:
         accessed_time) VALUES (%s, %s, %s, %s, %s, %s)"""
         self.param_query(insert_parameterized_query, [site_id, page_type_code, url, html_content, http_status_code, accessed_time])
 
+
+    def add_link_between_two_sites(self, page_og_url, page_dup_url):
+        og_page_id = self.return_one("SELECT id FROM page WHERE url = (%s)", [page_og_url])
+        dup_page_id = self.return_one("SELECT id FROM page WHERE url = (%s)", [page_dup_url])
+        insert_parameterized_query = """INSERT INTO link (from_page, to_page) VALUES (%s, %s)"""
+        self.param_query(insert_parameterized_query, [og_page_id, dup_page_id])
+
+        pass
+
+
 if __name__ == "__main__":
     db = Database()
     db.close_connection()
