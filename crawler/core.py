@@ -432,13 +432,7 @@ class Agent:
             curr_res = self.thread_res_queue.get()
 
             for link in curr_res:
-                if link in next_level_links:
-                    # TODO: mark as duplicate in DB
-                    # ...
-                    pass
-                else:
-                    # TODO: mark as legit link in DB
-                    # ...
+                if link not in next_level_links:
                     next_level_links.add(link)
 
         self.visited.update(relevant_links)
