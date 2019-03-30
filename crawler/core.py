@@ -1,22 +1,24 @@
 import requests
-from bs4 import BeautifulSoup
-from urllib.parse import urljoin
-import multiprocessing as mp
-from time import sleep, time
-from selenium import webdriver
+import re
+import threading
 import selenium
-from selenium.common.exceptions import TimeoutException
-from urllib.parse import urlparse
-from os.path import splitext, exists, abspath, join, dirname
-from os import environ, makedirs
 import sys
-from urllib.request import urlretrieve
+
+from queue import Queue
+from time import sleep, time
 from datetime import datetime
+from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.common.exceptions import TimeoutException
+from urllib.request import urlretrieve
+from urllib.parse import urlparse, urljoin
+from os import environ, makedirs
+from os.path import splitext, exists, abspath, join, dirname
+
 from crawler import db, lsh
 from crawler import robots as rb
 from crawler import sitemap as sm
 from crawler.links import Links
-import re
 
 
 """
@@ -315,11 +317,12 @@ class Agent:
         self.visited = set()
         # Unique sites, each has its own (possibly) robots.txt file etc.
         self.sites = set()
-        self.num_workers = num_workers if num_workers is not None else mp.cpu_count()
+        self.num_workers = num_workers if num_workers is not None else 1
         self.sleep_period = sleep_period
         self.get_files = get_files
         # Each root URL gets its own robots_file. Check this to see if new url is allowed.
         self.robots_file = {}
+        self.thread_res_queue = Queue()
 
         # Selenium webdriver initialization
         chromedriver = environ["CHROME_DRIVER"]
@@ -400,25 +403,43 @@ class Agent:
     def crawl_level(self):
         """ Performs a single level of breadth-first search."""
         # get pages for the next level and clear the queue
-        curr_level_links = self.link_queue
+        relevant_links = list(self.link_queue)
+        num_links = len(relevant_links)
         self.link_queue = set()
 
-        # remove duplicate links before dividing among workers so that the tasks
-        # are more evenly split
-        relevant_links = [
-            link for link in curr_level_links if link not in self.visited]
-        num_links = len(relevant_links)
-
+        workers = []
         next_level_links = set()
-        # TODO: concurrency
+        print("Creating {} workers...".format(self.num_workers))
         # divide relevant links among workers (as evenly as possible)
         for id_worker in range(self.num_workers):
             idx_start = int(float(id_worker) * num_links / self.num_workers)
             idx_end = int(float(id_worker + 1) * num_links / self.num_workers)
 
             links_to_crawl = relevant_links[idx_start: idx_end + 1]
-            new_links = self.worker_task(links_to_crawl, id_worker=id_worker)
-            next_level_links.update(new_links)
+            workers.append(threading.Thread(target=self.worker_task,
+                                            args=(links_to_crawl, id_worker)))
+
+        for id_worker in range(self.num_workers):
+            workers[id_worker].start()
+
+        # Wait for all threads to finish so we have all links for current depth obtained
+        for id_worker in range(self.num_workers):
+            workers[id_worker].join()
+
+        # Deduplicate obtained links by workers because multiple workers might have extracted
+        # the same link twice independently
+        while not self.thread_res_queue.empty():
+            curr_res = self.thread_res_queue.get()
+
+            for link in curr_res:
+                if link in next_level_links:
+                    # TODO: mark as duplicate in DB
+                    # ...
+                    pass
+                else:
+                    # TODO: mark as legit link in DB
+                    # ...
+                    next_level_links.add(link)
 
         self.visited.update(relevant_links)
         self.link_queue = next_level_links
@@ -434,20 +455,16 @@ class Agent:
         id_worker: int, optional
             Unique identifier for current worker
 
-        Returns
-        -------
-        set:
-            Obtained unique* links (there might be a link that is a duplicate of link
-            obtained from another worker!)
         """
         produced_links = set()
         for url in urls:
+            print("Worker with ID={} crawling '{}'...".format(id_worker, url))
             new_urls = self.crawl_page(url=url)
             # Insert new data into the database
             produced_links.update(new_urls)
             sleep(self.sleep_period)
 
-        return produced_links
+        self.thread_res_queue.put(produced_links)
 
     def crawl_page(self, url):
         """ Crawl a single web page denoted by `url`. The URL is expected to be preprocessed
