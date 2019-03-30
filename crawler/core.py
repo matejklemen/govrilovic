@@ -2,8 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 import multiprocessing as mp
-from time import sleep
-import time
+from time import sleep, time
 from selenium import webdriver
 import selenium
 from selenium.common.exceptions import TimeoutException
@@ -13,11 +12,10 @@ from os import environ, makedirs
 import sys
 from urllib.request import urlretrieve
 from datetime import datetime
-import db
-import robots as rb
-import sitemap as sm
-from links import Links
-import lsh
+from crawler import db, lsh
+from crawler import robots as rb
+from crawler import sitemap as sm
+from crawler.links import Links
 import re
 
 
@@ -477,10 +475,10 @@ class Agent:
             # Selenium
             print("Crawling '%s'..." % url)
             try:
-                start = time.time()
+                start = time()
                 self.driver.get(url)
                 page_source = self.driver.page_source
-                end = time.time()
+                end = time()
                 print("Request time: ", round(end - start, 2), " seconds.")
             except TimeoutException:
                 print("Timeout for this request reached.")
