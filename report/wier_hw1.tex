@@ -3,7 +3,7 @@
 % basic
 \usepackage[english]{babel}
 \usepackage{graphicx,epstopdf,fancyhdr,amsmath,amsthm,amssymb,url,array,textcomp,svg,listings,hyperref,xcolor,colortbl,float,gensymb,longtable,supertabular,multicol,placeins}
-
+\usepackage{hyperref}
  % `sumniki' in names
 \usepackage[utf8x]{inputenc}
 
@@ -43,10 +43,33 @@ BOII
 \end{abstract}
 
 \section{Introduction}
-[TOLE JE BL ABSTRACT KOKR INTRO IMO]
-In this project we have implemented a web crawler in Python programming language. The requirements were, that it only crawls websites ending in ".gov.si", which are Slovenian government websites. The crawler crawls these websites and downloads images and files from them. Visiting new links is performed using Breadth-First search. Website duplicate detection was performed using LSH algorithm. We used Docker to host the database, in which the crawler wrote information into. 
+
+A web crawler is a program that visits web pages and downloads them for some purpose.
+It begins with some amount of seed URLs, which are put into a frontier.
+The crawler then selects a web page from frontier according to some strategy, visits the web page and extracts the web page's content and outgoing links.
+The outgoing links are put into the frontier and the content is used for some purpose or stored.
+This process is then repeated until a certain stopping criteria is reached (e.g. the frontier being empty).
+The crawling can also be a continuous process (``without end''), but we do not study these in this project. 
+
+In this project we implement a web crawler that crawls Slovenian government websites. 
+We are given a set of 4 government websites and choose additional 5 of them and proclaim them as seed websites, from which we start the crawling.
+While crawling these websites, our crawler only follows links to other Slovenian government websites.
+The crawler crawls these websites, downloads images and files from them and stores them into a database. 
+The crawler visits new links in a breadth-first fashion.
+We also implement a method to detect near-duplicate websites based on their content.
+For this, we use a locality-sensitive hashing algorithm based on min-hashing \cite{Gionis1999}.
+
+The rest of the report is structured as follows.
+In chapter \textbf{TODO} we present \textbf{TODO}.
+In chapter \textbf{TODO} we present \textbf{TODO} \ldots
+
 \section{Crawler}
-Crawler consists of multiple parts. New link scheduler, making request, scraping the new website for files or images, detecting duplicates and writing data into the database.
+In this section we present the architecture of the crawler. 
+The full source code is available online \footnote{\url{https://github.com/matejklemen/govrilovic}}.
+
+The crawler consists of multiple components: link, sitemap and robots parser, database manager (and the database itself), content deduplicator and a core unit which uses the other components and adds on top of them to produce a parallel crawler that uses breadth first search to navigate the websites.
+
+[\textbf{TODO: describe each component briefly (mention its role).}]
 
 PARAMETER THAT OUR CRAWLER TAKES
 
