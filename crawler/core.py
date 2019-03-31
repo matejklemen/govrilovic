@@ -363,17 +363,13 @@ class Agent:
 
         root_site_id = self.db.root_site_id(site_url)
         if content_type == "HTML":
-            self.db.add_page(root_site_id, page_type, url, html_content, status_code)
+            self.db.add_page(root_site_id, page_t
+            ype, url, html_content, status_code)
             if page_type == "DUPLICATE":
-                # html_content will be None
+                # We will probably insert this somewhere else. Two URLS are needed.
                 self.db.add_page(root_site_id, page_type, url, html_content, status_code)
                 # TODO: Make an insertion into "link" table
                 # TODO: Have the information about the site, this one was equal to - link them
-                print("dup")
-        else:
-            pass
-            # TODO: Make in insertion into page_data
-            # content_type tells us if it is .doc, .pptx etc.
 
     def crawl(self, max_level=2):
         """ Performs breadth-first search up to a certain level or while there are links to be
@@ -620,7 +616,7 @@ if __name__ == "__main__":
     SEED_PAGES_SAMPLE = SEED_PAGES_ALL[:3]
 
     a = Agent(seed_pages=SEED_PAGES_THAT_REQUIRE_DOWNLOADS,
-              num_workers=1, get_files=True)
+              num_workers=3, get_files=True)
     # TODO: On specific key press, stop the script and save current state
 
     # Truncates every table except data_type, page_type --- they have fixed types in them
