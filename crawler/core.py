@@ -402,24 +402,25 @@ class Agent:
         relevant_links = list(self.link_queue)
         num_links = len(relevant_links)
         self.link_queue = set()
+        effective_workers = min(self.num_workers, num_links)
 
         workers = []
         next_level_links = set()
-        print("Creating {} workers...".format(self.num_workers))
+        print("Creating {} workers...".format(effective_workers))
         # divide relevant links among workers (as evenly as possible)
-        for id_worker in range(self.num_workers):
-            idx_start = int(float(id_worker) * num_links / self.num_workers)
-            idx_end = int(float(id_worker + 1) * num_links / self.num_workers)
+        for id_worker in range(effective_workers):
+            idx_start = int(float(id_worker) * num_links / effective_workers)
+            idx_end = int(float(id_worker + 1) * num_links / effective_workers)
 
             links_to_crawl = relevant_links[idx_start: idx_end + 1]
             workers.append(threading.Thread(target=self.worker_task,
                                             args=(links_to_crawl, id_worker)))
 
-        for id_worker in range(self.num_workers):
+        for id_worker in range(effective_workers):
             workers[id_worker].start()
 
         # Wait for all threads to finish so we have all links for current depth obtained
-        for id_worker in range(self.num_workers):
+        for id_worker in range(effective_workers):
             workers[id_worker].join()
 
         # Deduplicate obtained links by workers because multiple workers might have extracted
