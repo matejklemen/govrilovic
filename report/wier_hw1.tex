@@ -40,6 +40,28 @@ Matej Klemen, Andraž Povše, Jaka Stavanja
 
 \begin{abstract}
 BOII
+\begin{lstlisting}
+***************************************
+***************************************
+*************/##***********************
+*************%%%%**********************
+*//*(*********%&&%%%%%*****************
+***(%%%%(*/##%&&%%%%&&%%***************
+****#//%%%%&&&&%%&&&&%&&%***********,,,
+***************/%%&&&&%%%%***,,,,,,,,,,
+**,,,,*,,,,,,,,,#%%&&&&&%%%(,,,,,,,,,,,
+******,,,*,,,,,,,/#%&&&&&&&%*,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,*(%&&&&&&&***,,,,,,,,
+,,,,,,,,,,,,,,,,,,,/,/%&&&&&%(,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,(*,%%&/%&%(**,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,**#&%&&%%***,,,,,
+,,,,,,,*/,,,,,,,,,,,,,,,(#&%&%%%/*,,,,,
+,,,,*///(/(/,,,,,,,,,,,,/#(((((((((((**
+***/((/(((((((**,,,,,,,(((((((/(((###**
+**(((((/#((#(((********/(#(((((((####/*
+*((((##########/********(###(((((####//
+//(((((#(#((((#//******/(((#(((((####//
+\end{lstlisting}
 \end{abstract}
 
 \section{Introduction}
@@ -62,6 +84,7 @@ For this, we use a locality-sensitive hashing algorithm based on min-hashing \ci
 The rest of the report is structured as follows.
 In chapter \textbf{TODO} we present \textbf{TODO}.
 In chapter \textbf{TODO} we present \textbf{TODO} \ldots
+In chapter ~\ref{section:database} we present how the database is built.
 
 \section{Crawler}
 In this section we present the architecture of the crawler. 
@@ -69,9 +92,14 @@ The full source code is available online \footnote{\url{https://github.com/matej
 
 The crawler consists of multiple components: link, sitemap and robots parser, database manager (and the database itself), content deduplicator and a core unit which uses the other components and adds on top of them to produce a parallel crawler that uses breadth first search to navigate the websites.
 
+It takes 4 parameters in total. These are seed pages, maximum number of workers, get files and maximum crawl depth. The first two parameters are understandable without any further explanations. The parameter 'get files' is a boolean, which tells the crawler whether it should download images and files. With the maximum crawl depth parameter we can specify, at what depth, do we want our crawler to stop. If this parameter is set to None, it will stop when there are no more links being produced.
+
 [\textbf{TODO: describe each component briefly (mention its role).}]
 
-PARAMETER THAT OUR CRAWLER TAKES
+@MATEJ Very interesting problem we solved is with more workers than pages. 
+
+
+
 
 We used Selenium to make requests, because it also renders the Javascript code on the website. It does, however, not include HTTP status code, which is why we also had to make another request to get that information.
 
@@ -87,13 +115,10 @@ Key element of the crawler is also reading the 'robots.txt' file and sitemap. Ba
 When we read a sitemap, we add all the URLs mentioned in it, into the frontier. 
 
 
-\section{Database}
-The database was build inside a Docker container. We used the same schema, with one minor change, which is adding a column 'lsh\_hash' into the page table. The column stores the value that LSH hash produced for the content of that website. Access to database is made by each worker when he visits a new page. 
+\section{Database}\label{section:database}
+The database was build inside a Docker container. We used the same schema, with one minor change, which is adding a column 'lsh\_hash' into the page table. The column stores the value that LSH hash produced for the content of that website. Access to database is made by each worker when he visits a new page. The database can handle multiple workers making read and write operations by proper locking of the operations.
 
-
-
-
-
+For viewing the results and current status in the database, we also used Adminer application, which also runs as a docker container and is then accessable on localhost.
 
 
 \section{Link}
@@ -108,24 +133,30 @@ We stored images and files into the file system, since it gives a nicer overview
 
 
 \section{LSH deduplication}
-We implemented LSH algorithm based on CITE CITE CITE. For the words, we use (top 1000 slovenian words???)
+We implemented LSH algorithm, which is being used to compare hashed content of different websites. 
 
+\textbf{How it works}
 
+For the set of words, we hash it on, we used top 1000 Slovenian words. Or maybe triples of characters?
 
 
 \section{Results - 2 seed URLs}
+For the first run of the crawler, we used 2 seed URLs, which were "http://evem.gov.si"and "http://e-prostor.gov.si". We set the maximum crawl depth to None, which means it will run untill there are no more links produced. The maximum number of workers was \textbf{NUM OF WORKERS WE USED}.
+
+The crawling process took XXXX minutes in total and retrieved XXX pages,links, images...
 
 For the sites that are given in the instructions’ seed list and also for the whole crawldb together (for both separately) report general statistics of crawldb (number of sites, number of web pages, number of duplicates, number of binary documents by type, number of images, average number of images per web page, …). Visualize links and include images into the report. If the network is too big, take only a portion of it. Use visualization libraries such as D3js, visjs, sigmajs or gephi.
 
 \section{Results - 9 seed URLs}
+The second run consisted of 9 seed urls. For the extra 5 urls of our choice, we have choosen "http://www.mz.gov.si/", "http://www.mnz.gov.si/","http://www.up.gov.si/", "http://www.ti.gov.si/" and "http://www.mf.gov.si/". 
 
 
 
 
 \begin{figure}[h] \centering
-	\includegraphics[width=0.4\textwidth]{karate.png}
-	\caption{{Example of an image.}}
-	\label{fig:karate}
+    \includegraphics[width=0.4\textwidth]{karate.png}
+    \caption{{Example of an image.}}
+    \label{fig:karate}
 \end{figure}
 
 
