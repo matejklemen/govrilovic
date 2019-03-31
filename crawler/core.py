@@ -363,8 +363,7 @@ class Agent:
 
         root_site_id = self.db.root_site_id(site_url)
         if content_type == "HTML":
-            self.db.add_page(root_site_id, page_t
-            ype, url, html_content, status_code)
+            self.db.add_page(root_site_id, page_type, url, html_content, status_code)
             if page_type == "DUPLICATE":
                 # We will probably insert this somewhere else. Two URLS are needed.
                 self.db.add_page(root_site_id, page_type, url, html_content, status_code)
@@ -624,4 +623,4 @@ if __name__ == "__main__":
     # WARNING: disable this when you want to start from a saved state
     a.db.truncate_everything()
 
-    a.crawl()
+    a.crawl(None)

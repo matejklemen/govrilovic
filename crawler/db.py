@@ -69,8 +69,12 @@ class Database:
 
     # Method for return (R) query (Single result).
     def return_one(self, query, parameters):
-        self.cursor.execute(query, parameters)
-        return self.cursor.fetchone()
+        try:
+            self.cursor.execute(query, parameters)
+            return self.cursor.fetchone()
+        except Exception as e:
+            print("Return one failed ", e)
+            return None
 
     # Method for return (R) query (All results).
     def return_all(self, query):
@@ -100,20 +104,22 @@ class Database:
     def add_image(self, page_url, filename, content_type, data):
         accessed_time = self.current_time()
         page_id = self.return_one("SELECT id FROM page WHERE url = (%s)", [page_url])
-        insert_parameterized_query = """
-                INSERT INTO image (page_id, filename, content_type, data, accessed_time) 
-                VALUES (%s, %s, %s, %s, %s)
-                """
-        self.param_query(insert_parameterized_query, [page_id, filename, content_type, data, accessed_time])
+        if page_id != None:
+            insert_parameterized_query = """
+                    INSERT INTO image (page_id, filename, content_type, data, accessed_time) 
+                    VALUES (%s, %s, %s, %s, %s)
+                    """
+            self.param_query(insert_parameterized_query, [page_id, filename, content_type, data, accessed_time])
 
 
     # Helper function for inserting page data
     def add_page_data(self, page_url, data_type_code, data):
         # Return foreign key ID of this page.
         page_id = self.return_one("SELECT id FROM page WHERE url = (%s)", [page_url])
-        insert_parameterized_query = """INSERT INTO page (page_id, data_type_code, data) 
-        VALUES (%s, %s, %s)"""
-        self.param_query(insert_parameterized_query, [page_id, data_type_code, data])
+        if page_id != None:
+            insert_parameterized_query = """INSERT INTO page (page_id, data_type_code, data) 
+            VALUES (%s, %s, %s)"""
+            self.param_query(insert_parameterized_query, [page_id, data_type_code, data])
 
     # Helpers for adding pages to the database
     def add_site_info_to_db(self, domain, robots, sitemap):
@@ -132,10 +138,9 @@ class Database:
     def add_link_between_two_sites(self, page_og_url, page_dup_url):
         og_page_id = self.return_one("SELECT id FROM page WHERE url = (%s)", [page_og_url])
         dup_page_id = self.return_one("SELECT id FROM page WHERE url = (%s)", [page_dup_url])
-        insert_parameterized_query = """INSERT INTO link (from_page, to_page) VALUES (%s, %s)"""
-        self.param_query(insert_parameterized_query, [og_page_id, dup_page_id])
-
-        pass
+        if og_page_id != None and dup_page_id != None:
+            insert_parameterized_query = """INSERT INTO link (from_page, to_page) VALUES (%s, %s)"""
+            self.param_query(insert_parameterized_query, [og_page_id, dup_page_id])
 
 
 if __name__ == "__main__":
