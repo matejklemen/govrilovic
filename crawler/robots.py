@@ -101,9 +101,8 @@ class Robots(RobotFileParser):
                     This is our addition. We could do this in a separate method, but that would mean
                     that we would need to parse the contents again and search for a Sitemap entry.
                     '''
-                    if state != 0:
-                        self.sitemap_location = line[1]
-                        state = 2
+                    self.sitemap_location = line[1]
+
         if state == 2:
             self._add_entry(entry)
 

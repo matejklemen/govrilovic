@@ -26,6 +26,7 @@ class Sitemap:
             Instance of the Sitemap, with the attribute (self.)urls, where all the urls from
             the sitemaps are listed in.
         """
+        self.raw = ""
         self.url = url
         self.parse_recursive_sitemaps = parse_nested_sitemaps
 
@@ -34,8 +35,10 @@ class Sitemap:
         else:
             self.urls = self.parse_sitemap_simple()
 
-    @staticmethod
-    def fetch_sitemap(url):
+    def __str__(self):
+        return self.raw
+
+    def fetch_sitemap(self, url):
         """
         Parameters
         ----------
@@ -57,6 +60,7 @@ class Sitemap:
         response = requests.get(url)
 
         if response.status_code == 200:
+            self.raw = response.text
             return response.text
         else:
             raise requests.HTTPError(

@@ -536,8 +536,9 @@ class Agent:
                 except:
                     # Sitemap from robots failed.
                     try:
+                        print("Robots didn't contain sitemap url. Trying default one ...")
                         sitemap = sm.Sitemap(
-                            parsed_url.scheme + '://' + site_url)
+                            parsed_url.scheme + '://' + site_url + '/sitemap.xml')
                         # Add entire sitemap to 'links' array
                         links.extend(sitemap.urls)
                         print("Found sitemap")
