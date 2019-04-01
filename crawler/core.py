@@ -403,15 +403,12 @@ class Agent:
         """
 
         root_site_id = self.db.root_site_id(site_url)
-        if content_type == "HTML":
+        if page_type == "HTML":
             lsh_hash = "".join(map(str, self.lsh_obj.compute_signature(str(html_content))))
             self.db.add_page(root_site_id, page_type, url, html_content, status_code, lsh_hash)
 
-            if page_type == "DUPLICATE":
-                # We will probably insert this somewhere else. Two URLS are needed.
-                # TODO: Make an insertion into "link" table
-                # TODO: Have the information about the site, this one was equal to - link them
-                pass
+        elif page_type == "BINARY":
+            self.db.add_page(root_site_id, page_type, url, None, status_code, None)
 
     def crawl(self, max_level=2):
         """ Performs breadth-first search up to a certain level or while there are links to be
