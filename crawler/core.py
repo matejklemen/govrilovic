@@ -332,7 +332,7 @@ class Agent:
     USER_AGENT = "govrilovic-crawler/v0.1"
     MAX_CRAWLED_PAGES = 100000
 
-    def __init__(self, seed_pages, num_workers=None, sleep_period=5, get_files=False):
+    def __init__(self, seed_pages, num_workers=None, sleep_period=1, get_files=False):
         # contains links for the next level of crawling (using BFS strategy)
         self.link_queue = set(seed_pages)
         self.visited = set()
@@ -548,7 +548,7 @@ class Agent:
                 return links
 
             if site_url in self.last_crawled:
-                cooldown = 3  # default
+                cooldown = self.sleep_period  # default
                 if site_url in self.robots_file:
                     cooldown = self.robots_file[site_url].crawl_delay()
                 cooldown_so_far = time() - self.last_crawled[site_url]
