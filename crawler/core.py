@@ -34,7 +34,7 @@ DOWNLOADABLE_CONTENT_TYPES = {"application/vnd.openxmlformats-officedocument.pre
                               "application/vnd.ms-powerpoint": "PPT",
                               "application/vnd.openxmlformats-officedocument.wordprocessingml.document": "DOCX"}
 # how long the crawler waits before giving up on a page (in seconds)
-TIMEOUT_PERIOD = 5.0
+TIMEOUT_PERIOD = 10.0
 
 
 def get_url_extension(url):
@@ -371,7 +371,8 @@ class Agent:
                                                     repr_func=triples)
 
         # Database
-        self.db = db.Database()
+        self.pool = db.Pool()
+        self.db = None # gets initialized by thread worker
 
     def insert_page_into_db(self, url, content_type, html_content, status_code, site_url, page_type="HTML"):
         """ Inserts page into the database.
@@ -454,7 +455,7 @@ class Agent:
             idx_start = int(float(id_worker) * num_links / effective_workers)
             idx_end = int(float(id_worker + 1) * num_links / effective_workers)
 
-            links_to_crawl = relevant_links[idx_start: idx_end + 1]
+            links_to_crawl = relevant_links[idx_start: idx_end]
             workers.append(threading.Thread(target=self.worker_task,
                                             args=(links_to_crawl, id_worker)))
 
@@ -491,6 +492,7 @@ class Agent:
             Unique identifier for current worker
 
         """
+        self.db = db.Database(self.pool)
         idx_curr_page = 0
         produced_links = set()
         for url in urls:
@@ -694,10 +696,13 @@ if __name__ == "__main__":
 
     # Truncates every table except data_type, page_type --- they have fixed types in them
     # WARNING: disable this when you want to start from a saved state
-    a.db.truncate_everything()
+    temp_db = db.Database(a.pool)
+    temp_db.truncate_everything()
+    temp_db.pool.pool.putconn(temp_db.connection)
+
     crawl_start = time()
     try:
-        a.crawl(max_level=2)
+        a.crawl(max_level=None)
     except KeyboardInterrupt:
         pass
     crawl_end = time()

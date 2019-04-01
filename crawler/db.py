@@ -1,8 +1,9 @@
 import psycopg2
+from psycopg2 import pool
 from datetime import datetime
 
 
-class Database:
+class Pool:
 
     host = "localhost"
     user = 'postgres'
@@ -13,11 +14,26 @@ class Database:
 
     def __init__(self):
         try:
-            self.connection = psycopg2.connect(user=self.user,
-                                               password=self.password,
-                                               host=self.host,
-                                               port=self.port,
-                                               database=self.db)
+            self.pool = psycopg2.pool.ThreadedConnectionPool(1, 100,
+                                                             user=self.user,
+                                                             password=self.password,
+                                                             host=self.host,
+                                                             port=self.port,
+                                                             database=self.db)
+            print("Connected to database ", self.db, " and created pool.")
+        except (Exception, psycopg2.Error) as error:
+            print("Error while connecting to PostgreSQL", error)
+
+
+class Database:
+
+    db = 'crawldb'
+    schema = 'crawldb'
+
+    def __init__(self, pool):
+        try:
+            self.pool = pool
+            self.connection = self.pool.pool.getconn()
             self.cursor = self.connection.cursor()
             # Set the schema to 'crawldb' so we don't have to specify in each query.
             set_schema = "SET search_path TO " + self.schema
@@ -29,7 +45,7 @@ class Database:
     # Close database connection
     def close_connection(self):
         self.cursor.close()
-        self.connection.close()
+        self.pool.putconn(self.connection)
         print("PostgreSQL connection closed")
 
     # Not safe - perform self query escapes etc.
@@ -52,7 +68,7 @@ class Database:
 
         parameters: list/array
             Values to be placed into statement. For example: [val1, val2, ... , valN]
-            
+
         -------
         """
         try:
@@ -88,7 +104,7 @@ class Database:
         query = "TRUNCATE link, image, page_data, page, site"
         self.alter(query)
         print("Database Truncated.")
-        
+
     def root_site_id(self, root_site):
         query = "SELECT id FROM site WHERE domain = (%s)"
         return self.return_one(query, [root_site])
@@ -103,48 +119,56 @@ class Database:
     # Helper function for inserting an image into the database.
     def add_image(self, page_url, filename, content_type, data):
         accessed_time = self.current_time()
-        page_id = self.return_one("SELECT id FROM page WHERE url = (%s)", [page_url])
+        page_id = self.return_one(
+            "SELECT id FROM page WHERE url = (%s)", [page_url])
         if page_id != None:
             insert_parameterized_query = """
                     INSERT INTO image (page_id, filename, content_type, data, accessed_time) 
                     VALUES (%s, %s, %s, %s, %s)
                     """
-            self.param_query(insert_parameterized_query, [page_id, filename, content_type, data, accessed_time])
-
+            self.param_query(insert_parameterized_query, [
+                             page_id, filename, content_type, data, accessed_time])
 
     # Helper function for inserting page data
+
     def add_page_data(self, page_url, data_type_code, data):
         # Return foreign key ID of this page.
-        page_id = self.return_one("SELECT id FROM page WHERE url = (%s)", [page_url])
+        page_id = self.return_one(
+            "SELECT id FROM page WHERE url = (%s)", [page_url])
         if page_id != None:
             insert_parameterized_query = """INSERT INTO page (page_id, data_type_code, data) 
             VALUES (%s, %s, %s)"""
-            self.param_query(insert_parameterized_query, [page_id, data_type_code, data])
+            self.param_query(insert_parameterized_query, [
+                             page_id, data_type_code, data])
 
     # Helpers for adding pages to the database
     def add_site_info_to_db(self, domain, robots, sitemap):
         if self.root_site_id(domain) == None:
             insert_parameterized_query = "INSERT INTO site (domain, robots_content, sitemap_content) VALUES (%s, %s, %s)"
-            self.param_query(insert_parameterized_query, [domain, robots, sitemap])
+            self.param_query(insert_parameterized_query,
+                             [domain, robots, sitemap])
 
     # Helper for adding a page into the database
     def add_page(self, site_id, page_type_code, url, html_content, http_status_code, lsh_hash):
         accessed_time = self.current_time()
         insert_parameterized_query = """INSERT INTO page (site_id, page_type_code, url, html_content, http_status_code, 
         accessed_time, lsh_hash) VALUES (%s, %s, %s, %s, %s, %s, %s)"""
-        self.param_query(insert_parameterized_query, [site_id, page_type_code, url, html_content, http_status_code, accessed_time, lsh_hash])
-
+        self.param_query(insert_parameterized_query, [
+                         site_id, page_type_code, url, html_content, http_status_code, accessed_time, lsh_hash])
 
     def add_link_between_two_sites(self, page_og_url, page_dup_url):
-        og_page_id = self.return_one("SELECT id FROM page WHERE url = (%s)", [page_og_url])
-        dup_page_id = self.return_one("SELECT id FROM page WHERE url = (%s)", [page_dup_url])
+        og_page_id = self.return_one(
+            "SELECT id FROM page WHERE url = (%s)", [page_og_url])
+        dup_page_id = self.return_one(
+            "SELECT id FROM page WHERE url = (%s)", [page_dup_url])
         if og_page_id != None and dup_page_id != None:
             insert_parameterized_query = """INSERT INTO link (from_page, to_page) VALUES (%s, %s)"""
-            self.param_query(insert_parameterized_query, [og_page_id, dup_page_id])
-
+            self.param_query(insert_parameterized_query,
+                             [og_page_id, dup_page_id])
 
     def compare_lsh(self, new_lsh):
         pass
+
 
 if __name__ == "__main__":
     db = Database()
