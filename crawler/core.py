@@ -566,31 +566,33 @@ class Agent:
                 return links
 
 
+            # if Content-Type is not present in header (is this even possible?), assume it's HTML
+            content_type = response.headers.get("Content-Type")
+
             # Selenium
             print("[crawl_page] Passed duplicate checks, crawling '%s'..." % url)
-            try:
-                start = time()
-                self.driver.get(url)
-                page_source = self.driver.page_source
-                self.last_crawled[site_url] = start
-                end = time()
-                print("[crawl_page] Request time: ", round(end - start, 2), " seconds...")
-            except TimeoutException:
-                print("[crawl_page] Timeout for request to '{}' reached...".format(url))
-                return links
-            except Exception as e:
-                # Exception for everything else: bad handshakes, various errors
-                print("[crawl_page] Unexpected error for '{}'...{}".format(url, e))
-                return links
+            if "text/html" in content_type:
+                try:
+                    start = time()
+                    self.driver.get(url)
+                    page_source = self.driver.page_source
+                    self.last_crawled[site_url] = start
+                    end = time()
+                    print("[crawl_page] Request time: ", round(end - start, 2), " seconds...")
+                except TimeoutException:
+                    print("[crawl_page] Timeout for request to '{}' reached...".format(url))
+                    return links
+                except Exception as e:
+                    # Exception for everything else: bad handshakes, various errors
+                    print("[crawl_page] Unexpected error for '{}'...{}".format(url, e))
+                    return links
 
-            print("[crawl_page] Response code for request to '{}': {}".format(
-                url, response.status_code))
+                print("[crawl_page] Response code for request to '{}': {}".format(
+                    url, response.status_code))
 
-            if not response or response.status_code not in [200, 203, 302]:
-                return links
+                if not response or response.status_code not in [200, 203, 302]:
+                    return links
 
-            # if Content-Type is not present in header (is this even possible?), assume it's HTML
-            content_type = response.headers.get("Content-Type", "text/html")
 
             if site_url not in self.sites:
                 robots = None
