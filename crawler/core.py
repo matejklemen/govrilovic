@@ -374,6 +374,15 @@ class Agent:
         self.pool = db.Pool()
         self.db = None # gets initialized by thread worker
 
+
+    
+    def simillar_lsh_hash(self, lsh_hash, content, site_url, status_code):
+        '''
+        Find simillar lsh_hash websites and do all the actions if site is a duplicate.
+        '''
+        return self.db.same_lsh_sites(lsh_hash, content, site_url, status_code)
+
+
     def insert_page_into_db(self, url, content_type, html_content, status_code, site_url, page_type="HTML"):
         """ Inserts page into the database.
 
@@ -564,18 +573,6 @@ class Agent:
                 return links
 
 
-            # TODO: LSH compare here
-            '''
-            check if for lsh match
-                if any matches in lsh, check for exact match of text???
-                    if matches, then ENTRY INTO LINKS
-                        duplicate_page = True
-                        self.insert_page_into_db(url, "HTML", None, response.status_code, site_url, "DUPLICATE")
-
-            NO NEED FOR ANY SELENIUM CRAWLING -> html_content is set to None
-            return links
-            '''
-
             # Selenium
             print("[crawl_page] Passed duplicate checks, crawling '%s'..." % url)
             try:
@@ -646,6 +643,15 @@ class Agent:
 
                 # Check if there is a base href url from which we have to assemble file paths
                 base_url = get_base_href(soup, fallback=url)
+                
+
+                # LSH comparison and duplicate sites detection.
+                lsh_hash = "".join(map(str, self.lsh_obj.compute_signature(str(soup))))
+                if self.simillar_lsh_hash(lsh_hash, str(soup), site_url, response.status_code):
+                    duplicate_page = True
+                    return links
+        
+
 
                 # Insert page into the database
                 if not duplicate_page:

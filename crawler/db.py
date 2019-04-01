@@ -1,7 +1,7 @@
 import psycopg2
 from psycopg2 import pool
 from datetime import datetime
-
+import difflib
 
 class Pool:
 
@@ -93,9 +93,13 @@ class Database:
             return None
 
     # Method for return (R) query (All results).
-    def return_all(self, query):
-        self.cursor.execute(query)
-        return self.cursor.fetchall()
+    def return_all(self, query, parameters):
+        try:
+            self.cursor.execute(query, parameters)
+            return self.cursor.fetchone()
+        except Exception as e:
+            print("Return all failed ", e)
+            return None
 
     # Clear the information in database.
     # Tables NOT to clear: data_type, page_type
@@ -170,6 +174,35 @@ class Database:
         pass
 
 
+    def same_lsh_sites(self, lsh, content1, url,status_code):
+        '''
+        Finds all the sites with same lsh_hash and compares their html_content to its own.
+        It uses SequenceMatcher to calculate simillarity.
+        Sites are equal if ratio is more or equal to 0.9.
+
+        Also adds the page into the database and creates entry into Links table.
+        '''
+        same_lsh_website_ids = self.return_all("SELECT id FROM page WHERE lsh_hash = (%s)", [lsh])
+        if same_lsh_website_ids != None:
+            # Go through all returned sites
+            for id in same_lsh_website_ids:
+                html_content2 = self.return_all("SELECT html_content, url FROM page WHERE id= (%s)", [id])
+                if html_content2 != None:
+                    simillarity=difflib.SequenceMatcher(a=content1.lower(), b=html_content2[0].lower())
+                    if simillarity.ratio() >= 0.9:
+                        print("Duplicate page found.")
+                        root_site_id = self.root_site_id(url)
+                        self.add_page(root_site_id, "DUPLICATE", url, None, status_code, lsh)
+                        # Insert into links
+                        self.add_link_between_two_sites(html_content2[1], url)
+                        print(html_content2[1])
+                        return True
+                    
+                
+
+        return False
+
 if __name__ == "__main__":
-    db = Database()
-    db.close_connection()
+    # db = Database()
+    # db.close_connection()
+    pass
