@@ -501,10 +501,6 @@ class Agent:
         path_url = parsed_url.path
 
         if url not in self.visited:
-            # TODO: LSH compare here
-
-            # self.insert_page_into_db(url, "HTML", None, response.status_code, site_url, "DUPLICATE")
-
             # Check if you can crawl this page in robots file.
             if site_url in self.robots_file and not self.robots_file[site_url].can_fetch(path_url):
                 return links
@@ -523,6 +519,20 @@ class Agent:
             except Exception as e:
                 print("Requests error - ", e)
                 return links
+
+
+            # TODO: LSH compare here
+            '''
+            check if for lsh match
+                if any matches in lsh, check for exact match of text???
+                    if matches, then ENTRY INTO LINKS
+                        duplicate_page = True
+                        self.insert_page_into_db(url, "HTML", None, response.status_code, site_url, "DUPLICATE")
+
+            NO NEED FOR ANY SELENIUM CRAWLING -> html_content is set to None
+            return links
+            '''
+
 
             # Selenium
             print("Crawling '%s'..." % url)
