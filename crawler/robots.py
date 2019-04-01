@@ -113,7 +113,8 @@ class Robots(RobotFileParser):
         crawl_delay: int
             The delay between two requests to the current domain in seconds.
         """
-
+        if super().crawl_delay('*') is None:
+            return 3
         return super().crawl_delay('*')
 
     def can_fetch(self, page):

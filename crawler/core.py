@@ -322,6 +322,7 @@ class Agent:
         self.get_files = get_files
         # Each root URL gets its own robots_file. Check this to see if new url is allowed.
         self.robots_file = {}
+        self.last_crawled = {}
         self.thread_res_queue = Queue()
 
         # Selenium webdriver initialization
@@ -486,6 +487,15 @@ class Agent:
             # Check if you can crawl this page in robots file.
             if site_url in self.robots_file and not self.robots_file[site_url].can_fetch(path_url):
                 return links
+
+            if site_url in self.last_crawled:
+                cooldown = 3  # default
+                if site_url in self.robots_file:
+                    cooldown = self.robots_file[site_url].crawl_delay()
+                cooldown_so_far = time() - self.last_crawled[site_url]
+                if cooldown_so_far < cooldown:
+                    sleep(cooldown-cooldown_so_far)
+                    return links
             try:
                 response = requests.get(url, headers={"User-Agent": Agent.USER_AGENT},
                                         timeout=TIMEOUT_PERIOD)
@@ -499,6 +509,7 @@ class Agent:
                 start = time()
                 self.driver.get(url)
                 page_source = self.driver.page_source
+                self.last_crawled[site_url] = start
                 end = time()
                 print("Request time: ", round(end - start, 2), " seconds.")
             except TimeoutException:
@@ -617,7 +628,7 @@ if __name__ == "__main__":
     SEED_PAGES_SAMPLE = SEED_PAGES_ALL[:3]
 
     a = Agent(seed_pages=SEED_PAGES_THAT_REQUIRE_DOWNLOADS,
-              num_workers=3, get_files=True)
+              num_workers=2, get_files=True)
     # TODO: On specific key press, stop the script and save current state
 
     # Truncates every table except data_type, page_type --- they have fixed types in them
