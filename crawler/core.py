@@ -213,7 +213,7 @@ def save_image(base_url, image_src):
     return image_destination, image_filename
 
 
-def save_file(base_url, file_src, file_extension, db):
+def save_file(base_url, file_src, file_extension, db, url):
     """
     Saves a file to the disk under the current crawled page's URL. The file's
     path will look something like '../files/pptx/example.com/some_pres.pptx'
@@ -264,13 +264,13 @@ def save_file(base_url, file_src, file_extension, db):
         print("Failed to retrieve file.")
         print(e)
 
-    # TODO: Save the file into the database (link was saved already - foreign key)
-    # ...
+    # Save the file information into the db
+    db.insert_file_into_db(url, file_extension, file_destination)
 
     return file_destination, file_filename
 
 
-def find_images(current_url, soup_obj, db):
+def find_images(current_url, soup_obj, db, url):
     """ Find links inside <a> tags.
 
     Parameters
@@ -299,12 +299,8 @@ def find_images(current_url, soup_obj, db):
                 # Download the image to the disk
                 (image_path, image_name) = save_image(current_url, processed_src)
                 # Save the image information to DB
-                db.add_image(current_url, image_name, get_url_extension(processed_src), image_path)
+                db.add_image(url, image_name, get_url_extension(processed_src), image_path)
 
-                # TODO: check whether we need to return the images links list at all
-                # we could extract the save_image call to another function called save images,
-                # which would accept a list of links to images to save (but that calls for
-                # another iteration over all links)
                 images.append(processed_src)
                 # Probably no need to even return images. They will be saved into db in this function.
 
@@ -660,7 +656,7 @@ class Agent:
 
                 # find images on the current site. Save to FS and DB
                 if self.get_files:
-                    find_images(base_url, soup, self.db)
+                    find_images(base_url, soup, self.db, url)
 
                 # find links on current site
                 found_links = find_links(url, soup)
@@ -680,8 +676,8 @@ class Agent:
                 # Insert page into the database. Html_content is NULL
                 self.insert_page_into_db(
                     url, file_extension, None, response.status_code, site_url, "BINARY")
-
-                save_file(site_url, url, file_extension, self.db)
+                if self.get_files:
+                    save_file(site_url, url, file_extension, self.db, url)
 
         return links
 
@@ -710,7 +706,7 @@ if __name__ == "__main__":
     SEED_PAGES_SAMPLE = SEED_PAGES_ALL[:3]
 
     a = Agent(seed_pages=SEED_PAGES_THAT_REQUIRE_DOWNLOADS,
-              num_workers=10, get_files=True)
+              num_workers=20, get_files=True)
     # TODO: On specific key press, stop the script and save current state
 
     # Truncates every table except data_type, page_type --- they have fixed types in them

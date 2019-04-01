@@ -170,8 +170,15 @@ class Database:
             self.param_query(insert_parameterized_query,
                              [og_page_id, dup_page_id])
 
-    def compare_lsh(self, new_lsh):
-        pass
+    def insert_file_into_db(self, url, data_type_code, data):
+        insert_parameterized_query = """INSERT INTO page_data (page_id, data_type_code, data) VALUES (%s, %s, %s)"""
+        page_id = self.return_one(
+            "SELECT id FROM page WHERE url = (%s)", [url])
+        if page_id != None:
+            self.param_query(insert_parameterized_query, [
+                            page_id, data_type_code, data])
+        else:
+            print("Error inserting file into db")
 
 
     def same_lsh_sites(self, lsh, content1, url,status_code):
@@ -197,8 +204,6 @@ class Database:
                         self.add_link_between_two_sites(html_content2[1], url)
                         print(html_content2[1])
                         return True
-                    
-                
 
         return False
 
