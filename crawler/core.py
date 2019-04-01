@@ -120,6 +120,9 @@ def find_links(base_url, soup_obj, parse_js_redirects=False):
     button_tags = soup_obj.find_all("button")
     links = []
 
+    def normalize_url(url): return Links.remove_www(
+        Links.prune_to_max_depth(Links.sanitize(url), 10))
+
     for anchor in a_tags:
         link = anchor.get("href")
         onclick = anchor.get("onclick")
@@ -130,26 +133,24 @@ def find_links(base_url, soup_obj, parse_js_redirects=False):
             elif link[0] == "#":
                 continue
 
-            processed_link = Links.sanitize(processed_link)
-            processed_link = Links.prune_to_max_depth(processed_link, 10)
-            links.append(processed_link)
+            links.append(normalize_url(processed_link))
         if onclick and parse_js_redirects:
-            links.extend([Links.prune_to_max_depth(Links.sanitize(second_el), 10)
+            links.extend([normalize_url(second_el)
                           for _, second_el in re.findall(regexp_set_value, onclick)])
-            links.extend([Links.prune_to_max_depth(Links.sanitize(second_el), 10)
+            links.extend([normalize_url(second_el)
                           for _, second_el in re.findall(regexp_self_top, onclick)])
-            links.extend([Links.prune_to_max_depth(Links.sanitize(second_el), 10)
+            links.extend([normalize_url(second_el)
                           for _, second_el in re.findall(regexp_func_call, onclick)])
 
     if parse_js_redirects:
         for button in button_tags:
             onclick = button.get("onclick")
             if onclick:
-                links.extend([Links.prune_to_max_depth(Links.sanitize(second_el), 10)
+                links.extend([normalize_url(second_el)
                               for _, second_el in re.findall(regexp_set_value, onclick)])
-                links.extend([Links.prune_to_max_depth(Links.sanitize(second_el), 10)
+                links.extend([normalize_url(second_el)
                               for _, second_el in re.findall(regexp_self_top, onclick)])
-                links.extend([Links.prune_to_max_depth(Links.sanitize(second_el), 10)
+                links.extend([normalize_url(second_el)
                               for _, second_el in re.findall(regexp_func_call, onclick)])
 
     return links

@@ -113,3 +113,9 @@ class Links:
             retval += ''.join(["#", quote(url.fragment, safe="=&")])
 
         return retval
+
+    @staticmethod
+    def remove_www(url):
+        url = url.replace("http://www.", "http://")
+        url = url.replace("https://www.", "https://")
+        return url
