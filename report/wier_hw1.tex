@@ -127,6 +127,11 @@ We did not use the database as a frontier storage ----- We stored our frontier i
 
 \section{Robots and Sitemaps}
 Key element of the crawler is also reading the 'robots.txt' file and sitemap. Based on the robots file, we know whether we can visit a certain link or whether it is not allowed for a crawler to visit that link.
+We identify our agent as '*' as it is not well known.
+What the possibly existent robots file tells us is also the request delay which specifies how much time we have to wait between crawling a page from the same url.
+For that reason, we check if either the request delay specified in the 'robots.txt' file or the default delay of 3 seconds has passed to not overload the website we are crawling.
+Another thing we can read from the same file is the location of the sitemap.
+What we do is we check if there is a sitemap property in the 'robots.txt' file and if there is one, we save its contents to our sitemaps dictionary and the database, else we try and do the same by going to the sites URL and appending it the default sitemap location ('/sitemap.xml').
 When we read a sitemap, we add all the URLs mentioned in it, into the frontier. 
 
 
