@@ -14,6 +14,7 @@ from urllib.request import urlretrieve
 from urllib.parse import urlparse, urljoin
 from os import environ, makedirs
 from os.path import splitext, exists, abspath, join, dirname
+import hashlib
 
 from crawler import db, lsh
 from crawler import robots as rb
@@ -360,16 +361,13 @@ class Agent:
         self.driver.set_page_load_timeout(TIMEOUT_PERIOD)
 
         # LSH object
-        vocab = read_vocab_file("./data/triples_etc.txt")
+        vocab = read_vocab_file("./data/test2.txt")
         self.lsh_obj = lsh.LocalitySensitiveHashing(vocab,
-                                                    num_hash=4,
+                                                    num_hash=1,
                                                     hash_funcs=[
-                                                        lambda idx: (idx + 1) % 5,
-                                                        lambda idx: (3 * idx + 1) % 5,
-                                                        lambda idx: hash(idx),
-                                                        lambda idx: hash(3*idx)
+                                                        lambda idx: hash(str(idx))
                                                     ],
-                                                    num_bands=4,
+                                                    num_bands=1,
                                                     repr_func=triples)
 
         # Database
@@ -706,7 +704,7 @@ if __name__ == "__main__":
     SEED_PAGES_SAMPLE = SEED_PAGES_ALL[:3]
 
     a = Agent(seed_pages=SEED_PAGES_THAT_REQUIRE_DOWNLOADS,
-              num_workers=4, get_files=True)
+              num_workers=10, get_files=True)
     # TODO: On specific key press, stop the script and save current state
 
     # Truncates every table except data_type, page_type --- they have fixed types in them
