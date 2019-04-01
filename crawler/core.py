@@ -307,6 +307,7 @@ def find_images(current_url, soup_obj, db):
 
     return images
 
+
 def read_vocab_file(name):
     with open(name) as f:
         content = f.readlines()
@@ -314,25 +315,19 @@ def read_vocab_file(name):
     content = [x.strip() for x in content]
     return content
 
+
 def triples(big_string):
-    '''
+    """
     input: Big string, for example html_content
     return: list of triples from that string
-    '''
-    result = []
-    for idx in range(len(big_string)):
-        for i in range(idx, idx+3):
-            if len(big_string) >= i+3:
-                new_thing = big_string[i] + big_string[i+1] + big_string[i+2]
-                result.append(new_thing)
-            else:
-                result.append(new_thing)
-
-    return result
+    """
+    for i in range(len(big_string) - 3 + 1):
+        yield big_string[i: i + 3]
 
 
 class Agent:
     USER_AGENT = "govrilovic-crawler/v0.1"
+    MAX_CRAWLED_PAGES = 100000
 
     def __init__(self, seed_pages, num_workers=None, sleep_period=5, get_files=False):
         # contains links for the next level of crawling (using BFS strategy)
@@ -348,6 +343,9 @@ class Agent:
         self.last_crawled = {}
         self.thread_res_queue = Queue()
 
+        # number of visited unique links
+        self.visited_uniq_links = 0
+
         # Selenium webdriver initialization
         chromedriver = environ["CHROME_DRIVER"]
         chrome_options = webdriver.ChromeOptions()
@@ -362,15 +360,15 @@ class Agent:
         # LSH object
         vocab = read_vocab_file("./data/triples_etc.txt")
         self.lsh_obj = lsh.LocalitySensitiveHashing(vocab,
-                                       num_hash=4,
-                                       hash_funcs=[
-                                           lambda idx: (idx + 1) % 5,
-                                           lambda idx: (3 * idx + 1) % 5,
-                                           lambda idx: hash(idx),
-                                           lambda idx: hash(3*idx)
-                                       ],
-                                       num_bands=4,
-                                       repr_func = triples)
+                                                    num_hash=4,
+                                                    hash_funcs=[
+                                                        lambda idx: (idx + 1) % 5,
+                                                        lambda idx: (3 * idx + 1) % 5,
+                                                        lambda idx: hash(idx),
+                                                        lambda idx: hash(3*idx)
+                                                    ],
+                                                    num_bands=4,
+                                                    repr_func=triples)
 
         # Database
         self.db = db.Database()
@@ -438,13 +436,19 @@ class Agent:
         """ Performs a single level of breadth-first search."""
         # get pages for the next level and clear the queue
         relevant_links = list(self.link_queue)
+
+        # if current level contains an amount of links that would bring us over maximum,
+        # only take a part of the links to be crawled in the next level
+        if self.visited_uniq_links + len(relevant_links) > Agent.MAX_CRAWLED_PAGES:
+            relevant_links = relevant_links[: (Agent.MAX_CRAWLED_PAGES - self.visited_uniq_links)]
+
         num_links = len(relevant_links)
         self.link_queue = set()
         effective_workers = min(self.num_workers, num_links)
 
         workers = []
         next_level_links = set()
-        print("Creating {} workers...".format(effective_workers))
+        print("[crawl_level] Creating {} workers...".format(effective_workers))
         # divide relevant links among workers (as evenly as possible)
         for id_worker in range(effective_workers):
             idx_start = int(float(id_worker) * num_links / effective_workers)
@@ -470,6 +474,8 @@ class Agent:
                 if link not in next_level_links:
                     next_level_links.add(link)
 
+        self.visited_uniq_links += num_links
+
         self.visited.update(relevant_links)
         self.link_queue = next_level_links
 
@@ -487,7 +493,7 @@ class Agent:
         """
         produced_links = set()
         for url in urls:
-            print("Worker with ID={} crawling '{}'...".format(id_worker, url))
+            print("[worker_task] Worker with ID={} crawling '{}'...".format(id_worker, url))
             new_urls = self.crawl_page(url=url)
             # Insert new data into the database
             produced_links.update(new_urls)
@@ -530,12 +536,13 @@ class Agent:
                 cooldown_so_far = time() - self.last_crawled[site_url]
                 if cooldown_so_far < cooldown:
                     sleep(cooldown-cooldown_so_far)
-                    return links
+                    print("[crawl_page] Waited %f second before crawling website..." %
+                          (cooldown - cooldown_so_far))
             try:
                 response = requests.get(url, headers={"User-Agent": Agent.USER_AGENT},
                                         timeout=TIMEOUT_PERIOD)
             except Exception as e:
-                print("Requests error - ", e)
+                print("[crawl_page] Requests error - ", e)
                 return links
 
 
@@ -551,25 +558,25 @@ class Agent:
             return links
             '''
 
-
             # Selenium
-            print("Crawling '%s'..." % url)
+            print("[crawl_page] Passed duplicate checks, crawling '%s'..." % url)
             try:
                 start = time()
                 self.driver.get(url)
                 page_source = self.driver.page_source
                 self.last_crawled[site_url] = start
                 end = time()
-                print("Request time: ", round(end - start, 2), " seconds.")
+                print("[crawl_page] Request time: ", round(end - start, 2), " seconds...")
             except TimeoutException:
-                print("Timeout for this request reached.")
+                print("[crawl_page] Timeout for request to '{}' reached...".format(url))
                 return links
             except Exception as e:
                 # Exception for everything else: bad handshakes, various errors
-                print("Unexpected error:", e)
+                print("[crawl_page] Unexpected error for '{}'...{}".format(url, e))
                 return links
 
-            print("Response code ", response.status_code)
+            print("[crawl_page] Response code for request to '{}': {}".format(
+                url, response.status_code))
 
             if not response or response.status_code not in [200, 203, 302]:
                 return links
@@ -583,26 +590,28 @@ class Agent:
                 try:
                     print(site_url)
                     robots = rb.Robots(parsed_url.scheme + '://' + site_url)
-                    print("Found robots")
+                    print("[crawl_page] Found robots for '{}'...".format(url))
                 except:
-                    print("No robots file found.")
+                    print("[crawl_page] No robots file found for '{}'...".format(url))
                     # Robots failed.
                 try:
                     sitemap = sm.Sitemap(robots.sitemap_location)
                     # Add entire sitemap to 'links' array
                     links.extend(sitemap.urls)
-                    print("Found sitemap")
+                    print("[crawl_page] Found sitemap for '{}'...".format(url))
                 except:
                     # Sitemap from robots failed.
                     try:
-                        print("Robots didn't contain sitemap url. Trying default one ...")
+                        print("[crawl_page] Robots for '{}' didn't contain sitemap url. Trying "
+                              "default one ...".format(url))
                         sitemap = sm.Sitemap(
                             parsed_url.scheme + '://' + site_url + '/sitemap.xml')
                         # Add entire sitemap to 'links' array
                         links.extend(sitemap.urls)
-                        print("Found sitemap")
+                        print("[crawl_page] Found sitemap at default location for '{}'...".format(
+                            url))
                     except Exception as e:
-                        print("No sitemap found.")
+                        print("[crawl_page] No sitemap found ANYWHERE for '{}'...".format(url))
                         # Sitemap failed.
 
                 # Insert this new Site into the DB
@@ -610,7 +619,7 @@ class Agent:
                     site_url, str(robots), str(sitemap))
                 # Add the new site into the set.
                 self.sites.add(site_url)
-                print("New root website added: ", site_url)
+                print("[crawl_page] New root website added: {}".format(site_url))
 
             # https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types
             # possible to have {"Content-Type": "text/html; charset=utf-8"}
@@ -632,7 +641,7 @@ class Agent:
                 # find links on current site
                 found_links = find_links(url, soup)
 
-                # LATER: only keep links that point to '.gov.si' websites
+                # TODO: only keep links that point to '.gov.si' websites
                 # CURRENT: only keep links that point to evem.gov.si and e-prostor.gov.si
                 found_links = [
                     l for l in found_links if "evem.gov.si" in l or "e-prostor.gov.si" in l]
@@ -677,11 +686,15 @@ if __name__ == "__main__":
     SEED_PAGES_SAMPLE = SEED_PAGES_ALL[:3]
 
     a = Agent(seed_pages=SEED_PAGES_THAT_REQUIRE_DOWNLOADS,
-              num_workers=3, get_files=True)
+              num_workers=8, get_files=True)
     # TODO: On specific key press, stop the script and save current state
 
     # Truncates every table except data_type, page_type --- they have fixed types in them
     # WARNING: disable this when you want to start from a saved state
     a.db.truncate_everything()
+    try:
+        a.crawl(max_level=2)
+    except KeyboardInterrupt:
+        pass
 
-    a.crawl(None)
+    print("Number of unique links visited: %d" % a.visited_uniq_links)
