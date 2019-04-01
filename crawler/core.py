@@ -343,15 +343,16 @@ class Agent:
         self.driver.set_page_load_timeout(TIMEOUT_PERIOD)
 
         # LSH object
-        vocab = read_vocab_file("./data/top1000words.txt")
+        vocab = read_vocab_file("./data/triples_etc.txt")
         self.lsh_obj = lsh.LocalitySensitiveHashing(vocab,
-                                       num_hash=3,
+                                       num_hash=4,
                                        hash_funcs=[
                                            lambda idx: (idx + 1) % 5,
                                            lambda idx: (3 * idx + 1) % 5,
-                                           lambda idx: hash(idx)
+                                           lambda idx: hash(idx),
+                                           lambda idx: hash(3*idx)
                                        ],
-                                       num_bands=3)
+                                       num_bands=4)
 
         # Database
         self.db = db.Database()
@@ -379,9 +380,9 @@ class Agent:
             available page types are HTML, BINARY, DUPLICATE and FRONTIER
         """
 
-        lsh_hash = "".join(map(str, self.lsh_obj.compute_signature(html_content)))
         root_site_id = self.db.root_site_id(site_url)
         if content_type == "HTML":
+            lsh_hash = "".join(map(str, self.lsh_obj.compute_signature(html_content)))
             self.db.add_page(root_site_id, page_type, url, html_content, status_code, lsh_hash)
 
             if page_type == "DUPLICATE":
@@ -648,7 +649,7 @@ if __name__ == "__main__":
     SEED_PAGES_SAMPLE = SEED_PAGES_ALL[:3]
 
     a = Agent(seed_pages=SEED_PAGES_THAT_REQUIRE_DOWNLOADS,
-              num_workers=2, get_files=True)
+              num_workers=3, get_files=True)
     # TODO: On specific key press, stop the script and save current state
 
     # Truncates every table except data_type, page_type --- they have fixed types in them
