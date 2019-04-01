@@ -128,11 +128,11 @@ class Database:
             self.param_query(insert_parameterized_query, [domain, robots, sitemap])
 
     # Helper for adding a page into the database
-    def add_page(self, site_id, page_type_code, url, html_content, http_status_code):
+    def add_page(self, site_id, page_type_code, url, html_content, http_status_code, lsh_hash):
         accessed_time = self.current_time()
         insert_parameterized_query = """INSERT INTO page (site_id, page_type_code, url, html_content, http_status_code, 
-        accessed_time) VALUES (%s, %s, %s, %s, %s, %s)"""
-        self.param_query(insert_parameterized_query, [site_id, page_type_code, url, html_content, http_status_code, accessed_time])
+        accessed_time, lsh_hash) VALUES (%s, %s, %s, %s, %s, %s, %s)"""
+        self.param_query(insert_parameterized_query, [site_id, page_type_code, url, html_content, http_status_code, accessed_time, lsh_hash])
 
 
     def add_link_between_two_sites(self, page_og_url, page_dup_url):
@@ -142,6 +142,9 @@ class Database:
             insert_parameterized_query = """INSERT INTO link (from_page, to_page) VALUES (%s, %s)"""
             self.param_query(insert_parameterized_query, [og_page_id, dup_page_id])
 
+
+    def compare_lsh(self, new_lsh):
+        pass
 
 if __name__ == "__main__":
     db = Database()

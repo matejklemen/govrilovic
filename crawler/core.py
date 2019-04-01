@@ -307,6 +307,12 @@ def find_images(current_url, soup_obj, db):
 
     return images
 
+def read_vocab_file(name):
+    with open(name) as f:
+        content = f.readlines()
+    # Remove whitespace characters like `\n` at the end of each line
+    content = [x.strip() for x in content]
+    return content
 
 class Agent:
     USER_AGENT = "govrilovic-crawler/v0.1"
@@ -336,6 +342,17 @@ class Agent:
         # Set timeout for the request
         self.driver.set_page_load_timeout(TIMEOUT_PERIOD)
 
+        # LSH object
+        vocab = read_vocab_file("./data/top1000words.txt")
+        self.lsh_obj = lsh.LocalitySensitiveHashing(vocab,
+                                       num_hash=3,
+                                       hash_funcs=[
+                                           lambda idx: (idx + 1) % 5,
+                                           lambda idx: (3 * idx + 1) % 5,
+                                           lambda idx: hash(idx)
+                                       ],
+                                       num_bands=3)
+
         # Database
         self.db = db.Database()
 
@@ -362,14 +379,16 @@ class Agent:
             available page types are HTML, BINARY, DUPLICATE and FRONTIER
         """
 
+        lsh_hash = "".join(map(str, self.lsh_obj.compute_signature(html_content)))
         root_site_id = self.db.root_site_id(site_url)
         if content_type == "HTML":
-            self.db.add_page(root_site_id, page_type, url, html_content, status_code)
+            self.db.add_page(root_site_id, page_type, url, html_content, status_code, lsh_hash)
+
             if page_type == "DUPLICATE":
                 # We will probably insert this somewhere else. Two URLS are needed.
-                self.db.add_page(root_site_id, page_type, url, html_content, status_code)
                 # TODO: Make an insertion into "link" table
                 # TODO: Have the information about the site, this one was equal to - link them
+                pass
 
     def crawl(self, max_level=2):
         """ Performs breadth-first search up to a certain level or while there are links to be
@@ -472,7 +491,7 @@ class Agent:
             Obtained links
         """
         links = []
-        
+        duplicate_page = False
         # Parsing URL
         parsed_url = urlparse(url)
         # URL of the site. This is the base url, which possibly has robots.txt etc.
@@ -482,6 +501,7 @@ class Agent:
 
         if url not in self.visited:
             # TODO: LSH compare here
+
             # self.insert_page_into_db(url, "HTML", None, response.status_code, site_url, "DUPLICATE")
 
             # Check if you can crawl this page in robots file.
@@ -522,7 +542,6 @@ class Agent:
 
             print("Response code ", response.status_code)
 
-            # TODO: there are other status codes that indicate success
             if not response or response.status_code not in [200, 203, 302]:
                 return links
 
@@ -573,8 +592,9 @@ class Agent:
                 base_url = get_base_href(soup, fallback=url)
 
                 # Insert page into the database
-                self.insert_page_into_db(url, "HTML", str(
-                    soup), response.status_code, site_url, "HTML")
+                if not duplicate_page:
+                    self.insert_page_into_db(url, "HTML", str(
+                        soup), response.status_code, site_url, "HTML")
 
                 # find images on the current site. Save to FS and DB
                 if self.get_files:
