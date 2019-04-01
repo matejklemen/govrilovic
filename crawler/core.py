@@ -491,13 +491,16 @@ class Agent:
             Unique identifier for current worker
 
         """
+        idx_curr_page = 0
         produced_links = set()
         for url in urls:
-            print("[worker_task] Worker with ID={} crawling '{}'...".format(id_worker, url))
+            print("[worker_task] Worker with ID={} crawling '{}'... {} pages left "
+                  "for this thread".format(id_worker, url, len(urls) - idx_curr_page))
             new_urls = self.crawl_page(url=url)
             # Insert new data into the database
             produced_links.update(new_urls)
             sleep(self.sleep_period)
+            idx_curr_page += 1
 
         self.thread_res_queue.put(produced_links)
 
@@ -686,15 +689,17 @@ if __name__ == "__main__":
     SEED_PAGES_SAMPLE = SEED_PAGES_ALL[:3]
 
     a = Agent(seed_pages=SEED_PAGES_THAT_REQUIRE_DOWNLOADS,
-              num_workers=8, get_files=True)
+              num_workers=4, get_files=True)
     # TODO: On specific key press, stop the script and save current state
 
     # Truncates every table except data_type, page_type --- they have fixed types in them
     # WARNING: disable this when you want to start from a saved state
     a.db.truncate_everything()
+    crawl_start = time()
     try:
         a.crawl(max_level=2)
     except KeyboardInterrupt:
         pass
+    crawl_end = time()
 
-    print("Number of unique links visited: %d" % a.visited_uniq_links)
+    print("Visited {} links in {} seconds...".format(a.visited_uniq_links, crawl_end - crawl_start))
