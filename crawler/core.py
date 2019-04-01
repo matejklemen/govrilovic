@@ -120,8 +120,9 @@ def find_links(base_url, soup_obj, parse_js_redirects=False):
     button_tags = soup_obj.find_all("button")
     links = []
 
-    def normalize_url(url): return Links.remove_www(
-        Links.prune_to_max_depth(Links.sanitize(url), 10))
+    def normalize_url(url):
+        return Links.remove_www(
+            Links.prune_to_max_depth(Links.sanitize(url), 10))
 
     for anchor in a_tags:
         link = anchor.get("href")
@@ -446,17 +447,30 @@ class Agent:
 
         num_links = len(relevant_links)
         self.link_queue = set()
-        effective_workers = min(self.num_workers, num_links)
+
+        urls_by_base = {}
+        for link in relevant_links:
+            link_base = urlparse(Links.remove_www(link)).netloc
+            curr_base_urls = urls_by_base.get(link_base, [])
+            curr_base_urls.append(link)
+            # need to set again in case we stumbled upon a new base URL
+            urls_by_base[link_base] = curr_base_urls
+
+        urls_by_base = urls_by_base.items()
+        effective_workers = min(len(urls_by_base), self.num_workers)
+
+        worker_urls = [[] for _ in range(effective_workers)]
+        for idx_base, (base_url, links) in enumerate(urls_by_base):
+            print("[crawl_level] Base url {} assigned to worker {}...".format(
+                base_url, idx_base % effective_workers))
+            worker_urls[idx_base % effective_workers].extend(links)
 
         workers = []
         next_level_links = set()
         print("[crawl_level] Creating {} workers...".format(effective_workers))
         # divide relevant links among workers (as evenly as possible)
         for id_worker in range(effective_workers):
-            idx_start = int(float(id_worker) * num_links / effective_workers)
-            idx_end = int(float(id_worker + 1) * num_links / effective_workers)
-
-            links_to_crawl = relevant_links[idx_start: idx_end]
+            links_to_crawl = worker_urls[id_worker]
             workers.append(threading.Thread(target=self.worker_task,
                                             args=(links_to_crawl, id_worker)))
 
