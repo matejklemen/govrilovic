@@ -92,11 +92,12 @@ The full source code is available online \footnote{\url{https://github.com/matej
 
 The crawler consists of multiple components: link, sitemap and robots parser, database manager (and the database itself), content deduplicator and a core unit which uses the other components and adds on top of them to produce a parallel crawler that uses breadth first search to navigate the websites.
 
-It takes 4 parameters in total. These are seed pages, maximum number of workers, get files and maximum crawl depth. The first two parameters are understandable without any further explanations. The parameter 'get files' is a boolean, which tells the crawler whether it should download images and files. With the maximum crawl depth parameter we can specify, at what depth, do we want our crawler to stop. If this parameter is set to None, it will stop when there are no more links being produced.
+It takes 4 parameters in total. These are seed pages, maximum number of workers, maximum crawling depth and a flag, determining whether to get files. 
+The first two parameters are self-explanatory.
+The maximum crawling depth is optional and specifies at what depth we want our crawler to stop. 
+If this parameter is not provided, the crawler will stop when there are no more links being produced.
 
 [\textbf{TODO: describe each component briefly (mention its role).}]
-
-@MATEJ Very interesting problem we solved is with more workers than pages. 
 
 
 
@@ -105,8 +106,22 @@ We used Selenium to make requests, because it also renders the Javascript code o
 
 
 EXPLAIN HOW BREADTH FIRST STRATEGY WORKS
-Each worker gets an even share of new links. We then wait for each of the workers to finish and collect the new links they have gathered and place them into the frontier. Afterwards, we repeat the first step and share these new links amongst all workers. With this strategy, we are using Breadth-First approach to visit new websites.
+The crawler uses (parallel) breadth-first traversal to crawl the websites. Figure \ref{fig:parallel_bfs} shows an example of how work is divided among workers in our implementation.
 
+The master (the initial process) keeps a structure with visited links and links that still need to be visited (frontier).
+On each level, the frontier is emptied and the links are divided among workers as evenly as possible.
+Each worker keeps a local copy of its visited websites and a local copy of its newly produced links.
+Each worker also checks if a newly visited website is present in the global visited structure, but it does not add new links into it as we want to keep the synchronization between threads to a minimum.
+We must wait for all the workers to finish so that breadth-first strategy is ensured.
+After they are all done, the master collects newly collected links from workers and checks for duplicate links.
+It also marks the links from current level as visited.
+This process is repeated with the newly collected links, which represent the next level of search process.
+
+\begin{figure}[h] \centering
+    \includegraphics[width=0.45\textwidth]{parallel_bfs.pdf}
+    \caption{{How the work is divided among workers in our implementation of parallel breadth-first traversal. The process starts with a set of seed pages, in this case 2. Note that even though we have 3 workers available, we only actually create 2 workers for level 0 as the 3rd one would not receive any work. Workers then gather new outgoing links, which get collected by the master. The work is divided among workers again every time a new level is started.}}
+    \label{fig:parallel_bfs}
+\end{figure}
 
 We did not use the database as a frontier storage ----- We stored our frontier in the program itself.
 
