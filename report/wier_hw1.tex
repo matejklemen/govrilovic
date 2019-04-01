@@ -145,8 +145,16 @@ For viewing the results and current status in the database, we also used Adminer
 
 
 \section{Image and files extracting}
-@JAKA --- commnet on the issue with absolute path, very interesting:D
-
+To work with links correctly, we needed to somehow normalize them.
+The first thing we do is we contruct an absolute path for each link, so that we get rid of issues with relative paths.
+To do that correctly, we take into consideration the '<base href="somelink">' tags in the webpages, which set the base URL for all the relative paths used in the HTML on the currently crawled webpage.
+If there is no base URL on a website, we can treat the URL we are currently crawling as the base one.
+What is left is only to append the relative path to the base URL.
+The next thing we have to take care of is to get rid of deeply nested URLs to avoid spider traps.
+We pass every link through a sanitizer which removes anything after the tenth slash in the URL to avoid looping of URLs.
+Then, we sanitize the links further to get rid of any positional arguments after the hash symbol in the url.
+We also URL encode the query parameters to prevent different issues which can arise by maybe injecting some malicious code or SQL queries in the URLs.
+This encoding also normalizes the capitalization for each URL (the part that is not case sensitive).
 We stored images and files into the file system, since it gives a nicer overview of the gathered information. This was made possible by creating a folder for each new site in which we stored the information. We then stored the location of the file/image into the provided data field in the database.
 
 
