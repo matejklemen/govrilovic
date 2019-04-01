@@ -314,6 +314,23 @@ def read_vocab_file(name):
     content = [x.strip() for x in content]
     return content
 
+def triples(big_string):
+    '''
+    input: Big string, for example html_content
+    return: list of triples from that string
+    '''
+    result = []
+    for idx in range(len(big_string)):
+        for i in range(idx, idx+3):
+            if len(big_string) >= i+3:
+                new_thing = big_string[i] + big_string[i+1] + big_string[i+2]
+                result.append(new_thing)
+            else:
+                result.append(new_thing)
+
+    return result
+
+
 class Agent:
     USER_AGENT = "govrilovic-crawler/v0.1"
 
@@ -352,7 +369,8 @@ class Agent:
                                            lambda idx: hash(idx),
                                            lambda idx: hash(3*idx)
                                        ],
-                                       num_bands=4)
+                                       num_bands=4,
+                                       repr_func = triples)
 
         # Database
         self.db = db.Database()
@@ -382,7 +400,7 @@ class Agent:
 
         root_site_id = self.db.root_site_id(site_url)
         if content_type == "HTML":
-            lsh_hash = "".join(map(str, self.lsh_obj.compute_signature(html_content)))
+            lsh_hash = "".join(map(str, self.lsh_obj.compute_signature(str(html_content))))
             self.db.add_page(root_site_id, page_type, url, html_content, status_code, lsh_hash)
 
             if page_type == "DUPLICATE":
