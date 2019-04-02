@@ -1,0 +1,3442 @@
+﻿258;evem.gov.si;"
+";None
+259;e-prostor.gov.si;"User-agent: *
+Allow: /
+Disallow: /fileadmin/global/
+Disallow: /t3lib/
+Disallow: /nc/
+Disallow: %2Ano_cache%2A
+Disallow: /%2AcHash
+Disallow: /typo3/
+Disallow: /urednik/
+Disallow: /typo3conf/
+Disallow: /typo3temp/
+Disallow: /%2A%3Fid%3D%2A
+Disallow: /%2A%26type%3D98
+Disallow: /%2A%26type%3D100
+
+";"<?xml version=""1.0"" encoding=""UTF-8""?>
+<urlset xmlns=""http://www.sitemaps.org/schemas/sitemap/0.9"">
+<url><loc>http://www.e-prostor.gov.si/</loc><lastmod>2019-02-20T10:06:08+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/brezplacni-podatki/</loc><lastmod>2019-01-03T11:56:53+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/metapodatki/</loc><lastmod>2018-01-19T08:48:43+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/aplikacije/</loc><lastmod>2019-01-03T11:58:11+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/informacije/</loc><lastmod>2019-01-03T11:58:11+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/skupno/</loc><lastmod>2017-04-19T10:10:11+02:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/zbirka-vrednotenja-nepremicnin/</loc><lastmod>2018-08-02T12:43:22+02:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/etn/</loc><lastmod>2019-03-15T13:04:30+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/nepremicnine/</loc><lastmod>2017-04-18T14:37:31+02:00</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/topografski-in-kartografski-podatki/</loc><lastmod>2018-01-19T08:12:38+01:00</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/zbirni-kataster-gospodarske-javne-infrastrukture/</loc><lastmod>2019-02-11T12:53:12+01:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/</loc><lastmod>2019-01-07T10:42:59+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/dostop-do-podatkov/dostop-do-podatkov/</loc><lastmod>2019-03-04T10:58:44+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/dostop-do-podatkov/vpogledi-v-podatke/</loc><lastmod>2019-01-14T14:27:42+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/dostop-do-podatkov/spletne-storitve/</loc><lastmod>2018-06-28T09:31:18+02:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/informacije/vsa-pogosta-vprasanja/?no_cache=1</loc><lastmod>2019-01-04T14:18:11+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/aktualno-arhiv/</loc><lastmod>2017-11-14T11:07:12+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/aktualno/</loc><lastmod>2018-07-13T10:59:48+02:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/aplikacija/</loc><lastmod>2017-04-18T12:34:23+02:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/404/</loc><lastmod>2017-04-19T10:11:22+02:00</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/iskalnik/</loc><lastmod>2017-11-03T13:38:02+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/etn/obvestilo-o-nedelovanju-streznika/</loc><lastmod>2017-04-18T14:38:45+02:00</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/nepremicnine/zemljiski-kataster/</loc><lastmod>2018-11-15T13:51:10+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/nepremicnine/kataster-stavb/</loc><lastmod>2018-12-10T13:08:42+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/nepremicnine/register-nepremicnin/</loc><lastmod>2018-12-17T13:57:06+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/nepremicnine/drzavna-meja/</loc><lastmod>2018-01-19T08:10:47+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/nepremicnine/register-prostorskih-enot/</loc><lastmod>2018-08-31T07:46:21+02:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/topografski-in-kartografski-podatki/topografski-podatki-in-karte/</loc><lastmod>2019-01-03T10:41:30+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/topografski-in-kartografski-podatki/ortofoto/</loc><lastmod>2019-02-14T08:23:00+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/topografski-in-kartografski-podatki/aerofotografije/</loc><lastmod>2018-01-19T08:29:07+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/topografski-in-kartografski-podatki/digitalni-model-visin/</loc><lastmod>2018-01-19T08:29:22+01:00</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/topografski-in-kartografski-podatki/register-zemljepisnih-imen/</loc><lastmod>2018-10-16T13:29:57+02:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/horizontalna-sestavina/</loc><lastmod>2019-01-07T08:40:10+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/vertikalna-sestavina/</loc><lastmod>2019-01-07T08:40:16+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/zbirka-podatkov-drzavnih-geodetskih-tock/</loc><lastmod>2019-01-07T08:40:21+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/transformacija-v-novi-koordinatni-sistem/</loc><lastmod>2019-01-07T08:40:31+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/epsg-kode-za-slovenijo/</loc><lastmod>2019-01-22T12:51:54+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/projekti-drzavnega-prostorskega-koordinatnega-sistema/</loc><lastmod>2019-01-07T08:40:47+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/zakonodaja/</loc><lastmod>2019-01-07T13:55:09+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/navodila/</loc><lastmod>2019-01-22T07:40:18+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/pogosta-vprasanja/</loc><lastmod>2019-01-07T09:26:12+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/dostop-do-podatkov/spletne-storitve/razvojno-obdobje/</loc><lastmod>2018-04-16T12:33:09+02:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/informacije/vsa-pogosta-vprasanja/porocanje-o-prodajnih-in-najemnih-poslih-z-nepremicninami-v-evidenco-trga-nepremicnin-etn/</loc><lastmod>2018-01-25T08:39:51+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/informacije/vsa-pogosta-vprasanja/drzavni-prostorski-koordinatni-sistem/</loc><lastmod>2019-01-04T14:14:23+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/informacije/vsa-pogosta-vprasanja/splosna-vprasanja-o-vpogledih-v-podatke/</loc><lastmod>2017-11-07T09:36:27+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/informacije/vsa-pogosta-vprasanja/vpogled-za-registrirane-uporabnike/</loc><lastmod>2017-11-07T09:36:52+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/informacije/vsa-pogosta-vprasanja/odpravljanje-tezav-pri-uporabi-vpogledovalnika-preg/</loc><lastmod>2017-11-07T09:37:28+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/informacije/vsa-pogosta-vprasanja/javni-vpogled/</loc><lastmod>2017-11-07T09:37:48+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/informacije/vsa-pogosta-vprasanja/osebni-vpogled/</loc><lastmod>2017-11-07T09:38:01+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/informacije/vsa-pogosta-vprasanja/zbirni-kataster-gji-vnos-in-prevzem-elaboratov/</loc><lastmod>2017-11-07T09:38:28+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/informacije/vsa-pogosta-vprasanja/prevzem-podatkov-gji-za-obcine-in-drzavno-upravo/</loc><lastmod>2017-11-07T09:38:47+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/informacije/vsa-pogosta-vprasanja/izdajanje-podatkov/</loc><lastmod>2017-11-07T09:39:06+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/topografski-in-kartografski-podatki/topografski-podatki-in-karte/zbirka-topografskih-podatkov-dtm/</loc><lastmod>2018-10-23T12:17:04+02:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/topografski-in-kartografski-podatki/topografski-podatki-in-karte/drzavna-topografska-karta-merila-150000-dtk-50-in-dtk-50v/</loc><lastmod>2019-03-05T12:47:35+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/topografski-in-kartografski-podatki/topografski-podatki-in-karte/drzavne-pregledne-karte/</loc><lastmod>2018-07-30T08:50:20+02:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/topografski-in-kartografski-podatki/topografski-podatki-in-karte/podatki-za-slovenijo-v-sklopu-podatkov-egm-euroglobalmap/</loc><lastmod>2018-01-19T08:18:25+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/topografski-in-kartografski-podatki/topografski-podatki-in-karte/obmocja-stika-in-obmocje-notranjih-morskih-voda-v-piranskem-zalivu-v-skladu-z-razsodbo-arbitraznega-sodisca/</loc><lastmod>2018-01-19T08:18:38+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/topografski-in-kartografski-podatki/digitalni-model-visin/digitalni-model-visin-z-locljivostjo-dmv-125-dmv-25-dmv-100/</loc><lastmod>2018-01-19T08:29:59+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/topografski-in-kartografski-podatki/digitalni-model-visin/digitalni-model-visin-5-x-5-m-dmv-5/</loc><lastmod>2018-01-19T08:30:22+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/horizontalna-sestavina/drzavni-koordinatni-sistem-d96tm-esrs/</loc><lastmod>2019-01-09T10:59:25+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/horizontalna-sestavina/drzavni-koordinatni-sistem-d48gk/</loc><lastmod>2018-12-14T09:35:54+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/horizontalna-sestavina/stalne-postaje-drzavnega-omrezja-gnss-signal/</loc><lastmod>2019-02-22T12:02:47+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/horizontalna-sestavina/drzavna-kombinirana-geodetska-mreza-mreza-0-reda/</loc><lastmod>2018-12-14T13:25:10+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/horizontalna-sestavina/dodatna-gradiva/</loc><lastmod>2019-01-22T12:42:24+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/vertikalna-sestavina/slovenski-visinski-sistem-2010-svs2010-datum-koper/</loc><lastmod>2019-01-07T13:54:16+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/vertikalna-sestavina/slovenski-visinski-sistem-2000-svs2000-datum-trst/</loc><lastmod>2018-12-17T14:39:22+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/vertikalna-sestavina/visinska-referencna-ploskev-geoid/</loc><lastmod>2019-02-21T13:48:59+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/vertikalna-sestavina/gravimetricna-sestavina/</loc><lastmod>2018-12-18T10:27:16+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/vertikalna-sestavina/dodatna-gradiva/</loc><lastmod>2019-01-22T13:03:41+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/transformacija-v-novi-koordinatni-sistem/razlaga/</loc><lastmod>2019-01-08T13:33:02+01:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/transformacija-v-novi-koordinatni-sistem/transformacijski-modeli/</loc><lastmod>2019-01-08T13:51:39+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/transformacija-v-novi-koordinatni-sistem/transformacija-podatkov-geodetske-uprave/</loc><lastmod>2019-01-04T13:58:32+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/transformacija-v-novi-koordinatni-sistem/transformacijski-parametri/</loc><lastmod>2018-12-19T12:40:06+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/transformacija-v-novi-koordinatni-sistem/aplikacije-za-izvedbo-transformacije/</loc><lastmod>2018-12-20T09:08:29+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/transformacija-v-novi-koordinatni-sistem/dodatna-gradiva/</loc><lastmod>2019-01-22T12:44:05+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/projekti-drzavnega-prostorskega-koordinatnega-sistema/vzpostavljanje-omrezja-postaj-gps-in-evropskega-koordinatnega-sistema-v-sloveniji/</loc><lastmod>2019-01-04T13:34:22+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url></urlset>"
+260;www.e-prostor.gov.si;"User-agent: *
+Allow: /
+Disallow: /fileadmin/global/
+Disallow: /t3lib/
+Disallow: /nc/
+Disallow: %2Ano_cache%2A
+Disallow: /%2AcHash
+Disallow: /typo3/
+Disallow: /urednik/
+Disallow: /typo3conf/
+Disallow: /typo3temp/
+Disallow: /%2A%3Fid%3D%2A
+Disallow: /%2A%26type%3D98
+Disallow: /%2A%26type%3D100
+
+";"<?xml version=""1.0"" encoding=""UTF-8""?>
+<urlset xmlns=""http://www.sitemaps.org/schemas/sitemap/0.9"">
+<url><loc>http://www.e-prostor.gov.si/</loc><lastmod>2019-02-20T10:06:08+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/brezplacni-podatki/</loc><lastmod>2019-01-03T11:56:53+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/metapodatki/</loc><lastmod>2018-01-19T08:48:43+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/aplikacije/</loc><lastmod>2019-01-03T11:58:11+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/informacije/</loc><lastmod>2019-01-03T11:58:11+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/skupno/</loc><lastmod>2017-04-19T10:10:11+02:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/zbirka-vrednotenja-nepremicnin/</loc><lastmod>2018-08-02T12:43:22+02:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/etn/</loc><lastmod>2019-03-15T13:04:30+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/nepremicnine/</loc><lastmod>2017-04-18T14:37:31+02:00</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/topografski-in-kartografski-podatki/</loc><lastmod>2018-01-19T08:12:38+01:00</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/zbirni-kataster-gospodarske-javne-infrastrukture/</loc><lastmod>2019-02-11T12:53:12+01:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/</loc><lastmod>2019-01-07T10:42:59+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/dostop-do-podatkov/dostop-do-podatkov/</loc><lastmod>2019-03-04T10:58:44+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/dostop-do-podatkov/vpogledi-v-podatke/</loc><lastmod>2019-01-14T14:27:42+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/dostop-do-podatkov/spletne-storitve/</loc><lastmod>2018-06-28T09:31:18+02:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/informacije/vsa-pogosta-vprasanja/?no_cache=1</loc><lastmod>2019-01-04T14:18:11+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/aktualno-arhiv/</loc><lastmod>2017-11-14T11:07:12+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/aktualno/</loc><lastmod>2018-07-13T10:59:48+02:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/aplikacija/</loc><lastmod>2017-04-18T12:34:23+02:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/404/</loc><lastmod>2017-04-19T10:11:22+02:00</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/iskalnik/</loc><lastmod>2017-11-03T13:38:02+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/etn/obvestilo-o-nedelovanju-streznika/</loc><lastmod>2017-04-18T14:38:45+02:00</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/nepremicnine/zemljiski-kataster/</loc><lastmod>2018-11-15T13:51:10+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/nepremicnine/kataster-stavb/</loc><lastmod>2018-12-10T13:08:42+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/nepremicnine/register-nepremicnin/</loc><lastmod>2018-12-17T13:57:06+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/nepremicnine/drzavna-meja/</loc><lastmod>2018-01-19T08:10:47+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/nepremicnine/register-prostorskih-enot/</loc><lastmod>2018-08-31T07:46:21+02:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/topografski-in-kartografski-podatki/topografski-podatki-in-karte/</loc><lastmod>2019-01-03T10:41:30+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/topografski-in-kartografski-podatki/ortofoto/</loc><lastmod>2019-02-14T08:23:00+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/topografski-in-kartografski-podatki/aerofotografije/</loc><lastmod>2018-01-19T08:29:07+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/topografski-in-kartografski-podatki/digitalni-model-visin/</loc><lastmod>2018-01-19T08:29:22+01:00</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/topografski-in-kartografski-podatki/register-zemljepisnih-imen/</loc><lastmod>2018-10-16T13:29:57+02:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/horizontalna-sestavina/</loc><lastmod>2019-01-07T08:40:10+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/vertikalna-sestavina/</loc><lastmod>2019-01-07T08:40:16+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/zbirka-podatkov-drzavnih-geodetskih-tock/</loc><lastmod>2019-01-07T08:40:21+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/transformacija-v-novi-koordinatni-sistem/</loc><lastmod>2019-01-07T08:40:31+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/epsg-kode-za-slovenijo/</loc><lastmod>2019-01-22T12:51:54+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/projekti-drzavnega-prostorskega-koordinatnega-sistema/</loc><lastmod>2019-01-07T08:40:47+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/zakonodaja/</loc><lastmod>2019-01-07T13:55:09+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/navodila/</loc><lastmod>2019-01-22T07:40:18+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/pogosta-vprasanja/</loc><lastmod>2019-01-07T09:26:12+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/dostop-do-podatkov/spletne-storitve/razvojno-obdobje/</loc><lastmod>2018-04-16T12:33:09+02:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/informacije/vsa-pogosta-vprasanja/porocanje-o-prodajnih-in-najemnih-poslih-z-nepremicninami-v-evidenco-trga-nepremicnin-etn/</loc><lastmod>2018-01-25T08:39:51+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/informacije/vsa-pogosta-vprasanja/drzavni-prostorski-koordinatni-sistem/</loc><lastmod>2019-01-04T14:14:23+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/informacije/vsa-pogosta-vprasanja/splosna-vprasanja-o-vpogledih-v-podatke/</loc><lastmod>2017-11-07T09:36:27+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/informacije/vsa-pogosta-vprasanja/vpogled-za-registrirane-uporabnike/</loc><lastmod>2017-11-07T09:36:52+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/informacije/vsa-pogosta-vprasanja/odpravljanje-tezav-pri-uporabi-vpogledovalnika-preg/</loc><lastmod>2017-11-07T09:37:28+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/informacije/vsa-pogosta-vprasanja/javni-vpogled/</loc><lastmod>2017-11-07T09:37:48+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/informacije/vsa-pogosta-vprasanja/osebni-vpogled/</loc><lastmod>2017-11-07T09:38:01+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/informacije/vsa-pogosta-vprasanja/zbirni-kataster-gji-vnos-in-prevzem-elaboratov/</loc><lastmod>2017-11-07T09:38:28+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/informacije/vsa-pogosta-vprasanja/prevzem-podatkov-gji-za-obcine-in-drzavno-upravo/</loc><lastmod>2017-11-07T09:38:47+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/informacije/vsa-pogosta-vprasanja/izdajanje-podatkov/</loc><lastmod>2017-11-07T09:39:06+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/topografski-in-kartografski-podatki/topografski-podatki-in-karte/zbirka-topografskih-podatkov-dtm/</loc><lastmod>2018-10-23T12:17:04+02:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/topografski-in-kartografski-podatki/topografski-podatki-in-karte/drzavna-topografska-karta-merila-150000-dtk-50-in-dtk-50v/</loc><lastmod>2019-03-05T12:47:35+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/topografski-in-kartografski-podatki/topografski-podatki-in-karte/drzavne-pregledne-karte/</loc><lastmod>2018-07-30T08:50:20+02:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/topografski-in-kartografski-podatki/topografski-podatki-in-karte/podatki-za-slovenijo-v-sklopu-podatkov-egm-euroglobalmap/</loc><lastmod>2018-01-19T08:18:25+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/topografski-in-kartografski-podatki/topografski-podatki-in-karte/obmocja-stika-in-obmocje-notranjih-morskih-voda-v-piranskem-zalivu-v-skladu-z-razsodbo-arbitraznega-sodisca/</loc><lastmod>2018-01-19T08:18:38+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/topografski-in-kartografski-podatki/digitalni-model-visin/digitalni-model-visin-z-locljivostjo-dmv-125-dmv-25-dmv-100/</loc><lastmod>2018-01-19T08:29:59+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/topografski-in-kartografski-podatki/digitalni-model-visin/digitalni-model-visin-5-x-5-m-dmv-5/</loc><lastmod>2018-01-19T08:30:22+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/horizontalna-sestavina/drzavni-koordinatni-sistem-d96tm-esrs/</loc><lastmod>2019-01-09T10:59:25+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/horizontalna-sestavina/drzavni-koordinatni-sistem-d48gk/</loc><lastmod>2018-12-14T09:35:54+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/horizontalna-sestavina/stalne-postaje-drzavnega-omrezja-gnss-signal/</loc><lastmod>2019-02-22T12:02:47+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/horizontalna-sestavina/drzavna-kombinirana-geodetska-mreza-mreza-0-reda/</loc><lastmod>2018-12-14T13:25:10+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/horizontalna-sestavina/dodatna-gradiva/</loc><lastmod>2019-01-22T12:42:24+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/vertikalna-sestavina/slovenski-visinski-sistem-2010-svs2010-datum-koper/</loc><lastmod>2019-01-07T13:54:16+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/vertikalna-sestavina/slovenski-visinski-sistem-2000-svs2000-datum-trst/</loc><lastmod>2018-12-17T14:39:22+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/vertikalna-sestavina/visinska-referencna-ploskev-geoid/</loc><lastmod>2019-02-21T13:48:59+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/vertikalna-sestavina/gravimetricna-sestavina/</loc><lastmod>2018-12-18T10:27:16+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/vertikalna-sestavina/dodatna-gradiva/</loc><lastmod>2019-01-22T13:03:41+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/transformacija-v-novi-koordinatni-sistem/razlaga/</loc><lastmod>2019-01-08T13:33:02+01:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/transformacija-v-novi-koordinatni-sistem/transformacijski-modeli/</loc><lastmod>2019-01-08T13:51:39+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/transformacija-v-novi-koordinatni-sistem/transformacija-podatkov-geodetske-uprave/</loc><lastmod>2019-01-04T13:58:32+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/transformacija-v-novi-koordinatni-sistem/transformacijski-parametri/</loc><lastmod>2018-12-19T12:40:06+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/transformacija-v-novi-koordinatni-sistem/aplikacije-za-izvedbo-transformacije/</loc><lastmod>2018-12-20T09:08:29+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/transformacija-v-novi-koordinatni-sistem/dodatna-gradiva/</loc><lastmod>2019-01-22T12:44:05+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url><loc>http://www.e-prostor.gov.si/zbirke-prostorskih-podatkov/drzavni-prostorski-koordinatni-sistem/projekti-drzavnega-prostorskega-koordinatnega-sistema/vzpostavljanje-omrezja-postaj-gps-in-evropskega-koordinatnega-sistema-v-sloveniji/</loc><lastmod>2019-01-04T13:34:22+01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url></urlset>"
+261;kpv.gov.si;"
+";"<?xml version=""1.0"" encoding=""utf-8""?>
+<!DOCTYPE html
+    PUBLIC ""-//W3C//DTD XHTML 1.0 Transitional//EN""
+    ""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"">
+<html xml:lang=""en"" lang=""en"" xmlns=""http://www.w3.org/1999/xhtml"">
+<head>
+       <meta http-equiv=""X-UA-Compatible"" content=""IE=edge,chrome=1"" />
+       <meta name=""viewport"" content=""width=device-width"" />
+
+<meta http-equiv=""Content-Type"" content=""text/html; charset=utf-8"" />
+<!-- 
+	ORG. TEND d.o.o. - www.tend.si
+
+	This website is powered by TYPO3 - inspiring people to share!
+	TYPO3 is a free open source Content Management Framework initially created by Kasper Skaarhoj and licensed under GNU/GPL.
+	TYPO3 is copyright 1998-2019 of Kasper Skaarhoj. Extensions are copyright of their respective owners.
+	Information and contribution at http://typo3.org/
+-->
+
+
+<link rel=""shortcut icon"" href=""http://www.vlada.si/fileadmin/template/images/favicon.ico"" type=""image/x-icon; charset=binary"" />
+<link rel=""icon"" href=""http://www.vlada.si/fileadmin/template/images/favicon.ico"" type=""image/x-icon; charset=binary"" />
+
+<meta name=""generator"" content=""TYPO3 CMS"" />
+<meta name=""revisit-after"" content=""7 days"" />
+<meta name=""robots"" content=""index,follow"" />
+<meta name=""keywords"" content=""vlade, Predsednik, Šarec, Marjan, predsednika, Foto, sodišče, Državni, zasedanja, Vlada"" />
+<meta name=""date"" content=""2019-03-27T20:31:31+01:00"" />
+
+
+<link rel=""stylesheet"" type=""text/css"" href=""http://www.vlada.si/fileadmin/templates/css/styles.min.css?1476446246"" media=""all"" />
+<link rel=""stylesheet"" type=""text/css"" href=""http://www.vlada.si/typo3conf/ext/t3colorbox/Resources/Public/Css/1.5.13/example4/colorbox.css?1449047599"" media=""all"" />
+
+
+
+<script src=""https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"" type=""text/javascript""></script>
+<script src=""http://www.vlada.si/fileadmin/templates/js/scripts.min.js?1476446074"" type=""text/javascript""></script>
+<script src=""https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"" type=""text/javascript""></script>
+<script src=""http://www.vlada.si/typo3conf/ext/gov_tt_news_rotator/template/bxslider/jquery.bxslider.min.js?1449047329"" type=""text/javascript""></script>
+<script src=""https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"" type=""text/javascript""></script>
+<script src=""http://www.vlada.si/typo3temp/javascript_9d57a8584e.js?1523345740"" type=""text/javascript""></script>
+
+
+<meta name=""description"" content=""Predsednik vlade čestital ob 70-letnici delovanja Instituta Jožef Stefan Foto: Daniel Novakić/STA 27.03.2019 - Predsednik vlade Marjan Šarec je na noc"" />
+<meta property=""og:url"" content=""http://www.vlada.si/predsednik_vlade/"" />
+<meta property=""og:type"" content=""article"" />
+<meta property=""og:title"" content=""Predsednik vlade"" />
+<meta property=""og:description"" content=""Predsednik vlade čestital ob 70-letnici delovanja Instituta Jožef Stefan Foto: Daniel Novakić/STA 27.03.2019 - Predsednik vlade Marjan Šarec je na noc"" />
+<meta name=""twitter:card"" content=""summary"" />
+<meta name=""twitter:site"" content=""@vladaRS"" />
+<meta name=""twitter:title"" content=""Predsednik vlade"" />
+<meta name=""twitter:description"" content=""Predsednik vlade čestital ob 70-letnici delovanja Instituta Jožef Stefan Foto: Daniel Novakić/STA 27.03.2019 - Predsednik vlade Marjan Šarec je na noc"" />
+<title>Predsednik vlade&nbsp;&#124;&nbsp;Vlada Republike Slovenije</title>  <!--[if lte IE 9]>
+    <style>
+      body > header nav ul.main {
+        table-layout: auto;
+      }
+      body > header nav ul.main li {width: auto;}
+    </style>
+  <![endif]-->
+  <style>#gov_rotator_17364, #gov_rotator_20300 {padding-left: 0;}</style><!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent --> 
+<link rel=""stylesheet"" type=""text/css"" href=""http://www.vlada.si/fileadmin/template/css/cookieconsent.min.css"" />
+<script type=""text/javascript"" src=""http://www.vlada.si/fileadmin/template/js/cookieconsent.min.js""></script>
+<script type=""text/javascript""> 
+// <![CDATA[ 
+cc.initialise({ 
+        cookies: { 
+                analytics: { 
+                        title: 'Spletna analitika - Piwik', 
+                        description: 'Spletno mesto Vlade RS zbira statistične podatke o vašem obisku za lastne potrebe in namene. Omogočena je anonimizacija IP naslovov. Podatkov ne delimo s tretjimi osebami.'
+                } 
+        }, 
+        settings: { 
+                consenttype: ""implicit"", 
+                style: ""monochrome"", 
+                bannerPosition: ""push"", 
+                hideprivacysettingstab: true, 
+               // onlyshowbanneronce: true, 
+                disableallsites: true 
+        }, 
+        strings: {
+    advertisingDefaultDescription: ""Oglasi bodo samodejno postavljeni"",
+    advertisingDefaultTitle: ""Oglaševanje"",
+    allowCookies: ""Dovoli piškotke"",
+    allowCookiesImplicit: ""Skrij obvestilo"",
+    allowForAllSites: ""Dovoli piškotke za vse strani"",
+    allSitesSettingsDialogSubtitle: ""Lahko dovolite piškotke za vse strani, ki uporabljajao ta modul"",
+    allSitesSettingsDialogTitleA: ""Nastavitve piškotkov"",
+    allSitesSettingsDialogTitleB: ""za vsa spletišča"",
+    analyticsDefaultDescription: ""Anonimno zbiramo podatke o uporabi spletišča za izboljšavo uporabniške izkušnje"",
+    analyticsDefaultTitle: ""Analytics"",
+    backToSiteSettings: ""Nazaj na nastavitve"",
+    changeForAllSitesLink: ""Spremenite nastavitve za vse strani"",
+    closeWindow: ""Zapri okno"",
+    customCookie: ""Ta spletna stran uporablja piškotke"",
+    defaultDescription: ""Privzet opis piškotka"",
+    defaultTitle: ""Privzet naziv piškotka"",
+    hideDetails: ""skrij nastavitve"",
+    learnMore: ""Preberi več"",
+    notificationTitle: ""Spletna stran uporablja piškotke"",
+    notificationTitleImplicit: ""Spletno mesto Vlade RS uporablja le lastne piškotke potrebne za izboljšanje uporabniške izkušnje."",
+    notUsingCookies: ""Ta spletna stran ne uporablja piškotkov"",
+    preferenceAlways: ""Vedno dovoli"",
+    preferenceAsk: ""Vprašaj me ob vsakem obisku"",
+    preferenceConsent: ""Strinjam se"",
+    preferenceDecline: ""Ne strinjam se"",
+    preferenceNever: ""Nikoli ne dovoli"",
+    preferenceUseGlobal: ""Uporabi globalne nastavitve"",
+    privacySettings: ""Nastavitve piškotkov"",
+    privacySettingsDialogSubtitle: "" "",
+    privacySettingsDialogTitleA: ""Nastavitve piškotkov"",
+    privacySettingsDialogTitleB: "" "",
+    saveForAllSites: ""Shrani za vse spletne strani"",
+    savePreference: ""Shrani nastavitve"",
+    seeDetails: ""prikaži podrobnosti"",
+    seeDetailsImplicit: ""spremeni nastavitve"",
+    socialDefaultDescription: ""Facebook, Twitter in ostali družbeni mediji vas morajo prepoznati, da bi delovali pravilno."",
+    socialDefaultTitle: ""Družbeni mediji""
+  }
+}); 
+// ]]> 
+</script> 
+
+<style>
+#cc-notification{
+  border: none !important;
+}
+#cc-notification.cc-monochrome{
+  color: #626060 !important;
+  background: #1c1c1e !important;
+  -moz-opacity: 0.80;
+  opacity: 0.80;
+  -ms-filter:""progid:DXImageTransform.Microsoft.Alpha""(Opacity=80);
+}
+#cc-notification h2 span, #cc-notification h2, #cc-notification h2 a{
+  color: #FFFFFF !important;
+      font-size: 12px !important;
+      font-family: Arial,Helvetica,sans-serif !important;
+      font-weight: normal !important;
+      letter-spacing: 0 !important;
+}
+#cc-notification.cc-monochrome h2, #cc-notification.cc-monochrome h3, #cc-notification.cc-monochrome p, #cc-notification #cc-notification-permissions li strong, #cc-notification #cc-notification-permissions li label {
+      color: #FFFFFF !important;
+      font-size: 12px !important;
+      font-family: Arial,Helvetica,sans-serif !important;
+      font-weight: normal !important;
+      letter-spacing: 0 !important;
+}
+#cc-notification.cc-monochrome #cc-notification-permissions li strong {
+  font-weight: bold !important;
+  margin:0 0 20px 0 !important;
+}
+#cc-notification-logo{
+  display: none !important;
+}
+</style>
+<!-- End Cookie Consent plugin --> 
+
+<script type=""text/javascript"">
+$(function() {
+  $('#cc-notification-wrapper h2').append(' - <a href=""/si/koristno/ostalo/piskotki/"">več o piškotkih</a>');
+});  
+</script>
+
+<script src=""http://www.vlada.si/typo3conf/ext/gov_tt_news_rotator/template/bxslider/jquery.bxslider.min.js"" type=""text/javascript""></script>
+<link rel=""stylesheet"" href=""http://www.vlada.si/typo3conf/ext/gov_tt_news_rotator/template/bxslider/jquery.bxslider.css"" type=""text/css"" media=""screen"" />
+
+<script type=""text/javascript"">
+	/*<![CDATA[*/
+<!--
+var lightboxUrls = {62349:""http://www.vlada.si/predsednik_vlade/PType/7373/?tx_ttnews%5Blightbox%5D=62349"",62339:""http://www.vlada.si/predsednik_vlade/PType/7373/?tx_ttnews%5Blightbox%5D=62339"",62336:""http://www.vlada.si/predsednik_vlade/PType/7373/?tx_ttnews%5Blightbox%5D=62336"",62332:""http://www.vlada.si/predsednik_vlade/PType/7373/?tx_ttnews%5Blightbox%5D=62332"",62317:""http://www.vlada.si/predsednik_vlade/PType/7373/?tx_ttnews%5Blightbox%5D=62317"",62291:""http://www.vlada.si/predsednik_vlade/PType/7373/?tx_ttnews%5Blightbox%5D=62291""};
+
+// -->
+	/*]]>*/
+</script>
+</head>
+<body class=""p1999"">
+	
+    <a id=""goToContent"" href=""#content"">Skoči na vsebino &raquo; </a>
+<header role=""banner"" class=""row pr"">
+  <a class=""logo si"" href=""http://www.vlada.si/"">Vlada Republike Slovenije</a>
+  <div class=""utilityBlock"">
+    <ul>
+      
+          <li>
+            <a class=""lang-link"" href=""http://www.vlada.si/en/"">English</a>
+          </li>
+              
+      <li>|</li>
+      <li>
+        <a class=""lang-link"" href=""http://www.vlada.si/koristno/ostalo/kazalo/"">Kazalo</a>
+      </li>
+    </ul>
+  <select id=""links"">
+    <option selected=""selected"">Državne ustanove</option>
+    <option>------------------</option>
+      <option value=""http://www.vlada.si/predsednik_vlade/"">Predsednik vlade</option>
+      <option value=""http://www.vlada.si/"">Vlada RS</option>
+      <option value=""http://www.vlada.si/o_vladi/kdo_je_kdo/ministrstva/"">Ministrstva</option>
+      <option value=""http://www.up-rs.si/"">Predsednik RS</option>
+      <option value=""http://www.dz-rs.si/"">Državni zbor</option>
+      <option value=""http://www.ds-rs.si/"">Državni svet</option>
+      <option value=""http://www.us-rs.si/"">Ustavno sodišče</option>
+      <option value=""http://www.sodisce.si/"">Vrhovno sodišče</option>
+      <option value=""http://www.rs-rs.si/"">Računsko sodišče</option>
+      <option value=""http://www.varuh-rs.si/"">Varuh človekovih pravic</option>
+      <option value=""http://www.ip-rs.si"">Informacijski pooblaščenec</option>
+      <option value=""http://e-uprava.gov.si/e-uprava/"">e-uprava</option>
+      <f:if condition=""{f:cObject(typoscriptObjectPath: 'lib.lang')} == 'si'"">
+        <option value=""http://upravneenote.gov.si/"">Portal upravnih enot</option>
+      </f:if>
+   </select>
+    
+    <ul class=""icons"">
+      <li><a href=""https://www.facebook.com/VladaRepublikeSlovenije/"" target=""_blank"" title=""Facebook""><i class=""f-icon icon-facebook"" aria-label=""Facebook"">&#xe805;</i></a></li>
+      <li><a href=""https://twitter.com/vladaRS"" target=""_blank"" title=""Twitter""><i class=""f-icon icon-twitter"" aria-label=""Twitter"">&#xe806;</i></a></li>
+      <li><a href=""https://www.linkedin.com/company/the-government-of-republic-of-slovenia"" target=""_blank"" title=""Linkedin""><i class=""f-icon icon-linkedin"" aria-label=""Linkedin"">&#xe807;</i></a></li>
+      <li><a href=""https://www.youtube.com/channel/UC3o8gK0iFEMZZwiFFFfJUQQ"" target=""_blank"" title=""Youtube""><i class=""f-icon icon-youtube-play"" aria-label=""Youtube"">&#xe802;</i></a></li>
+      <li><a href=""https://www.instagram.com/gov.si/"" target=""_blank"" title=""Instagram""><i class=""f-icon icon-instagram-1"" aria-label=""Instagram"">&#xe801;</i></a></li>
+      <li><a href=""https://www.flickr.com/photos/vladars/"" target=""_blank"" title=""Flickr""><i class=""f-icon icon-flickr"" aria-label=""Flickr"">&#xe800;</i></a></li>
+      <li><a title=""RSS"" href=""http://www.vlada.si/koristno/ostalo/rss/""><i class=""f-icon icon-rss"" aria-label=""RSS"">&#xe803;</i></a></li>
+    </ul>  
+
+    
+      
+              <a name=""c16330"" id=""c16330""></a><div id=""c16330""><div class=""tx-goviskalnik-pi1"">
+		
+
+<form method=""post"" action=""http://www.vlada.si/o_vladi/iskanje/"" class=""search"">
+    <input type=""text"" placeholder=""Iskalnik"" name=""tx_goviskalnik_pi1[q]"" class=""searchinput"" />
+    <input type=""submit"" alt=""Iskalnik"" value=""&nbsp;"" name=""cmd"" />
+    <input type=""hidden"" name=""no_cache"" value=""1"" />
+    <input type=""hidden"" name=""tx_goviskalnik_pi1[form]"" value="""" />
+</form>
+
+
+	</div>
+	</div>
+            
+        
+
+  </div>
+
+  <nav role=""navigation"">
+    <a class=""home"" tabindex=""0"" href=""http://www.vlada.si/"">Domov</a>
+    <ul class=""main""><li><a href=""http://www.vlada.si/predsednik_vlade/"" class=""selected"">Predsednik vlade</a></li><li><a href=""http://www.vlada.si/delo_vlade/"">Seje vlade</a></li><li><a href=""http://www.vlada.si/o_vladi/clani_vlade/"">O vladi</a></li><li class=""last""><a href=""http://www.vlada.si/teme_in_projekti/"">Izpostavljene teme</a></li></ul>
+    
+      <ul class=""sub""><li><a href=""http://www.vlada.si/predsednik_vlade/marjan_sarec/"" title=""Predsednik vlade"">Marjan Šarec</a></li><li><a href=""http://www.vlada.si/predsednik_vlade/kabinet_predsednika_vlade/"" title=""Kabinet predsednika vlade RS"">Kabinet predsednika vlade</a></li><li class=""last""><a href=""http://www.vlada.si/predsednik_vlade/novice/"">Novice</a></li></ul>
+    
+    <select id=""mobileNav"">
+      <option selected=""selected"" value=""http://www.vlada.si/predsednik_vlade/"">Predsednik vlade</option><option value=""http://www.vlada.si/predsednik_vlade/marjan_sarec/"">-&nbsp;Predsednik vlade</option><option value=""http://www.vlada.si/predsednik_vlade/kabinet_predsednika_vlade/"">-&nbsp;Kabinet predsednika vlade RS</option><option value=""http://www.vlada.si/predsednik_vlade/novice/"">-&nbsp;Novice</option><option value=""http://www.vlada.si/delo_vlade/"">Seje vlade</option><option value=""http://www.vlada.si/o_vladi/clani_vlade/"">O vladi</option><option value=""http://www.vlada.si/teme_in_projekti/"">Izpostavljene teme</option>
+    </select>
+  </nav>
+</header>
+
+<div class=""breadcrumbs row p"">  
+  <nav class=""breadcrumbs""><a href=""http://www.vlada.si/"">www.vlada.si</a>&nbsp;/&nbsp;Predsednik vlade</nav>
+</div>
+	 
+        
+    <a name=""content""></a>
+    <div class=""row"">
+        <div class=""c9 main"" role=""article"">
+            <header class=""mainTitle"" data-libnd=""default"">
+                <h1>Predsednik vlade</h1>
+            </header>            
+          
+                        
+              
+                <a name=""c17364"" id=""c17364""></a><div id=""c17364""><div class=""slider gov_rotator_17364"">		<ul class=""list full"" id=""gov_rotator_17364"">			<li>			<h2><a href=""http://www.vlada.si/predsednik_vlade/sporocila_za_javnost/sporocilo_za_javnost/a/predsednik_vlade_cestital_ob_70_letnici_delovanja_instituta_jozef_stefan_1626/"">Predsednik vlade čestital ob 70-letnici delovanja Instituta Jožef Stefan </a></h2>			<div class=""bxs-img"">				<img src=""http://www.vlada.si/typo3temp/fl_realurl_image/0o0a4839-1a-432b8853b8.jpg"" width=""1500"" height=""1000"" alt="""" border=""0"" />				<div><p>Foto: Daniel Novakić/STA</p></div>				<div class=""bxs-button"">												</div>			</div>			<div class=""bxs-txt"">				<b>27.03.2019</b> - <p class=""bodytext"">Predsednik vlade Marjan Šarec je na nocojšnji slavnostni akademiji ob 70-letnici Instituta Jožef Stefan nagovoril zbrane in spomnil na pomen inštituta za Slovenijo ter njegove mednarodne razsežnosti, ki segajo že v čas prejšnje države.</p> <a href=""http://www.vlada.si/predsednik_vlade/sporocila_za_javnost/sporocilo_za_javnost/a/predsednik_vlade_cestital_ob_70_letnici_delovanja_instituta_jozef_stefan_1626/"">več <img width=""4"" height=""7"" alt="""" src=""http://www.vlada.si/fileadmin/template/images/bullet.gif"" /></a>							</div>		</li>	
+		<li>			<h2>Predsednik vlade odgovarjal na poslanska vprašanja</h2>			<div class=""bxs-img"">				<img src=""http://www.vlada.si/typo3temp/fl_realurl_image/sarec-poslanska-vprasanja-8435935ccc.jpg"" width=""2550"" height=""1700"" alt="""" border=""0"" />				<div><p>Foto: Nebojša Tejić/STA</p></div>				<div class=""bxs-button"">												</div>			</div>			<div class=""bxs-txt"">				<b>25.03.2019</b> - <p class=""bodytext"">Predsednik vlade Marjan Šarec je danes v Državnem zboru odgovarjal na poslanska vprašanja o spremembah pokojninskega sistema, o dolgotrajni oskrbi, demografskem skladu, vodnih virih na Krškem polju ter o odločitvi, da pred evropskimi volitvami ne bo nagovoril Evropskega parlamenta. </p> 								<ul class=""bxs-extended"">																				<li class=""more""><div class=""rotatorMediaLink""><a href=""https://www.dz-rs.si/wps/portal/Home/deloDZ/seje/evidenca?mandat=VIII&amp;type=mag&amp;uid=4D78934AE23375AFC12583C8003EFE17"" title=""Zapis seje Državnega zbora"">Zapis seje Državnega zbora</a></div></li>				</ul>							</div>		</li>	
+		<li>			<h2><a href=""http://www.vlada.si/predsednik_vlade/sporocila_za_javnost/sporocilo_za_javnost/a/drugi_dan_zasedanja_v_bruslju_v_znamenju_odnosov_s_kitajsko_in_enotnega_trga_1622/"">Drugi dan zasedanja v Bruslju v znamenju odnosov s Kitajsko in enotnega trga</a></h2>			<div class=""bxs-img"">				<img src=""http://www.vlada.si/typo3temp/fl_realurl_image/3245243-32500a1258.jpg"" width=""2189"" height=""1460"" alt="""" border=""0"" />				<div><p>Foto: Evropski svet</p></div>				<div class=""bxs-button"">												</div>			</div>			<div class=""bxs-txt"">				<b>22.03.2019</b> - <p class=""bodytext"">Predsednik Vlade RS Marjan Šarec je zaključil tudi drugi dan rednega zasedanja Evropskega sveta v Bruslju. Osrednji del zasedanja so voditelji namenili strateški razpravi o odnosih med EU in Kitajsko, tudi v luči prihajajočega Vrha EU-Kitajska, ki bo potekal 9. aprila v Bruslju. Stališč tako niso izmenjali zgolj z vidika skupnega naslavljanja globalnih izzivov, ki jih lahko mednarodna skupnost uspešno naslavlja zgolj skupaj, temveč tudi z vidika iskanja načinov uravnoteženja gospodarskih odnosov med EU in Kitajsko. Enotni so si bili, da mora pri tem multilateralen trgovinski sistem ostati ključni temelj naših gospodarskih odnosov.</p> <a href=""http://www.vlada.si/predsednik_vlade/sporocila_za_javnost/sporocilo_za_javnost/a/drugi_dan_zasedanja_v_bruslju_v_znamenju_odnosov_s_kitajsko_in_enotnega_trga_1622/"">več <img width=""4"" height=""7"" alt="""" src=""http://www.vlada.si/fileadmin/template/images/bullet.gif"" /></a>							</div>		</li>	
+		<li>			<h2><a href=""http://www.vlada.si/predsednik_vlade/sporocila_za_javnost/sporocilo_za_javnost/a/predsednik_vlade_za_slovenijo_ostaja_kljucno_normalno_delovanje_institucij_eu_z_1617/"">Predsednik vlade: Za Slovenijo ostaja ključno normalno delovanje institucij EU</a></h2>			<div class=""bxs-img"">				<img src=""http://www.vlada.si/typo3temp/fl_realurl_image/6550360-02-c7a33cd9ef.jpg"" width=""3062"" height=""2042"" alt="""" border=""0"" />				<div><p>Foto: Svet EU</p></div>				<div class=""bxs-button"">												</div>			</div>			<div class=""bxs-txt"">				<b>22.03.2019</b> - <p class=""bodytext"">Predsednik Vlade RS Marjan Šarec se v Bruslju udeležuje rednega zasedanja Evropskega sveta. Prvi dan zasedanja so voditelji namenili izključno izstopu Združenega kraljestva iz Evropske unije, potem ko je britanska premierka v sredo zaprosila za podaljšanje izstopnega roka do 30. junija. Evropski voditelji so se zavezali, da bo Evropski svet pred 29. marcem 2019 odobril podaljšanje do 22. maja 2019, če bo spodnji dom britanskega parlamenta do 12. aprila potrdil sporazum o izstopu.&nbsp;</p> <a href=""http://www.vlada.si/predsednik_vlade/sporocila_za_javnost/sporocilo_za_javnost/a/predsednik_vlade_za_slovenijo_ostaja_kljucno_normalno_delovanje_institucij_eu_z_1617/"">več <img width=""4"" height=""7"" alt="""" src=""http://www.vlada.si/fileadmin/template/images/bullet.gif"" /></a>							</div>		</li>	
+		<li>			<h2><a href=""http://www.vlada.si/predsednik_vlade/sporocila_za_javnost/sporocilo_za_javnost/a/pojasnilo_glede_govora_predsednika_vlade_v_evropskem_parlamentu_1614/"">Pojasnilo glede govora predsednika vlade v Evropskem parlamentu</a></h2>			<div class=""bxs-img"">				<img src=""http://www.vlada.si/typo3temp/fl_realurl_image/marjan-sarec-nt1-mala-4b4f258469.jpg"" width=""900"" height=""601"" alt="""" border=""0"" />				<div><p>Foto: Nebojša Tejić/STA</p></div>				<div class=""bxs-button"">												</div>			</div>			<div class=""bxs-txt"">				<b>19.03.2019</b> - <p class=""bodytext"">Predsednik Evropskega parlamenta Tajani je novembra 2017 v pismu voditeljem držav članic Evropske unije slednje pozval, da Evropskemu parlamentu predstavijo svoje poglede glede prihodnosti Evropske unije. Premier Šarec svojega nastopa v Evropskem parlamentu ni zavrnil, temveč je predlagal, da evropske poslance nagovori ob novem sklicu.</p> <a href=""http://www.vlada.si/predsednik_vlade/sporocila_za_javnost/sporocilo_za_javnost/a/pojasnilo_glede_govora_predsednika_vlade_v_evropskem_parlamentu_1614/"">več <img width=""4"" height=""7"" alt="""" src=""http://www.vlada.si/fileadmin/template/images/bullet.gif"" /></a>							</div>		</li>	
+		<li>			<h2>Predsednik vlade: Slovenija ima v EU svoj glas, s katerim je treba ravnati premišljeno</h2>			<div class=""bxs-img"">				<img src=""http://www.vlada.si/typo3temp/fl_realurl_image/20190308-pv-marjan-sarec-dz-rotator-797b939816.jpg"" width=""900"" height=""600"" alt="""" border=""0"" />				<div><p>Foto: Tamino Petelinšek/STA</p></div>				<div class=""bxs-button"">												</div>			</div>			<div class=""bxs-txt"">				<b>08.03.2019</b> - <p class=""bodytext"">Predsednik vlade Marjan Šarec je v svojem govoru v DZ, ki je danes razpravljal o predlogu deklaracije o delovanju Slovenije v EU, ki kot temeljne cilje izpostavlja varnejšo Evropo in Slovenijo, uspešno gospodarstvo, okrepljeno socialno razsežnost EU ter krepitev vloge unije v svetu, izpostavil, da ima Slovenija v EU svoj glas, s katerim je treba ravnati premišljeno.</p> 								<ul class=""bxs-extended"">																				<li class=""more""><div class=""rotatorMediaLink""><a href=""http://www.vlada.si/fileadmin/dokumenti/si/Sporocila_za_javnost/2019/GovorPV_DeklaracijaEU_08MAR19rev.pdf"" title=""Govor predsednika vlade"">Govor predsednika vlade</a></div></li>				</ul>							</div>		</li>		</ul></div></div>
+                <br />
+              
+                <div class=""cb-text"" id=""cb17367"">
+	<a name=""c17367""></a>
+    
+
+    <p class=""veclink""><a href=""http://www.vlada.si/predsednik_vlade/novice/"" class=""internal-link"">pretekle novice</a></p>
+</div>
+
+                <br />
+              
+                        
+          
+        </div>
+        <div class=""c3 right"">
+            
+                <div class=""cb-textpic"" id=""cb20559"">
+    <a name=""c20559""></a>
+    
+
+    
+            
+                    <h1>Marjan Šarec</h1>
+                
+        
+
+
+    
+            <div class=""cb-center cb-ic1 layout4"">
+                
+    
+        <figure>
+            
+    
+            <a href=""http://www.vlada.si/predsednik_vlade/marjan_sarec/"">
+                    
+    
+            <img src=""http://www.vlada.si/typo3temp/fl_realurl_image/predsednik-vlade-513c687d2b.jpg"" width=""1500"" height=""1937"" alt="""" />    
+        
+
+            </a>
+        
+
+            
+                <figcaption><p class=""bodytext"">&nbsp;</p></figcaption>
+            
+        </figure>
+    
+
+            </div>
+            <p class=""bodytext"">Marjan Šarec je bil 17. avgusta 2018 v Državnem zboru izvoljen za predsednika vlade.</p>
+<p class=""veclink""><span style=""text-align: right; ""><a href=""http://www.vlada.si/predsednik_vlade/marjan_sarec/"" title=""Opens internal link in current window"" class=""internal-link"">življenjepis</a></span></p>
+<p class=""veclink""><a href=""http://www.vlada.si/o_vladi/clani_vlade/"" title=""Opens internal link in current window"" class=""internal-link"">13. Vlada Republike Slovenije</a></p>
+<p class=""veclink"">&nbsp;&nbsp;</p>
+        
+
+</div>
+
+
+
+
+
+
+
+                <br />
+            
+                <div class=""cb-text"" id=""cb15781"">
+	<a name=""c15781""></a>
+    
+
+    
+            
+                    <h1>Kabinet predsednika vlade</h1>
+                
+        
+
+    <p class=""bodytext"">Gregorčičeva 20, 25</p>
+<p class=""bodytext"">1000 Ljubljana<br /><br /></p>
+<p class=""bodytext"">T: 01 478 1000<br />E: <a href=""javascript:linkTo_UnCryptMailto('iwehpk6cl:glrWckr:oe');"">gp.kpv<span style=""display:none;"">ping</span><span style=""display:normal;"">@</span>gov<span style=""display:none;"">pong</span><span style=""display:normal;"">.</span>si</a></p>
+</div>
+
+                <br />
+            
+        </div>
+    </div>
+        
+     
+
+
+
+
+
+
+
+
+
+	<footer class=""row"">
+	<address class=""c3"">
+		
+			<strong>Kontakt</strong>
+			<p class=""bodytext"">Vlada Republike Slovenije</p>
+<p class=""bodytext"">Gregorčičeva 20-25</p>
+<p class=""bodytext"">1000 Ljubljana</p>
+<p class=""bodytext"">T: 01 / 478 1000</p>
+<p class=""bodytext"">E: <a href=""javascript:linkTo_UnCryptMailto('iwehpk6cl:coWckr:oe');"">gp.gs<span style=""display:none;"">ping</span><span style=""display:normal;"">@</span>gov<span style=""display:none;"">pong</span><span style=""display:normal;"">.</span>si</a> </p>
+<p class=""bodytext""><br />Vprašanja in pobude</p>
+<p class=""bodytext"">E: <a href=""javascript:linkTo_UnCryptMailto('iwehpk6ejbk:qgkiWckr:oe');"">info.ukom<span style=""display:none;"">ping</span><span style=""display:normal;"">@</span>gov<span style=""display:none;"">pong</span><span style=""display:normal;"">.</span>si</a> </p>
+		
+	</address>
+	<div class=""c3"">
+		
+			<strong>O Sloveniji</strong>
+			<p class=""bodytext""><a href=""http://www.vlada.si/o_sloveniji/"" title=""Opens internal link in current window"" class=""internal-link"">Splošno</a>&nbsp;/&nbsp;<a href=""http://www.vlada.si/o_sloveniji/politicni_sistem/"" title=""Opens internal link in current window"" class=""internal-link"">Politični sistem</a>&nbsp;</p>
+<p class=""bodytext""><a href=""http://www.vlada.si/o_sloveniji/politicni_sistem/drzavni_simboli/"" title=""Opens internal link in current window"" class=""internal-link"">Državni simboli</a> / <a href=""http://www.vlada.si/o_sloveniji/politicni_sistem/prazniki/"" title=""Opens internal link in current window"" class=""internal-link"">Prazniki</a></p><div><p class=""bodytext""><a href=""http://www.vlada.si/o_sloveniji/osnovni_geografski_podatki/"" title=""Opens internal link in current window"" class=""internal-link"">Osnovni geografski podatki</a></p></div><div><p class=""bodytext""><a href=""http://www.vlada.si/o_sloveniji/zgodovina/"" title=""Opens internal link in current window"" class=""internal-link"">Zgodovina</a></p></div><div></div><div><p class=""bodytext""><a href=""http://www.vlada.si/o_sloveniji/slovenscina/"" title=""Opens internal link in current window"" class=""internal-link"">Slovenščina</a></p></div>
+		
+	</div>
+	<div class=""c3"">
+		
+			<strong>Uporabne vsebine</strong>
+			<p class=""bodytext""><a href=""http://www.vlada.si/medijsko_sredisce/glavne_novice/"" title=""Opens internal link in current window"" class=""internal-link"">Glavne novice</a></p>
+<p class=""bodytext""><a href=""http://www.vlada.si/medijsko_sredisce/sporocila_za_javnost/"" title=""Opens internal link in current window"" class=""internal-link"">Sporočila za javnost</a></p>
+<p class=""bodytext""><a href=""http://www.vlada.si/medijsko_sredisce/video/"" title=""Opens internal link in current window"" class=""internal-link"">Video arhiv</a></p><div></div><div><p class=""bodytext""><a href=""http://www.vlada.si/delo_vlade/gradiva_v_obravnavi/"" title=""Opens internal link in current window"" class=""internal-link"">Gradiva v obravnavi</a></p></div>
+		
+	</div>
+	<div class=""c3"">
+		
+			<strong>Državne ustanove</strong>
+			<p class=""bodytext""><a target=""_blank"" href=""http://www.up-rs.si/"">Predsednik republike</a>&nbsp;</p><p><a target=""_blank"" href=""http://www.dz-rs.si/"">Državni zbor</a>&nbsp;/ <a target=""_blank"" href=""http://www.ds-rs.si/"">Državni svet</a>&nbsp;</p><p><a target=""_blank"" href=""http://www.vlada.si/"" class=""-"">Vlada</a> /&nbsp;<a href=""http://www.vlada.si/si/o_vladi/seznami_in_povezave/spletna_mesta_ministrstev_in_organov_v_sestavi/"">Ministrstva</a>&nbsp;/ <a href=""http://www.vlada.si/si/o_vladi/seznami_in_povezave/spletna_mesta_vladnih_sluzb/"">Vladne službe</a></p><p><a target=""_blank"" href=""http://www.vlada.si/predsednik_vlade/"">Predsednik vlade</a>&nbsp; </p><p><a target=""_blank"" href=""http://www.us-rs.si/"">Ustavno sodišče</a>&nbsp;/ <a target=""_blank"" href=""http://www.sodisce.si/"">Vrhovno sodišče</a>&nbsp;</p><p><a target=""_blank"" href=""http://www.rs-rs.si/"">Računsko sodišče</a>&nbsp;</p>
+		
+	</div>
+</footer>
+
+<div class=""row bottomLine"">
+	<div class=""c5"">
+		&nbsp;
+	</div>
+	<div class=""c7 tr"">
+		
+            <a name=""c16325"" id=""c16325""></a><div id=""c16325""><ul class=""csc-menu csc-menu-1""><li><a href=""http://www.vlada.si/delo_vlade/katalog_ijz/"" title=""Katalog informacij javnega značaja"">Katalog informacij javnega značaja</a></li><li><a href=""http://www.vlada.si/koristno/ostalo/kazalo/"" title=""Kazalo"">Kazalo</a></li><li><a href=""http://www.vlada.si/koristno/ostalo/kolofon/"" title=""Kolofon"">Kolofon</a></li><li><a href=""http://www.vlada.si/koristno/ostalo/piskotki/"" title=""Piškotki"">Piškotki</a></li></ul></div>
+        
+	</div>
+</div>
+<!-- Piwik --> 
+<script type=""text/plain"" class=""cc-onconsent-analytics"">
+  var _pk_id = 3;
+  var _paq = _paq || []; 
+  _paq.push([""trackPageView""]); 
+  _paq.push([""enableLinkTracking""]); 
+
+  (function() { 
+    var u=((""https:"" == document.location.protocol) ? ""https"" : ""http"") + ""://piwik.slovenia.si/""; 
+    _paq.push([""setTrackerUrl"", u+""piwik.php""]); 
+    _paq.push([""setSiteId"", ""3""]); 
+    var d=document, g=d.createElement(""script""), s=d.getElementsByTagName(""script"")[0]; g.type=""text/javascript""; 
+    g.defer=true; g.async=true; g.src=u+""piwik.js""; s.parentNode.insertBefore(g,s); 
+  })(); 
+</script> 
+<!-- End Piwik Code -->
+<script src=""http://www.vlada.si/typo3conf/ext/t3colorbox/Resources/Public/JavaScript/jquery.colorbox-1.5.13.min.js?1449047567"" type=""text/javascript""></script>
+<script src=""http://www.vlada.si/typo3conf/ext/powermail/Resources/Public/JavaScripts/Libraries/jquery.datetimepicker.min.js?1458292024"" type=""text/javascript""></script>
+<script src=""http://www.vlada.si/typo3conf/ext/powermail/Resources/Public/JavaScripts/Libraries/parsley.min.js?1458292024"" type=""text/javascript""></script>
+<script src=""http://www.vlada.si/typo3conf/ext/powermail/Resources/Public/JavaScripts/Powermail/Tabs.min.js?1458292024"" type=""text/javascript""></script>
+<script src=""http://www.vlada.si/typo3conf/ext/powermail/Resources/Public/JavaScripts/Powermail/Form.min.js?1458292024"" type=""text/javascript""></script>
+<script src=""http://www.vlada.si/typo3temp/javascript_2a7dcb886a.js?1523345740"" type=""text/javascript""></script>
+
+
+</body>
+</html>"
+262;mz.gov.si;"User-agent: sistrix
+Disallow: /
+
+User-agent: *
+Crawl-delay: 10
+Allow: /
+Disallow: /fileadmin/common/
+Disallow: /typo3/
+Disallow: /urednik/
+Disallow: /typo3conf/
+Disallow: /typo3temp/
+Disallow: /%2A%3Fid%3D%2A
+Disallow: /%2Atype%3D98%2A
+Disallow: /%2A%26type%3D100
+Disallow: /si/article/14/
+Disallow: /%2A%3FeID%3D%2A
+
+";None
+263;prostor3.gov.si;"
+";None
+264;gu.gov.si;"User-agent: sistrix
+Disallow: /
+
+User-agent: *
+Crawl-delay: 10
+Allow: /
+Disallow: /fileadmin/common/
+Disallow: /typo3/
+Disallow: /urednik/
+Disallow: /typo3conf/
+Disallow: /typo3temp/
+Disallow: /%2A%3Fid%3D%2A
+Disallow: /%2Atype%3D98%2A
+Disallow: /%2A%26type%3D100
+Disallow: /si/article/14/
+Disallow: /%2A%3FeID%3D%2A
+
+";None
+265;prostor4.gov.si;"User-agent: *
+Disallow: /ows2-ins/
+
+";None
+266;e-uprava.gov.si;"User-agent: *
+Disallow: /e-uprava/oglasnadeska.html
+Disallow: /%2A%3Fview_mode%2A
+Disallow: /%2A%3Fbold_mode%2A
+Disallow: /%2A%3Fcaps_mode%2A
+
+";None
+267;gis.gov.si;"
+";None
+268;mddsz.gov.si;"User-agent: sistrix
+Disallow: /
+
+User-agent: *
+Crawl-delay: 10
+Allow: /
+Disallow: /fileadmin/common/
+Disallow: /typo3/
+Disallow: /urednik/
+Disallow: /typo3conf/
+Disallow: /typo3temp/
+Disallow: /%2A%3Fid%3D%2A
+Disallow: /%2Atype%3D98%2A
+Disallow: /%2A%26type%3D100
+Disallow: /si/article/14/
+Disallow: /%2A%3FeID%3D%2A
+
+";None
+269;arsq.gov.si;"
+";None
+270;uk.gov.si;"User-agent: sistrix
+Disallow: /
+
+User-agent: *
+Crawl-delay: 10
+Allow: /
+Disallow: /fileadmin/common/
+Disallow: /typo3/
+Disallow: /urednik/
+Disallow: /typo3conf/
+Disallow: /typo3temp/
+Disallow: /%2A%3Fid%3D%2A
+Disallow: /%2Atype%3D98%2A
+Disallow: /%2A%26type%3D100
+Disallow: /si/article/14/
+Disallow: /%2A%3FeID%3D%2A
+
+";None
+271;uvhvvr.gov.si;"User-agent: sistrix
+Disallow: /
+
+User-agent: *
+Crawl-delay: 10
+Allow: /
+Disallow: /fileadmin/common/
+Disallow: /typo3/
+Disallow: /urednik/
+Disallow: /typo3conf/
+Disallow: /typo3temp/
+Disallow: /%2A%3Fid%3D%2A
+Disallow: /%2Atype%3D98%2A
+Disallow: /%2A%26type%3D100
+Disallow: /si/article/14/
+Disallow: /%2A%3FeID%3D%2A
+
+";None
+272;geoportal.gov.si;"
+";None
+273;osha.mddsz.gov.si;"User-agent: *
+Allow: 
+
+";"<?xml version=""1.0"" encoding=""UTF-8""?><?xml-stylesheet type=""text/xsl"" href=""http://localhost/fov/sitemap.xsl""?><urlset xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xsi:schemaLocation=""http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"" xmlns=""http://www.sitemaps.org/schemas/sitemap/0.9""><url>
+					<loc>http://localhost/fov/Domov</loc>
+					<lastmod>2008-07-07 09:46:48</lastmod>
+			
+					<changefreq>daily</changefreq>
+					<priority>1</priority>
+				</url><url>
+					<loc>http://localhost/fov/Home</loc>
+					<lastmod></lastmod>
+			
+					<changefreq>daily</changefreq>
+					<priority>1</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti</loc>
+					<lastmod>2008-07-01 10:47:36</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.8</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij</loc>
+					<lastmod>2008-07-02 12:21:14</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.8</priority>
+				</url><url>
+					<loc>http://localhost/fov/Raziskovanje</loc>
+					<lastmod>2008-06-16 09:26:20</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.8</priority>
+				</url><url>
+					<loc>http://localhost/fov/Sodelovanje-s-podjetji</loc>
+					<lastmod>2008-06-26 08:26:07</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.8</priority>
+				</url><url>
+					<loc>http://localhost/fov/Aktualno</loc>
+					<lastmod>2008-07-01 09:06:34</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.8</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Osebna-izkaznica</loc>
+					<lastmod>2008-05-12 09:24:17</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Poslanstvo-in-vizija</loc>
+					<lastmod>2008-06-11 08:28:30</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Mednarodno-sodelovanje</loc>
+					<lastmod>2008-06-30 13:53:39</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Knjiznica</loc>
+					<lastmod>2008-05-12 09:26:03</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Zalozba-Moderna-organizacija-</loc>
+					<lastmod>2008-06-20 15:15:44</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/index.php?t=zaposleni</loc>
+					<lastmod>2008-05-12 09:29:12</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Kakovost-na-FOV</loc>
+					<lastmod>2008-06-27 17:40:00</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Predstavitev-organizacijskih-enot</loc>
+					<lastmod>2008-05-28 10:45:54</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Predstavitev-organov</loc>
+					<lastmod>2008-05-12 09:35:00</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Lokacija</loc>
+					<lastmod>2008-05-12 09:39:02</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Dokumenti</loc>
+					<lastmod>2008-06-09 13:54:48</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Vpis</loc>
+					<lastmod>2008-06-09 11:10:07</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Bodoci-studenti</loc>
+					<lastmod>2008-06-27 17:34:51</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Dodiplomski-visokosolski-studij</loc>
+					<lastmod>2008-06-05 14:08:36</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Dodiplomski-univerzitetni-studij</loc>
+					<lastmod>2008-06-05 14:09:39</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Podiplomski-bolonjski-magisterij</loc>
+					<lastmod>2008-06-05 14:10:42</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Podiplomski-znanstveni-magisterij</loc>
+					<lastmod>2008-06-05 14:11:11</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Doktorski-studij</loc>
+					<lastmod>2008-06-27 18:23:00</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Izredni-studij</loc>
+					<lastmod>2008-06-09 12:50:09</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Studij-na-daljavo</loc>
+					<lastmod>2008-06-05 14:13:31</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Dokumenti-in-obrazci</loc>
+					<lastmod>2008-06-13 16:22:32</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/index.php?t=predmeti</loc>
+					<lastmod>2008-05-12 10:20:31</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Pogosta-vprasanja-o-studiju</loc>
+					<lastmod>2008-06-09 12:43:49</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Cenik</loc>
+					<lastmod>2008-06-09 13:06:17</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/Raziskovanje/IOM</loc>
+					<lastmod>2008-06-11 15:03:40</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/Raziskovanje/Raziskovalni-center</loc>
+					<lastmod>2008-06-12 13:12:06</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/Raziskovanje/Obvestila-in-dogodki</loc>
+					<lastmod>2008-06-16 09:26:40</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/Sodelovanje-s-podjetji/Svetovanja</loc>
+					<lastmod>2008-06-26 08:21:57</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/Sodelovanje-s-podjetji/Reference</loc>
+					<lastmod>2008-05-12 10:42:28</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/Sodelovanje-s-podjetji/Obvestila-in-dogodki</loc>
+					<lastmod>2008-06-18 11:01:30</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/index.php?t=news</loc>
+					<lastmod>2008-05-12 10:43:27</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/index.php?t=events</loc>
+					<lastmod>2008-05-12 10:43:51</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/index.php?t=zagovoriDiplom</loc>
+					<lastmod>2008-05-12 10:44:19</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/index.php?t=izpitniRoki</loc>
+					<lastmod>2008-05-12 10:44:44</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/index.php?t=ankete</loc>
+					<lastmod>2008-05-12 10:45:14</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/index.php?t=studentNews</loc>
+					<lastmod></lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.6</priority>
+				</url><url>
+					<loc>http://localhost/fov/Bodoci-studenti</loc>
+					<lastmod>2008-05-05 12:40:53</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studenti</loc>
+					<lastmod>2008-05-05 12:41:09</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Podjetja</loc>
+					<lastmod>2008-05-05 12:41:23</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/http://aips.uni-mb.si/</loc>
+					<lastmod>2008-05-12 10:46:59</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/index.php?t=IzpitniRoki&amp;mode=student</loc>
+					<lastmod>2008-05-12 10:47:27</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/E-student/Urnik</loc>
+					<lastmod>2008-06-24 10:32:41</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/index.php?t=Predmeti&amp;mode=student</loc>
+					<lastmod>2008-05-12 10:48:18</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/E-student/Dokumenti-in-obrazci</loc>
+					<lastmod>2008-06-20 12:06:26</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/E-student/Navodila-CIT</loc>
+					<lastmod>2008-06-20 12:06:47</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/E-student/Ob-studiju</loc>
+					<lastmod>2008-06-20 12:07:35</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/index.php?t=studentNews&amp;mode=student</loc>
+					<lastmod>2008-05-12 10:50:01</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/index.php?t=kontaktForm&amp;mode=student</loc>
+					<lastmod>2008-05-12 10:50:21</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/index.php?t=searchEmployees</loc>
+					<lastmod>2008-05-12 10:50:49</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/E-Zaposleni/Urnik</loc>
+					<lastmod>2008-06-26 12:01:00</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/index.php?t=predmeti&amp;mode=pedagog</loc>
+					<lastmod>2008-05-12 10:51:43</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/index.php?t=temeDiplom&amp;mode=tutor</loc>
+					<lastmod>2008-05-12 10:52:14</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/E-Zaposleni/Projektna-pisarna</loc>
+					<lastmod>2008-06-26 10:40:09</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/E-Zaposleni/Dokumenti-in-obrazci</loc>
+					<lastmod>2008-06-26 11:59:04</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/E-Zaposleni/Navodila-CIT</loc>
+					<lastmod>2008-06-26 12:00:09</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/index.php?t=newsEmployees&amp;mode=pedagog</loc>
+					<lastmod>2008-05-12 10:56:23</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/index.php?t=kontaktForm&amp;mode=pedagog</loc>
+					<lastmod>2008-05-12 10:56:59</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Mednarodno-sodelovanje/Erasmus-studijska-izmenjava</loc>
+					<lastmod>2008-06-30 13:46:53</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Mednarodno-sodelovanje/Erasmus-studijska-praksa</loc>
+					<lastmod>2008-06-30 13:48:52</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Mednarodno-sodelovanje/Pomembni-roki-in-dokumenti</loc>
+					<lastmod>2008-06-30 13:50:28</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Mednarodno-sodelovanje/Nasi-studenti-na-izmenjavi</loc>
+					<lastmod>2008-06-30 13:51:09</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Knjiznica/Zaposleni</loc>
+					<lastmod>2008-05-12 09:26:46</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Knjiznica/E-gradivo</loc>
+					<lastmod>2008-05-12 09:27:00</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Knjiznica/Bibliofon</loc>
+					<lastmod>2008-05-12 09:27:23</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/index.php?t=books&amp;tip=novosti</loc>
+					<lastmod>2008-06-20 15:16:11</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Zalozba/Prodaja-knjig-in-skript</loc>
+					<lastmod>2008-06-20 15:17:32</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Zalozba/Revija-Organizacija</loc>
+					<lastmod>2008-06-20 15:23:46</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/index.php?t=books&amp;tip=knjiga</loc>
+					<lastmod>2008-06-16 14:37:22</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/index.php?t=books&amp;tip=skripta</loc>
+					<lastmod>2008-06-16 14:37:55</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Kakovost-na-FOV/Kazalci-kakovosti</loc>
+					<lastmod>2008-05-12 09:30:31</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Predstavitev-organizacijskih-enot/Dekanat</loc>
+					<lastmod>2008-05-12 09:31:20</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Predstavitev-organizacijskih-enot/Tajnistvo</loc>
+					<lastmod>2008-06-20 15:12:48</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Predstavitev-organizacijskih-enot/Pedagoske-znanstvenoraziskovalne-in-umetnike-enote</loc>
+					<lastmod>2008-05-28 10:42:07</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Predstavitev-organizacijskih-enot/Institut-za-organizacijo-in-management</loc>
+					<lastmod>2008-05-28 10:43:15</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Predstavitev-organizacijskih-enot/Organizacijska-shema</loc>
+					<lastmod>2008-05-12 09:34:03</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Predstavitev-organizacijskih-enot/Tajnistvo/Sluzba-za-racunovodske-zadeve</loc>
+					<lastmod>2008-05-28 10:35:55</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Predstavitev-organizacijskih-enot/Tajnistvo/Knjiznica</loc>
+					<lastmod>2008-06-23 09:51:04</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Predstavitev-organizacijskih-enot/Tajnistvo/Center-za-informatiko-in-informacijske-tehnologije</loc>
+					<lastmod>2008-05-28 09:31:50</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Predstavitev-organizacijskih-enot/Tajnistvo/Referat-za-studentske-zadeve</loc>
+					<lastmod>2008-06-09 12:17:28</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Predstavitev-organizacijskih-enot/Tajnistvo/Vodstvo-tajnistva</loc>
+					<lastmod>2008-06-20 15:07:23</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Predstavitev-organizacijskih-enot/Tajnistvo/Enota-za-vzdrzevanje</loc>
+					<lastmod>2008-06-20 15:09:19</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Predstavitev-organizacijskih-enot/Tajnistvo/Sluzba-za-pravne-kadrovske-in-splosne-zadeve</loc>
+					<lastmod>2008-06-20 15:10:45</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Predstavitev-organizacijskih-enot/Pedagoske-znanstvenoraziskovalne-in-umetnike-enote/Katedra-za-poslovne-in-delovne-sisteme</loc>
+					<lastmod>2008-05-28 10:02:32</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Predstavitev-organizacijskih-enot/Pedagoske-znanstvenoraziskovalne-in-umetnike-enote/Katedra-za-kadrovske-sisteme</loc>
+					<lastmod>2008-05-28 09:44:47</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Predstavitev-organizacijskih-enot/Pedagoske-znanstvenoraziskovalne-in-umetnike-enote/Katedra-za-metodologijo</loc>
+					<lastmod>2008-05-28 09:57:35</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Predstavitev-organizacijskih-enot/Pedagoske-znanstvenoraziskovalne-in-umetnike-enote/Katedra-za-organizacijo</loc>
+					<lastmod>2008-05-28 10:33:13</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Predstavitev-organov/Vodstvo</loc>
+					<lastmod>2008-05-12 09:35:17</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Predstavitev-organov/Senat</loc>
+					<lastmod>2008-05-12 09:35:34</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Predstavitev-organov/Akademski-zbor</loc>
+					<lastmod>2008-05-12 09:35:50</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Predstavitev-organov/Komisije</loc>
+					<lastmod>2008-05-12 09:36:06</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Predstavitev-organov/Studentski-svet</loc>
+					<lastmod>2008-05-12 09:36:30</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/O-Fakulteti/Predstavitev-organov/Poslovodni-odbor</loc>
+					<lastmod>2008-05-12 09:38:37</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Vpis/Dodiplomski-studij</loc>
+					<lastmod>2008-06-09 11:06:43</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Vpis/Podiplomski-studij</loc>
+					<lastmod>2008-06-09 11:07:47</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Bodoci-studenti/Zakaj-na-FOV</loc>
+					<lastmod>2008-06-27 17:16:28</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Bodoci-studenti/Stipendije</loc>
+					<lastmod>2008-06-27 17:21:07</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Bodoci-studenti/Nastanitev</loc>
+					<lastmod>2008-06-27 17:32:04</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Bodoci-studenti/Obstudijske-dejavnosti</loc>
+					<lastmod>2008-05-12 09:45:38</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Dodiplomski-visokosolski-studij/Organizacija-in-management-IS</loc>
+					<lastmod>2008-07-07 10:02:17</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Dodiplomski-visokosolski-studij/Organizacija-in-management-KIS</loc>
+					<lastmod>2008-07-07 10:19:26</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Dodiplomski-visokosolski-studij/Organizacija-in-management-PDS</loc>
+					<lastmod>2008-07-07 10:17:09</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Dodiplomski-visokosolski-studij/Diplomiranje</loc>
+					<lastmod>2008-06-09 12:33:52</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Dodiplomski--univerzitetni-studij/Organizacija-in-management-IS</loc>
+					<lastmod>2008-07-07 10:14:47</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Dodiplomski-univerzitetni-studij/Organizacija-in-management-KIS</loc>
+					<lastmod>2008-07-07 10:15:43</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Dodiplomski-univerzitetni-studij/Organizacija-in-management-PDS</loc>
+					<lastmod>2008-07-07 10:16:41</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Dodiplomski-univerzitetni-studij/Diplomiranje</loc>
+					<lastmod>2008-06-09 12:35:49</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Podiplomski-bolonjski-magisterij/Organizacija-in-management-IS</loc>
+					<lastmod>2008-07-08 10:01:42</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Podiplomski-bolonjski-magisterij/Organizacija-in-management-KIS</loc>
+					<lastmod>2008-07-08 10:01:19</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Podiplomski-bolonjski-magisterij/Organizacija-in-management-PDS</loc>
+					<lastmod>2008-07-08 10:00:53</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Podiplomski-bolonjski-magisterij/Magistriranje</loc>
+					<lastmod>2008-05-12 10:01:22</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Podiplomski-bolonjski-magisterij/Organizacija-in-management-PDS/Opis</loc>
+					<lastmod>2008-05-12 10:00:04</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Podiplomski-bolonjski-magisterij/Organizacija-in-management-PDS/Predmetnik</loc>
+					<lastmod>2008-05-12 10:00:29</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Podiplomski-bolonjski-magisterij/Organizacija-in-management-PDS/Urnik</loc>
+					<lastmod>2008-05-12 10:00:58</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Podiplomski-znanstveni-magisterij/Management-kakovosti</loc>
+					<lastmod>2008-07-07 12:58:50</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Podiplomski-znanstveni-magisterij/Kadrovski-management</loc>
+					<lastmod>2008-07-07 12:59:06</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Podiplomski-znanstveni-magisterij/Management-delovnih-procesov</loc>
+					<lastmod>2008-07-07 12:59:25</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Podiplomski-znanstveni-magisterij/Management-informacijskih-procesov</loc>
+					<lastmod>2008-07-07 12:59:40</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Podiplomski-znanstveni-magisterij/Management-elektronskega-poslovanja</loc>
+					<lastmod>2008-07-07 12:59:56</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Podiplomski-znanstveni-magisterij/Magistriranje</loc>
+					<lastmod>2008-06-09 12:40:56</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Podiplomski-znanstveni-magisterij/Management-elektronskega-poslovanja/Opis</loc>
+					<lastmod>2008-05-12 10:04:47</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Podiplomski-znanstveni-magisterij/Management-elektronskega-poslovanja/Predmetnik</loc>
+					<lastmod>2008-05-12 10:05:07</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Podiplomski-znanstveni-magisterij/Management-elektronskega-poslovanja/Urnik</loc>
+					<lastmod>2008-05-12 10:05:32</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Doktorski-studij/Enovit-doktorski-studij</loc>
+					<lastmod>2008-06-27 18:32:56</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Izredni-studij/Nacin-izvajanja</loc>
+					<lastmod>2008-06-09 12:52:20</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Izredni-studij/Dinamika-placevanja-solnine</loc>
+					<lastmod>2008-06-09 12:55:55</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Studij/Izredni-studij/Lokacije</loc>
+					<lastmod>2008-06-09 13:50:00</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Raziskovanje/IOM/Organizacija-in-zaposleni</loc>
+					<lastmod>2008-06-12 13:07:29</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Raziskovanje/IOM/Vizija-in-poslanstvo</loc>
+					<lastmod>2008-06-12 08:16:56</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/index.php?t=projekti</loc>
+					<lastmod>2008-05-12 10:30:54</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Raziskovanje/IOM/Konference</loc>
+					<lastmod>2008-06-12 12:36:54</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Raziskovanje/Raziskovalni-center/Laboratoriji</loc>
+					<lastmod>2008-06-20 15:02:29</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Raziskovanje/Raziskovalni-center/SCI-clanki-zadnjih-5-let</loc>
+					<lastmod>2008-06-30 09:39:39</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Raziskovanje/Raziskovalni-center/Laboratoriji/Laboratorij-za-projektni-in-procesni-management</loc>
+					<lastmod>2008-05-28 09:36:30</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Raziskovanje/Raziskovalni-center/Laboratoriji/Laboratorij-za-avtomatizacijo-pisarniskega-poslovanja-in-multimedijske-sisteme</loc>
+					<lastmod>2008-05-28 09:47:39</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Raziskovanje/Raziskovalni-center/Laboratoriji/Laboratorij-za-proizvodne-organizacijske-in-informacijske-sisteme</loc>
+					<lastmod>2008-05-28 09:50:25</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Raziskovanje/Raziskovalni-center/Laboratoriji/Laboratorij-za-kadrovske-sisteme</loc>
+					<lastmod>2008-05-28 09:54:13</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Raziskovanje/Raziskovalni-center/Laboratoriji/Laboratorij-za-ergonomijo</loc>
+					<lastmod>2008-05-28 09:56:11</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Raziskovanje/Raziskovalni-center/Laboratoriji/Laboratorij-za-empiricno-proucevanje-organizacij</loc>
+					<lastmod>2008-05-28 10:00:58</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Raziskovanje/Raziskovalni-center/Laboratoriji/Laboratorij-za-logistiko</loc>
+					<lastmod>2008-05-28 10:07:24</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Raziskovanje/Raziskovalni-center/Laboratoriji/Laboratorij-za-razvoj-racunalniskih-resitev</loc>
+					<lastmod>2008-05-28 10:16:36</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Raziskovanje/Raziskovalni-center/Laboratoriji/Laboratorij-za-kvantitativne-metode</loc>
+					<lastmod>2008-05-28 10:21:02</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Raziskovanje/Raziskovalni-center/Laboratoriji/Laboratorij-za-ekoloski-management-in-inovacijske-procese</loc>
+					<lastmod>2008-05-28 10:27:31</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Raziskovanje/Raziskovalni-center/Laboratoriji/Laboratorij-za-kibernetiko-in-sisteme-za-podporo-odlocanju</loc>
+					<lastmod>2008-05-28 10:30:13</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Raziskovanje/Raziskovalni-center/Laboratoriji/E-sredisce</loc>
+					<lastmod>2008-06-20 14:46:01</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/E-Zaposleni/Projektna-pisarna/Plani-in-porocila-IRD</loc>
+					<lastmod>2008-06-26 10:43:32</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/index.php?t=projekti</loc>
+					<lastmod>2008-05-12 10:53:45</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/E-Zaposleni/Projektna-pisarna/Raziskovalne-ideje</loc>
+					<lastmod>2008-06-26 11:00:55</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/E-Zaposleni/Projektna-pisarna/Raziskovalni-dokumenti-in-obrazci</loc>
+					<lastmod>2008-06-26 11:01:52</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Kazalo</loc>
+					<lastmod>2008-05-28 11:12:29</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/index.php?t=kontaktForm</loc>
+					<lastmod>2008-05-28 11:11:51</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Pravna-obvestila</loc>
+					<lastmod>2008-05-21 14:36:55</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov//Splosne-strani/Rezultati-iskanja</loc>
+					<lastmod>2008-05-12 12:53:22</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/index.php?t=galerije</loc>
+					<lastmod>2008-05-08 10:57:31</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/index.php?t=kontaktForm</loc>
+					<lastmod>2008-05-21 14:38:50</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/index.php?t=prijava</loc>
+					<lastmod>2008-06-26 09:12:38</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/index.php?t=searchEmployees</loc>
+					<lastmod></lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Intranet/Dokumenti-in-obrazci</loc>
+					<lastmod>2008-06-20 12:08:27</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/index.php?t=newsEmployees&amp;mode=zaposleni</loc>
+					<lastmod></lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url><url>
+					<loc>http://localhost/fov/Raziskovanje/Raziskovalni-center/Laboratoriji/E-sredisce/Laboratorij-za-m-poslovanje</loc>
+					<lastmod>2008-06-20 15:01:28</lastmod>
+			
+					<changefreq>weekly</changefreq>
+					<priority>0.4</priority>
+				</url></urlset>"
+274;entrust.net;"User-agent: *
+Disallow: /
+
+";"<!DOCTYPE html>
+<html lang=""en"">
+<head>
+<meta http-equiv=""X-UA-Compatible"" content=""IE=edge"">
+
+<script>
+ dataLayer = [{
+'pageType': 'Knowledge Base'
+ }];
+ </script>
+
+
+<script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5C2GNN');
+    </script>
+
+<meta charset=""utf-8""><script type=""text/javascript"">window.NREUM||(NREUM={});NREUM.info = {""beacon"":""bam.nr-data.net"",""errorBeacon"":""bam.nr-data.net"",""licenseKey"":""eaa889f941"",""applicationID"":""258699055"",""transactionName"":""YAZQZxNVD0dXU0VdDFlMf2UiGzJdQlVSWxFSIF1dFUYOWFpVQxsqWQdXSw=="",""queueTime"":0,""applicationTime"":86,""agent"":"""",""atts"":""""}</script><script type=""text/javascript"">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if(""function""==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e(""handle""),a=e(3),u=e(4),f=e(""ee"").get(""tracer""),c=e(""loader""),s=NREUM;""undefined""==typeof window.newrelic&&(newrelic=s);var p=[""setPageViewName"",""setCustomAttribute"",""setErrorHandler"",""finished"",""addToTrace"",""inlineHit"",""addRelease""],d=""api-"",l=d+""ixn-"";a(p,function(e,n){s[n]=o(d+n,!0,""api"")}),s.addPageAction=o(d+""addPageAction"",!0),s.setCurrentRouteName=o(d+""routeName"",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o=""function""==typeof n;return i(l+""tracer"",[c.now(),e,t],r),function(){if(f.emit((o?"""":""no-"")+""fn-start"",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit(""fn-err"",[arguments,this,e],t),e}finally{f.emit(""fn-end"",[c.now()],t)}}}};a(""actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get"".split("",""),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){""string""==typeof e&&(e=new Error(e)),i(""err"",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("".""),r=n.split("".""),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf(""Chrome"")===-1&&u.indexOf(""Chromium"")===-1&&(o=""Safari"",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="""",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),""undefined""==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:""undefined""!=typeof window.performance&&window.performance.timing&&""undefined""!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||""feature"",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u=""nr@context"",f=e(""gos""),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e(""ee"").get(""handle"");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||""object""!==n&&""function""!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i=""nr@id"",a=e(""gos"");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName(""script"")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f(""mark"",[""onload"",a()+x.offset],null,""api"");var t=l.createElement(""script"");t.src=""https://""+e.agent,n.parentNode.insertBefore(t,n)}}function o(){""complete""===l.readyState&&i()}function i(){f(""mark"",[""domContent"",a()+x.offset],null,""api"")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e(""handle""),c=e(3),s=e(""ee""),p=e(2),d=window,l=d.document,m=""addEventListener"",v=""attachEvent"",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""""+location,y={beacon:""bam.nr-data.net"",errorBeacon:""bam.nr-data.net"",agent:""js-agent.newrelic.com/nr-1118.min.js""},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m](""DOMContentLoaded"",i,!1),d[m](""load"",r,!1)):(l[v](""onreadystatechange"",o),d[v](""onload"",r)),f(""mark"",[""firstbyte"",u],null,""api"");var E=0,O=e(5)},{}]},{},[""loader""]);</script>
+<meta name=""description"" content="""">
+<meta name=""viewport"" content=""width=device-width, initial-scale=1.0, minimum-scale=1.0"">
+<meta name=""msvalidate.01"" content=""6C796B94590019CDD06D818244E6CF2F"" />
+<title>Certificate Services Support</title>
+<link rel=""shortcut icon"" href=""/-/media/5f46696031fb4d35954f23905379b1cb.ashx"" type=""image/x-icon"">
+<link rel=""icon"" type=""image/svg"" href=""/-/media/images/footer/logo-footer.svg"">
+
+<link href=""https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700,700i"" rel=""stylesheet"">
+<link href=""https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css"" rel=""stylesheet"">
+<script src=""https://code.jquery.com/jquery-1.12.0.min.js""></script>
+<script src=""https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.1/knockout-min.js""></script>
+<link rel='stylesheet' href='/css/site.min.css'>
+<script type='text/javascript' src='https://c.la4-c1-phx.salesforceliveagent.com/content/g/js/40.0/deployment.js'></script>
+<script type='text/javascript'>
+liveagent.init('https://d.la4-c1-phx.salesforceliveagent.com/chat', '57214000000H8bN', '00D30000001H7DR');
+</script>
+<script>
+switch((location.hostname).replace('www.','')) {
+	case 'datacard.in':
+		window.location = 'https://www.entrustdatacard.com'+location.pathname+location.search;
+		break;
+}
+</script>
+
+<script src=""https://cdn.cookielaw.org/consent/512889ab-4943-4037-844e-2b9dd23d871a.js"" type=""text/javascript"" charset=""UTF-8""></script>
+<script type=""text/javascript"">
+function OptanonWrapper() { }
+</script>
+
+<style>
+.header { background-color:white; }
+.topfooter img { margin-bottom:20px; }
+.edc-edge-icon { max-width:58px; }
+/* Partner Directory CSS */
+/* --------------------- */
+.partner-card img,
+.partner-detail__content img { width: auto; max-width:100%; }
+</style>
+<style>
+/* Sticky Nav CSS */
+/* -------------- */
+.sticky-navigation-button-link a.sticky-btn { margin: 10px 5px; width:auto; box-sizing:border-box; }
+.sticky-navigation-button-link a.sticky-btn-lined { border:2px solid #508eca; color:#508eca; background-color:white; line-height: 40px; }
+@media all and (max-width: 768px) {  }
+.sticky-navigation-anchor-link { color: black; font-weight: bold; }
+/*.blank-canvas-wrap > .background-section:first-child .row { display:flex; align-items:center; }
+.background-section h2:first-child { font-size: 42px; line-height:42px; text-align: center; font-weight:bold; padding-bottom:50px; margin-bottom:90px; border-bottom:1px solid #979797; }
+.background-section h3 { font-size: 32px; text-align: left; font-weight:bold; margin-bottom:20px; }*/
+.sticky-navigation-bar { box-shadow: 0px 0px 6px rgba(0,0,0,0.5); }
+.sticky-navigation-button-link i { display:none; }
+.sticky-navigation-button-link a {
+    padding: 0 10px;
+    margin: 20px 0;
+    border-right: 1px solid #ccc;
+    font-weight:bold;
+    text-transform:uppercase;
+	text-align:center;
+}
+.sticky-navigation-button-link-wrap .sticky-navigation-button-link:last-child a {
+    border-right: none;
+}
+.sticky-navigation-button-link a:hover {
+text-decoration:underline;
+}
+@media all and (max-width: 768px) {
+	.sticky-navigation-bar .sticky-navigation-button-link {
+		border-right:none;
+		min-width:50px;
+	}
+	.sticky-navigation-button-link a {
+		border-right:none;
+	}
+	.sticky-navigation-button-link a.sticky-btn {
+		min-width:100px;
+	}
+	.sticky-navigation-button-link.purple-transparent a {
+		position: relative;
+		overflow: hidden;
+		text-indent: -1000px;
+	}
+	.sticky-navigation-button-link.purple-transparent a i {
+		display:block;
+	    position: absolute;
+    	right: 10px;
+    	text-indent: 0;
+	}
+}
+.hex-list li {
+background-image:url(/-/media/images/library/hex_bullet.png);
+background-repeat: no-repeat;
+background-position: 0% 8px;
+padding-left:30px;
+margin-bottom:15px;
+}
+.hex-list-sm li {
+background-position: 0% 2px;
+}
+</style>
+<style>
+/* SSL Comparison Chart */
+/* -------------------- */
+.ssl-comparison-wrap {
+	text-align:center;
+	margin-bottom:80px;
+}
+
+.ssl-comparison__header {
+	font-size:42px;
+	line-height:1.2em;
+	margin-bottom:42px;
+}
+
+.ssl-comparison__col-wrap-outer {
+	position:relative;
+}
+
+.ssl-comparison__col-wrap {
+	margin-bottom:20px;
+}
+
+@media all and (min-width:998px) {
+	.ssl-comparison__col-wrap,
+	.ssl-comparison__frame {
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flexbox;
+		display: -o-flex;
+		display: flex;
+
+		-webkit-flex-direction: row;
+		-moz-flex-direction: row;
+		-ms-flex-direction: row;
+		-o-flex-direction: row;
+		flex-direction: row;
+
+		-webkit-flex-wrap: wrap;
+		flex-wrap: wrap;
+
+		flex: 1;
+		position:relative;
+		z-index:2;
+	}
+}
+
+/* All SSL Columns */		
+.ssl-comparison-wrap .ssl-col {
+	background-color:#efefef;
+	border-left-width:1px;
+	border-right-width:1px;
+	border-color:#777;
+	border-style:solid;
+}
+
+.ssl-comparison-wrap .clickable  .ssl-col {
+	cursor:pointer;
+}
+
+.ssl-comparison-wrap .ssl-col .inner {
+	padding:20px;
+}
+
+.ssl-comparison-wrap .ssl-col.faded {
+	opacity:1;
+}
+
+.ssl-comparison-wrap .clickable .ssl-col-frame.hover {
+	box-shadow:0 5px 20px rgba(0,0,0,0.5);
+}
+
+.ssl-comparison-wrap .ssl-col p, .ssl-comparison-wrap .ssl-col li {
+	margin-bottom:0;
+	font-size:13px;
+	line-height:1.2em;
+}
+
+.ssl-comparison__frame { display:none; }
+
+@media all and (min-width:998px) {
+	.ssl-comparison-wrap .ssl-col,
+	.ssl-comparison-wrap .ssl-col-frame {
+		flex-basis: 19%;
+		width: 19%;
+		margin-right: 1%;				
+		transition:all 0.4s;
+	}
+
+	.ssl-comparison-wrap .ssl-col {
+		width:19%;
+		margin-right:1%;
+		box-sizing:border-box;
+		float:left;											
+	}
+
+	.ssl-comparison-wrap .ssl-comparison__frame {
+		display:flex;
+		position:absolute;
+		top:0;
+		left:0;
+		right:0;
+		height:100%;
+		z-index:1;
+	}
+
+	.ssl-comparison-wrap .ssl-col-frame {
+		border-radius:5px;
+		border:1px solid transparent;
+		position:relative;
+	}
+
+	.ssl-comparison-wrap .ssl-col-last {
+		margin-right:0;
+	}
+}
+
+/* Flex Table */	
+.ssl-comparison__col-wrap > div:nth-of-type(5n+1) { 
+	border-radius:5px 5px 0 0;
+	border-top-width:1px;
+}
+
+.ssl-comparison__col-wrap > div:nth-of-type(5n+5) { 
+	border-radius:0 0 5px 5px;
+	border-bottom-width:1px;
+	border-top-width:1px;
+	border-top-color:#ccc;
+	margin-bottom:20px;
+}
+
+@media all and (min-width:998px) {
+	.ssl-comparison__col-wrap > div:nth-of-type(5n+1) { 
+		order: 1; 
+	}
+	.ssl-comparison__col-wrap > div:nth-of-type(5n+2) { 
+		order: 2; 
+	}
+	.ssl-comparison__col-wrap > div:nth-of-type(5n+3) { 
+		order: 3; 
+	}
+	.ssl-comparison__col-wrap > div:nth-of-type(5n+4) {
+		order: 4; 
+	}
+	.ssl-comparison__col-wrap > div:nth-of-type(5n+5) { 
+		order: 5;
+		margin-bottom:0;
+	}
+}
+
+/* SSL Col - Domain */
+.ssl-comparison-wrap .ssl-col__domain {
+	text-align:center;
+}
+
+.ssl-comparison-wrap .ssl-col__domain .inner > div:first-child {
+	color:#4c8fdd;
+	font-size:48px;
+	font-weight:bold;
+	text-transform:uppercase;
+}
+
+.ssl-comparison-wrap .ssl-col__domain > .inner div:last-child {
+	text-transform:uppercase;
+	font-size:13px;
+	font-weight:bold;
+}
+
+/* SSL Col - Details Bottom */
+.ssl-comparison-wrap .ssl-col__details-bottom p,
+.ssl-comparison-wrap .ssl-col__details-bottom li {
+	margin-bottom:15px;
+	line-height: 1.2em;
+	font-size: 13px;
+}
+
+.ssl-comparison-wrap .ssl-col__details-bottom li {
+	font-size:12px;
+}
+
+.ssl-comparison-wrap .ssl-col__details-bottom ul li:last-child {
+	margin-bottom:0;
+}
+
+/* Column Specific */
+.ssl-comparison-wrap .ssl-col__icon .inner { padding-bottom:0; }
+
+.ssl-comparison-wrap .ssl-col__icon,
+.ssl-comparison-wrap .ssl-col__details {
+	background-color:#fff;
+}
+
+.ssl-comparison-wrap .ssl-col__details .inner > p:nth-child(1) {
+	margin-bottom:4px;
+}
+.ssl-comparison-wrap .ssl-col__details .inner > p:nth-child(2) {
+	font-size:20px;
+	margin-bottom:10px;
+}
+.ssl-comparison-wrap .ssl-col__details .inner > p:nth-child(3) {
+	margin-bottom:10px;
+}
+.ssl-comparison-wrap .ssl-col__details .inner > p:nth-child(4) {
+	font-size:18px;
+	margin-bottom:20px;
+}
+
+.ssl-comparison-wrap .ssl-col__details-bottom {
+	text-align:left;
+}
+
+.ssl-comparison-wrap .ssl-col-wildcard .inner > div:first-child {
+	font-size:30px;
+	line-height:74px;
+}
+
+.ssl-comparison-wrap .ssl-col__cta .btn {
+	width:100%;
+	border-radius:5px;
+	background-color:#690070;
+	font-size:12px;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+.ssl-comparison-wrap .ssl-col__cta .btn:hover {
+	background-color:#4c8fdd;
+}
+
+/* Extras section */
+.ssl-extras {
+	margin-bottom:60px;
+}
+
+.ssl-extras .ssl-comparison__header {
+	font-size: 30px;
+	margin-bottom: 40px;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+.ssl-extras h3 {
+	font-size:24px;
+	margin-bottom:20px;
+	font-weight:normal;
+}
+
+.ssl-extras p {
+	line-height:2.0em;
+}
+
+.ssl-extras .icon {
+	display:block;
+	margin-bottom:20px;
+}
+
+.ssl-extras div[class*=""col-""] {
+	margin-bottom:30px;
+}
+
+/* Show more */
+.ssl-show-more-wrap {
+	text-align:center;
+	padding:20px 0 80px;
+}
+
+.ssl-show-more.btn {
+	border-color:#4c8fdd;
+	color:#4c8fdd;
+	border-radius:5px;
+	padding-left:80px;
+	padding-right:80px;
+}
+
+.ssl-show-more.btn:hover {
+	background-color:#4c8fdd;
+	color:white;
+}
+
+.ssl-extras,
+.ssl-col__details-bottom {
+	display:none;
+}
+
+</style><script>
+/* SSL Comparison Chart */
+/* -------------------- */
+$(document).ready(function() {
+
+	$('.clickable .ssl-col').hover(function() {
+		var theCol = $(this).data('column');
+		var theID = '#ssl-col-' + theCol;
+		$(theID).addClass('hover');
+	}, function() {
+		var theCol = $(this).data('column');
+		var theID = '#ssl-col-' + theCol;
+		$(theID).removeClass('hover');
+	});
+
+	$('.clickable .ssl-col').hover(function() {
+		if( $(this).hasClass('ssl-col-standard') ) {
+			$('.ssl-col').not('.ssl-col-standard').addClass('faded');
+		} else if( $(this).hasClass('ssl-col-advantage') ) {
+			$('.ssl-col').not('.ssl-col-advantage').addClass('faded');
+		} else if( $(this).hasClass('ssl-col-uc') ) {
+			$('.ssl-col').not('.ssl-col-uc').addClass('faded');
+		} else if( $(this).hasClass('ssl-col-ev') ) {
+			$('.ssl-col').not('.ssl-col-ev').addClass('faded');
+		} else if( $(this).hasClass('ssl-col-wildcard') ) {
+			$('.ssl-col').not('.ssl-col-wildcard').addClass('faded');
+		}
+
+	}, function() {
+		$('.ssl-col').removeClass('faded');
+	});
+
+	$('.clickable .ssl-col').click(function(e) {
+		var currentDomain = 'https://'+location.hostname;
+		//var currentDomain = 'https://www.entrustdatacard.com';
+		console.log( $(this).data('column') );
+		switch( $(this).data('column') ) {
+			case 'standard':
+				window.location = currentDomain+'/products/ssl-certificates/standard-ssl';
+				break;
+			case 'advantage':
+				window.location = currentDomain+'/products/ssl-certificates/advantage-ssl';
+				break;
+			case 'uc':
+				window.location = currentDomain+'/products/ssl-certificates/uc-multi-domain-ssl';
+				break;
+			case 'ev':
+				window.location = currentDomain+'/products/ssl-certificates/ev-multi-domain-ssl';
+				break;
+			case 'wildcard':
+				window.location = currentDomain+'/products/ssl-certificates/wildcard-ssl';
+				break;
+		}
+
+	});
+
+	$('.ssl-show-more').click(function(e) {
+		e.preventDefault();
+		if( $('.ssl-extras').is(':visible') ) {
+			$(this).text('Show More');
+			$('.ssl-extras').hide();
+			$('.ssl-col__details-bottom').hide();
+		} else {
+			$(this).text('Show Less');
+			$('.ssl-extras').show();
+			$('.ssl-col__details-bottom').show();
+		}
+
+	});
+
+});
+</script>
+<script src='https://fast.wistia.com/assets/external/E-v1.js'></script>
+<script charset=""ISO-8859-1"" src=""https://fast.wistia.com/assets/external/popover-v1.js""></script>
+<link rel=""canonical"" href=""https://www.entrustdatacard.com/knowledgebase/ssl"">
+</head>
+<body data-aos-easing=""ease"" data-aos-duration=""400"" data-aos-delay=""0"" class="" "">
+
+<noscript>
+        <iframe src=""https://www.googletagmanager.com/ns.html?id=GTM-5C2GNN"" height=""0"" width=""0"" style=""display:none;visibility:hidden""></iframe>
+    </noscript>
+
+
+<input id=""show-all"" name=""show-all"" type=""hidden"" value=""SHOW ALL"" />
+<input id=""show-more"" name=""show-more"" type=""hidden"" value=""SHOW MORE"" />
+<input id=""show-less"" name=""show-less"" type=""hidden"" value=""SHOW LESS"" />
+
+<header class=""header"">
+<div class=""nav-toggle"">
+<div class=""nav-icon-wrap"">
+<span></span>
+</div>
+<div class=""nav-icon-label"">
+<img src=""/images/assets/menu.svg"" alt=""MENU"" />
+</div>
+</div>
+<div class=""logo"">
+<a href=""/"">
+<img src=""/images/assets/logo.svg"" alt=""Entrust Datacard Logo"" />
+</a>
+</div>
+<div class=""nav-language dropdown"">
+<div class=""btn-language""><img src=""/-/media/icons/language-24px.svg"" alt=""Language""></div>
+
+<ul class=""dropdown-content dropdown-language dropdown-list Sitesync_No_Translate_ALL"">
+<li><a href=""https://www.entrustdatacard.com"" target=""_blank"" class=""Sitesync_No_Translate_ALL"">English</a></li>
+<li><a href=""https://entrustdatacard.com.cn/"" target=""_blank"" class=""Sitesync_No_Translate_ALL"">中文</a></li>
+<li><a href=""https://www.datacard.com.br"" target=""_blank"" class=""Sitesync_No_Translate_ALL"">Portugu&#234;s (Brasil)</a></li>
+<li><a href=""https://www.datacard.fr"" target=""_blank"" class=""Sitesync_No_Translate_ALL"">Fran&#231;ais (EU)</a></li>
+<li><a href=""https://www.datacard.de"" target=""_blank"" class=""Sitesync_No_Translate_ALL"">Deutsch</a></li>
+<li><a href=""http://www.entrustdatacard.co.kr"" target=""_blank"" class=""Sitesync_No_Translate_ALL"">한국어</a></li>
+<li><a href=""https://www.datacardgroup.ru"" target=""_blank"" class=""Sitesync_No_Translate_ALL"">Русский</a></li>
+<li><a href=""https://lac.entrustdatacard.com"" target=""_blank"" class=""Sitesync_No_Translate_ALL"">Espa&#241;ol (America latina)</a></li>
+<li><a href=""https://www.datacard.co.jp"" target=""_blank"" class=""Sitesync_No_Translate_ALL"">日本語 – Datacard</a></li>
+<li><a href=""https://japan.entrust.com"" target=""_blank"" class=""Sitesync_No_Translate_ALL"">日本語 – Entrust</a></li>
+</ul>
+
+</div>
+<div class=""btn-search""><img src=""/-/media/icons/search-24px.svg"" alt=""Search""></div>
+<div class=""navsearch Sitesync_No_Translate_ALL"">
+<form class=""navsearch-form"" action=""/search"" name search>
+<input type=""search"" name=""kw"" placeholder=""Search"" />
+<div class=""hidesearch Sitesync_No_Translate_ALL"">
+<i class=""material-icons Sitesync_No_Translate_ALL"">close</i>
+</div>
+</form>
+</div>
+<nav class=""main-menu"">
+<ul class=""main-menu-list"">
+<li class=""dropdown"">
+<a class=""nav-toplevel"" href=""/solutions"">Solutions</a>
+
+<div class=""dropdown-content dropdown-solutions cf"">
+<div class=""dropdown-popular"">
+<div class=""dropdown-col"">
+<div class=""dropdown-list-label"">Popular Links</div>
+<ul class=""dropdown-list"">
+</ul>
+</div>
+</div>
+<div class=""dropdown-content-inner cf"">
+<div class=""dropdown-col"">
+<div class=""dropdown-list-label"">Financial</div>
+<ul class=""dropdown-list"">
+<li>
+<a href=""/solutions/instant-card-issuance"">Instant Card Issuance</a>
+</li>
+<li>
+<a href=""/solutions/transaction-security"">Transaction Security</a>
+</li>
+<li>
+<a href=""/solutions/central-card-issuance"">Central Card Issuance</a>
+</li>
+<li>
+<a href=""/solutions/consumer-authentication"">Consumer Authentication</a>
+</li>
+<li>
+<a href=""/solutions/payment-services-directive-psd2"">Payment Services Directive (PSD2)</a>
+</li>
+</ul>
+</div>
+<div class=""dropdown-col"">
+<div class=""dropdown-list-label"">Digital-Business</div>
+<ul class=""dropdown-list"">
+<li>
+<a href=""/solutions/cloud-based-multi-factor-authentication"">Cloud-Based Multi-Factor Authentication</a>
+</li>
+<li>
+<a href=""/solutions/mobile-authentication"">Mobile Authentication</a>
+</li>
+<li>
+<a href=""/solutions/digital-dna"">Digital DNA</a>
+</li>
+<li>
+<a href=""/solutions/two-factor-authentication"">Two Factor Authentication</a>
+</li>
+<li>
+<a href=""/solutions/digital-certificates"">Digital Certificates</a>
+</li>
+<li>
+<a href=""/solutions/employee-id"">Employee ID Solutions</a>
+</li>
+<li>
+<a href=""/solutions/iotrust"">ioTrust™ Security Solutions</a>
+</li>
+</ul>
+</div>
+<div class=""dropdown-col"">
+<div class=""dropdown-list-label"">Government</div>
+<ul class=""dropdown-list"">
+<li>
+<a href=""/solutions/citizen-id"">Citizen ID Issuance and Management</a>
+</li>
+<li>
+<a href=""/solutions/derived-piv-credentials"">Derived PIV/CAC Credential</a>
+</li>
+<li>
+<a href=""/solutions/border-control"">Border Control Solutions</a>
+</li>
+<li>
+<a href=""/solutions/e-government"">e-Government</a>
+</li>
+<li>
+<a href=""/solutions/credential-lifecycle-management"">Credential Lifecycle Management</a>
+</li>
+</ul>
+</div>
+<div class=""dropdown-col"">
+<div class=""dropdown-list-label"">Insights</div>
+<ul class=""dropdown-list"">
+<li>
+<a href=""/insights/branch-of-the-future"">Branch of the Future</a>
+</li>
+<li>
+<a href=""/insights/evolution-of-identity"">Evolution of Identity</a>
+</li>
+<li>
+<a href=""/insights/border-security"">Border Security</a>
+</li>
+<li>
+<a href=""/insights/personalized-debit-and-credit-cards"">Personalized Debit And Credit Cards</a>
+</li>
+</ul>
+</div>
+<div class=""dropdown-col"">
+<div class=""dropdown-list-label"">Markets</div>
+<ul class=""dropdown-list"">
+<li>
+<a href=""/markets/financial"">Financial</a>
+</li>
+<li>
+<a href=""/markets/corporate"">Corporate</a>
+</li>
+<li>
+<a href=""/markets/government"">Government</a>
+</li>
+<li>
+<a href=""/markets/education"">Education</a>
+</li>
+<li>
+<a href=""/markets/healthcare"">HealthCare</a>
+</li>
+<li>
+<a href=""/markets/retail"">Retail</a>
+</li>
+<li>
+<a href=""/markets/transit"">Transit</a>
+</li>
+<li>
+<a href=""/markets/loyalty-and-memberships"">Loyalty and Memberships</a>
+</li>
+<li>
+<a href=""/markets/telecommunications"">Telecommunications</a>
+</li>
+</ul>
+</div>
+<div class=""dropdown-col contact-col"">
+<a class=""btn btn-large liveagent_button_online"" name=""liveagent_button_online"" href=""javascript://Chat"" style=""display: none;"" onclick=""liveagent.startChat('573140000000TS8')"">
+<i class=""material-icons md-24"">chat bubble</i> CHAT WITH SALES
+</a>
+<div class=""btn btn-large btn-chat liveagent_button_offline"" name=""liveagent_button_offline"" style=""display: none;"">
+<i class=""material-icons md-24"">chat bubble</i> CHAT WITH SALES
+</div>
+<a class=""btn btn-large"" href=""/about/contact"">
+<i class=""material-icons md-24"">description</i>CONTACT SALES
+</a>
+<p>
+Or call sales <span class=""contact-number"">1-888-690-2424</span>
+<em>Available from 8:00AM to 6:00PM EST Monday-Friday</em>
+</p>
+ <hr />
+<p>Need help?</p>
+<a class=""arrow-link"" href=""/pages/contact-support"">
+Contact Support <i class=""material-icons"">navigate_next</i>
+</a>
+</div>
+</div>
+</div>
+
+</li>
+<li class=""dropdown"">
+<a class=""nav-toplevel"" href=""/products"">Products</a>
+
+<div class=""dropdown-content dropdown-products cf"">
+<div class=""dropdown-popular"">
+<div class=""dropdown-col"">
+<div class=""dropdown-list-label"">Popular Links</div>
+<ul class=""dropdown-list"">
+</ul>
+</div>
+</div>
+<div class=""dropdown-content-inner cf"">
+<div class=""dropdown-col"">
+<div class=""dropdown-list-label"">Product Categories</div>
+<ul class=""dropdown-list"">
+<li>
+<a href=""/products/categories/ssl-certificates"">SSL Certificates</a>
+</li>
+<li>
+<a href=""/products/categories/id-card-printers"">ID Card Printers</a>
+</li>
+<li>
+<a href=""/products/categories/authentication"">Authentication</a>
+</li>
+<li>
+<a href=""/products/categories/digital-signing-certificates"">Digital Signing Certificates</a>
+</li>
+<li>
+<a href=""/products/categories/financial-card-printers"">Financial Card Printers</a>
+</li>
+<li>
+<a href=""/products/categories/iotrust"">ioTrust™ IoT Security</a>
+</li>
+<li>
+<a href=""/products/categories/central-card-issuance"">Central Card Issuance</a>
+</li>
+<li>
+<a href=""/products/categories/pki"">PKI (Public Key Infrastructure)</a>
+</li>
+<li>
+<a href=""/products/categories/passport-systems"">Passport Systems</a>
+</li>
+<li>
+<a href=""/products/categories/software"">Software</a>
+</li>
+<li>
+<a href=""/products/categories/accessories"">Accessories</a>
+</li>
+<li>
+<a href=""/products/categories/supplies"">Supplies</a>
+</li>
+<li>
+<a href=""/products/categories/sms-passcode"">SMS Passcode</a>
+</li>
+</ul>
+</div>
+<div class=""dropdown-col"">
+<a class=""dropdown-cat"" href=""/products/productindex"">Product Index</a>
+</div>
+<div class=""dropdown-col contact-col"">
+<a class=""btn btn-large liveagent_button_online"" name=""liveagent_button_online"" href=""javascript://Chat"" style=""display: none;"" onclick=""liveagent.startChat('573140000000TS8')"">
+<i class=""material-icons md-24"">chat bubble</i> CHAT WITH SALES
+</a>
+<div class=""btn btn-large btn-chat liveagent_button_offline"" name=""liveagent_button_offline"" style=""display: none;"">
+<i class=""material-icons md-24"">chat bubble</i> CHAT WITH SALES
+</div>
+<a class=""btn btn-large"" href=""/about/contact"">
+<i class=""material-icons md-24"">description</i>CONTACT SALES
+</a>
+<p>
+Or call sales <span class=""contact-number"">1-888-690-2424</span>
+<em>Available from 8:00AM to 6:00PM EST Monday-Friday</em>
+</p>
+<hr />
+<p>Need help?</p>
+<a class=""arrow-link"" href=""/pages/contact-support"">
+Contact Support <i class=""material-icons"">navigate_next</i>
+</a>
+</div>
+</div>
+</div>
+
+</li>
+<li class=""dropdown"">
+<a class=""nav-toplevel"" href="""">Resource Center</a>
+
+<div class=""dropdown-content dropdown-resource cf"">
+<div class=""dropdown-popular"">
+<div class=""dropdown-col"">
+<div class=""dropdown-list-label"">Popular Links</div>
+<ul class=""dropdown-list"">
+</ul>
+</div>
+</div>
+<div class=""dropdown-content-inner cf"">
+<div class=""dropdown-col"">
+<div class=""dropdown-list-label"">Documents</div>
+<ul class=""dropdown-list"">
+<li>
+<a href=""/resource-center/documents/documentation"">Documentation</a>
+</li>
+<li>
+<a href=""/resource-center/documents/solutions-brochures"">Solutions Brochures</a>
+</li>
+<li>
+<a href=""/resource-center/documents/case-studies"">Case Studies</a>
+</li>
+<li>
+<a href=""/resource-center/documents/use-cases"">Use Cases</a>
+</li>
+<li>
+<a href=""/resource-center/documents/user-guides"">User Guides</a>
+</li>
+<li>
+<a href=""/resource-center/documents/data-sheet"">Data Sheets</a>
+</li>
+<li>
+<a href=""/resource-center/documents/whitepapers"">White Papers</a>
+</li>
+</ul>
+</div>
+<div class=""dropdown-col"">
+<a class=""dropdown-cat"" href=""/resource-center/certificate-services-support"">Certificate Services Support</a>
+<a class=""dropdown-cat"" href=""/resource-center/drivers-and-downloads"">Drivers &amp; Downloads</a>
+<a class=""dropdown-cat"" href=""/resource-center/tools"">Tools</a>
+<a class=""dropdown-cat"" href=""/resource-center/developer-apis"">Developer APIs</a>
+<a class=""dropdown-cat"" href=""/resource-center/installation"">Installation Documentation</a>
+<a class=""dropdown-cat"" href=""/resource-center/licensing-and-agreements"">Licensing &amp; Agreements</a>
+<a class=""dropdown-cat"" href=""/resource-center/training"">Training </a>
+<a class=""dropdown-cat"" href=""/resource-center/videos"">Videos</a>
+</div>
+<div class=""dropdown-col contact-col"">
+<a class=""btn btn-large liveagent_button_online"" name=""liveagent_button_online"" href=""javascript://Chat"" style=""display: none;"" onclick=""liveagent.startChat('573140000000TS8')"">
+<i class=""material-icons md-24"">chat bubble</i> CHAT WITH SALES
+</a>
+<div class=""btn btn-large btn-chat liveagent_button_offline"" name=""liveagent_button_offline"" style=""display: none;"">
+<i class=""material-icons md-24"">chat bubble</i> CHAT WITH SALES
+</div>
+<a class=""btn btn-large"" href=""/about/contact"">
+<i class=""material-icons md-24"">description</i>CONTACT SALES
+</a>
+<p>
+Or call sales <span class=""contact-number"">1-888-690-2424</span>
+<em>Available from 8:00AM to 6:00PM EST Monday-Friday</em>
+</p>
+<hr />
+<p>Need help?</p>
+<a class=""arrow-link"" href=""/pages/contact-support"">
+Contact Support <i class=""material-icons"">navigate_next</i>
+</a>
+</div>
+</div>
+</div>
+
+</li>
+<li class=""dropdown"">
+<a class=""nav-toplevel"" href=""/about"">About</a>
+
+<div class=""dropdown-content dropdown-about cf"">
+<div class=""dropdown-popular"">
+<div class=""dropdown-col"">
+<div class=""dropdown-list-label"">Popular Links</div>
+<ul class=""dropdown-list"">
+</ul>
+</div>
+</div>
+<div class=""dropdown-content-inner cf"">
+<div class=""dropdown-col"">
+<div class=""dropdown-list-label"">News Room</div>
+<ul class=""dropdown-list"">
+<li>
+<a href=""/about/newsroom/overview"">News Room Overview</a>
+</li>
+<li>
+<a href=""/about/newsroom/news-articles"">News Articles</a>
+</li>
+<li>
+<a href=""/about/newsroom/press-releases"">Press Releases</a>
+</li>
+<li>
+<a href=""/blog"">Blog</a>
+</li>
+</ul>
+</div>
+<div class=""dropdown-col"">
+<a class=""dropdown-cat"" href=""/about/overview"">Overview</a>
+<a class=""dropdown-cat"" href=""/about/events"">Events</a>
+<a class=""dropdown-cat"" href=""/about/careers"">Careers</a>
+<a class=""dropdown-cat"" href=""/about/partners"">Our Partners</a>
+<a class=""dropdown-cat"" href=""/about/contact"">Contact Us</a>
+</div>
+<div class=""dropdown-col contact-col"">
+<a class=""btn btn-large liveagent_button_online"" name=""liveagent_button_online"" href=""javascript://Chat"" style=""display: none;"" onclick=""liveagent.startChat('573140000000TS8')"">
+<i class=""material-icons md-24"">chat bubble</i> CHAT WITH SALES
+</a>
+<div class=""btn btn-large btn-chat liveagent_button_offline"" name=""liveagent_button_offline"" style=""display: none;"">
+<i class=""material-icons md-24"">chat bubble</i> CHAT WITH SALES
+</div>
+<a class=""btn btn-large"" href=""/about/contact"">
+<i class=""material-icons md-24"">description</i>CONTACT SALES
+</a>
+<p>
+Or call sales <span class=""contact-number"">1-888-690-2424</span>
+<em>Available from 8:00AM to 6:00PM EST Monday-Friday</em>
+</p>
+<hr />
+<p>Need help?</p>
+<a class=""arrow-link"" href=""/pages/contact-support"">
+Contact Support <i class=""material-icons"">navigate_next</i>
+</a>
+</div>
+</div>
+</div>
+
+</li>
+<li>
+<a class=""nav-toplevel"" href=""/about/careers"">Careers</a>
+</li>
+<li class=""dropdown"">
+<a class=""nav-toplevel"" href=""#"">Buy</a>
+
+<div class=""dropdown-content dropdown-about cf"">
+<div class=""dropdown-popular"">
+<div class=""dropdown-col"">
+<div class=""dropdown-list-label"">Popular Links</div>
+<ul class=""dropdown-list"">
+</ul>
+</div>
+</div>
+<div class=""dropdown-content-inner cf"">
+<div class=""dropdown-col"">
+<ul class=""dropdown-list"">
+<li>
+ <a href=""https://estore.entrustdatacard.com/"">Financial Instant Issuance Supplies</a>
+</li>
+<li>
+<a href="" https://estore.entrustdatacard.com/ppp/customer/account/login/"">PartnerPlus Private Store</a>
+</li>
+<li>
+<a href=""https://buy.entrust.net/index.html#/quoteOrder"">Digital Certificates</a>
+</li>
+</ul>
+</div>
+<div class=""dropdown-col contact-col"">
+<a class=""btn btn-large liveagent_button_online"" name=""liveagent_button_online"" href=""javascript://Chat"" style=""display: none;"" onclick=""liveagent.startChat('573140000000TS8')"">
+<i class=""material-icons md-24"">chat bubble</i> CHAT WITH SALES
+</a>
+<div class=""btn btn-large btn-chat liveagent_button_offline"" name=""liveagent_button_offline"" style=""display: none;"">
+<i class=""material-icons md-24"">chat bubble</i> CHAT WITH SALES
+</div>
+<a class=""btn btn-large"" href=""/about/contact"">
+<i class=""material-icons md-24"">description</i>CONTACT SALES
+</a>
+<p>
+Or call sales <span class=""contact-number"">1-888-690-2424</span>
+<em>Available from 8:00AM to 6:00PM EST Monday-Friday</em>
+</p>
+<hr />
+<p>Need help?</p>
+<a class=""arrow-link"" href=""/pages/contact-support"">
+Contact Support <i class=""material-icons"">navigate_next</i>
+</a>
+</div>
+</div>
+</div>
+
+</li>
+</ul>
+</nav>
+<script type=""text/javascript"">
+
+        if (!window._laq) { window._laq = []; }
+        window._laq.push(function () {
+            [].forEach.call(document.querySelectorAll('.liveagent_button_online'), function (x) {
+                liveagent.showWhenOnline('573140000000TS8', x);
+            });
+            [].forEach.call(document.querySelectorAll('.liveagent_button_offline'), function (x) {
+                liveagent.showWhenOffline('573140000000TS8', x);
+            });
+        });</script>
+</header>
+
+
+<div class=""slideout-nav"">
+<div class=""slideout-inner"">
+<ul class=""slideout-list"">
+<li>
+<a class=""slideout-toplevel slideout-parent"" href="""">
+Solutions <i class=""material-icons Sitesync_No_Translate_ALL"">navigate_next</i>
+</a>
+
+<div class=""submenu"">
+<div class=""submenu-inner"">
+<div class=""submenu-exit"">
+<i class=""material-icons Sitesync_No_Translate_ALL"">chevron_left</i> Solutions
+</div>
+<div class=""submenu-section"">
+<div class=""submenu-section-title"">
+Financial
+<i class=""material-icons icn-add"">add</i>
+<i class=""material-icons icn-remove"">remove</i>
+</div>
+<ul class=""submenu-list"">
+<li>
+<a href=""/solutions/instant-card-issuance"">Instant Card Issuance</a>
+</li>
+<li>
+<a href=""/solutions/transaction-security"">Transaction Security</a>
+</li>
+<li>
+<a href=""/solutions/central-card-issuance"">Central Card Issuance</a>
+</li>
+<li>
+<a href=""/solutions/consumer-authentication"">Consumer Authentication</a>
+</li>
+<li>
+<a href=""/solutions/payment-services-directive-psd2"">Payment Services Directive (PSD2)</a>
+</li>
+</ul>
+</div>
+<div class=""submenu-section"">
+<div class=""submenu-section-title"">
+Digital-Business
+<i class=""material-icons icn-add"">add</i>
+<i class=""material-icons icn-remove"">remove</i>
+</div>
+<ul class=""submenu-list"">
+<li>
+<a href=""/solutions/cloud-based-multi-factor-authentication"">Cloud-Based Multi-Factor Authentication</a>
+</li>
+<li>
+<a href=""/solutions/mobile-authentication"">Mobile Authentication</a>
+</li>
+<li>
+<a href=""/solutions/digital-dna"">Digital DNA</a>
+</li>
+<li>
+<a href=""/solutions/two-factor-authentication"">Two Factor Authentication</a>
+</li>
+<li>
+<a href=""/solutions/digital-certificates"">Digital Certificates</a>
+</li>
+<li>
+<a href=""/solutions/employee-id"">Employee ID Solutions</a>
+</li>
+<li>
+<a href=""/solutions/iotrust"">ioTrust™ Security Solutions</a>
+</li>
+</ul>
+</div>
+<div class=""submenu-section"">
+<div class=""submenu-section-title"">
+Government
+<i class=""material-icons icn-add"">add</i>
+<i class=""material-icons icn-remove"">remove</i>
+</div>
+<ul class=""submenu-list"">
+<li>
+<a href=""/solutions/citizen-id"">Citizen ID Issuance and Management</a>
+</li>
+<li>
+<a href=""/solutions/derived-piv-credentials"">Derived PIV/CAC Credential</a>
+</li>
+<li>
+<a href=""/solutions/border-control"">Border Control Solutions</a>
+</li>
+<li>
+<a href=""/solutions/e-government"">e-Government</a>
+</li>
+<li>
+<a href=""/solutions/credential-lifecycle-management"">Credential Lifecycle Management</a>
+</li>
+</ul>
+</div>
+<div class=""submenu-section"">
+<div class=""submenu-section-title"">
+Insights
+<i class=""material-icons icn-add"">add</i>
+<i class=""material-icons icn-remove"">remove</i>
+</div>
+<ul class=""submenu-list"">
+<li>
+<a href=""/insights/branch-of-the-future"">Branch of the Future</a>
+</li>
+<li>
+<a href=""/insights/evolution-of-identity"">Evolution of Identity</a>
+</li>
+<li>
+<a href=""/insights/border-security"">Border Security</a>
+</li>
+<li>
+<a href=""/insights/personalized-debit-and-credit-cards"">Personalized Debit And Credit Cards</a>
+</li>
+</ul>
+</div>
+<div class=""submenu-section"">
+<div class=""submenu-section-title"">
+Markets
+<i class=""material-icons icn-add"">add</i>
+<i class=""material-icons icn-remove"">remove</i>
+ </div>
+<ul class=""submenu-list"">
+<li>
+<a href=""/markets/financial"">Financial</a>
+</li>
+<li>
+<a href=""/markets/corporate"">Corporate</a>
+</li>
+<li>
+<a href=""/markets/government"">Government</a>
+</li>
+<li>
+<a href=""/markets/education"">Education</a>
+</li>
+<li>
+<a href=""/markets/healthcare"">HealthCare</a>
+</li>
+<li>
+<a href=""/markets/retail"">Retail</a>
+</li>
+<li>
+<a href=""/markets/transit"">Transit</a>
+</li>
+<li>
+<a href=""/markets/loyalty-and-memberships"">Loyalty and Memberships</a>
+</li>
+<li>
+<a href=""/markets/telecommunications"">Telecommunications</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</li>
+<li>
+<a class=""slideout-toplevel slideout-parent"" href="""">
+Products <i class=""material-icons"">navigate_next</i>
+</a>
+
+<div class=""submenu"">
+<div class=""submenu-inner"">
+<div class=""submenu-exit"">
+<i class=""material-icons"">chevron_left</i> Products
+</div>
+<div class=""submenu-section"">
+<div class=""submenu-section-title"">
+Product Categories
+<i class=""material-icons icn-add"">add</i>
+<i class=""material-icons icn-remove"">remove</i>
+</div>
+<ul class=""submenu-list"">
+<li>
+<a href=""/products/categories/ssl-certificates"">SSL Certificates</a>
+</li>
+<li>
+<a href=""/products/categories/id-card-printers"">ID Card Printers</a>
+</li>
+<li>
+<a href=""/products/categories/authentication"">Authentication</a>
+</li>
+<li>
+<a href=""/products/categories/digital-signing-certificates"">Digital Signing Certificates</a>
+</li>
+<li>
+<a href=""/products/categories/financial-card-printers"">Financial Card Printers</a>
+</li>
+<li>
+<a href=""/products/categories/iotrust"">ioTrust™ IoT Security</a>
+</li>
+<li>
+<a href=""/products/categories/central-card-issuance"">Central Card Issuance</a>
+</li>
+<li>
+<a href=""/products/categories/pki"">PKI (Public Key Infrastructure)</a>
+</li>
+<li>
+<a href=""/products/categories/passport-systems"">Passport Systems</a>
+</li>
+<li>
+<a href=""/products/categories/software"">Software</a>
+</li>
+<li>
+<a href=""/products/categories/accessories"">Accessories</a>
+</li>
+<li>
+<a href=""/products/categories/supplies"">Supplies</a>
+</li>
+<li>
+<a href=""/products/categories/sms-passcode"">SMS Passcode</a>
+</li>
+</ul>
+</div>
+<div class=""submenu-section"">
+<a class=""submenu-cat"" href=""/products/productindex"">Product Index</a>
+</div>
+</div>
+</div>
+</li>
+<li>
+ <a class=""slideout-toplevel slideout-parent"" href="""">
+Resource Center <i class=""material-icons"">navigate_next</i>
+</a>
+
+<div class=""submenu"">
+<div class=""submenu-inner"">
+<div class=""submenu-exit"">
+<i class=""material-icons"">chevron_left</i> Resource Center
+</div>
+<div class=""submenu-section"">
+<div class=""submenu-section-title"">
+Documents
+<i class=""material-icons icn-add"">add</i>
+<i class=""material-icons icn-remove"">remove</i>
+</div>
+<ul class=""submenu-list"">
+<li>
+<a href=""/resource-center/documents/documentation"">Documentation</a>
+</li>
+<li>
+<a href=""/resource-center/documents/solutions-brochures"">Solutions Brochures</a>
+</li>
+<li>
+<a href=""/resource-center/documents/case-studies"">Case Studies</a>
+</li>
+<li>
+<a href=""/resource-center/documents/use-cases"">Use Cases</a>
+</li>
+<li>
+<a href=""/resource-center/documents/user-guides"">User Guides</a>
+</li>
+<li>
+<a href=""/resource-center/documents/data-sheet"">Data Sheets</a>
+</li>
+<li>
+<a href=""/resource-center/documents/whitepapers"">White Papers</a>
+</li>
+</ul>
+</div>
+<div class=""submenu-section"">
+<a class=""submenu-cat"" href=""/resource-center/certificate-services-support"">Certificate Services Support</a>
+</div>
+<div class=""submenu-section"">
+<a class=""submenu-cat"" href=""/resource-center/drivers-and-downloads"">Drivers &amp; Downloads</a>
+</div>
+<div class=""submenu-section"">
+<a class=""submenu-cat"" href=""/resource-center/tools"">Tools</a>
+</div>
+<div class=""submenu-section"">
+<a class=""submenu-cat"" href=""/resource-center/developer-apis"">Developer APIs</a>
+</div>
+<div class=""submenu-section"">
+<a class=""submenu-cat"" href=""/resource-center/installation"">Installation Documentation</a>
+</div>
+<div class=""submenu-section"">
+<a class=""submenu-cat"" href=""/resource-center/licensing-and-agreements"">Licensing &amp; Agreements</a>
+</div>
+<div class=""submenu-section"">
+<a class=""submenu-cat"" href=""/resource-center/training"">Training </a>
+</div>
+<div class=""submenu-section"">
+<a class=""submenu-cat"" href=""/resource-center/videos"">Videos</a>
+</div>
+</div>
+</div>
+</li>
+<li>
+<a class=""slideout-toplevel slideout-parent"" href="""">
+About <i class=""material-icons"">navigate_next</i>
+</a>
+
+<div class=""submenu"">
+<div class=""submenu-inner"">
+<div class=""submenu-exit"">
+<i class=""material-icons"">chevron_left</i> About
+</div>
+<div class=""submenu-section"">
+<div class=""submenu-section-title"">
+News Room
+<i class=""material-icons icn-add"">add</i>
+<i class=""material-icons icn-remove"">remove</i>
+</div>
+<ul class=""submenu-list"">
+<li>
+<a href=""/about/newsroom/overview"">News Room Overview</a>
+</li>
+<li>
+<a href=""/about/newsroom/news-articles"">News Articles</a>
+</li>
+<li>
+<a href=""/about/newsroom/press-releases"">Press Releases</a>
+</li>
+<li>
+<a href=""/blog"">Blog</a>
+</li>
+</ul>
+</div>
+<div class=""submenu-section"">
+<a class=""submenu-cat"" href=""/about/overview"">Overview</a>
+</div>
+<div class=""submenu-section"">
+<a class=""submenu-cat"" href=""/about/events"">Events</a>
+</div>
+<div class=""submenu-section"">
+<a class=""submenu-cat"" href=""/about/careers"">Careers</a>
+</div>
+<div class=""submenu-section"">
+<a class=""submenu-cat"" href=""/about/partners"">Our Partners</a>
+</div>
+<div class=""submenu-section"">
+<a class=""submenu-cat"" href=""/about/contact"">Contact Us</a>
+</div>
+</div>
+</div>
+</li>
+<li>
+<a class=""slideout-toplevel"" href=""/about/careers"">Careers</a>
+</li>
+<li>
+<a class=""slideout-toplevel slideout-parent"" href="""">
+Buy <i class=""material-icons"">navigate_next</i>
+</a>
+
+<div class=""submenu submenu-language"">
+<div class=""submenu-inner"">
+<div class=""submenu-exit"">
+<i class=""material-icons"">chevron_left</i> Buy
+</div>
+<ul class=""submenu-list"">
+<li>
+<a href=""https://estore.entrustdatacard.com/"" target=""_blank"">Financial Instant Issuance Supplies</a>
+</li>
+<li>
+<a href="" https://estore.entrustdatacard.com/ppp/customer/account/login/"" target=""_blank"">PartnerPlus Private Store</a>
+</li>
+<li>
+<a href=""https://buy.entrust.net/index.html#/quoteOrder"" target=""_blank"">Digital Certificates</a>
+</li>
+</ul>
+</div>
+</div>
+
+</li>
+<li>
+<a class=""slideout-toplevel slideout-parent"" href="""">
+Language <i class=""material-icons Sitesync_No_Translate_ALL"">navigate_next</i>
+</a>
+
+<div class=""submenu submenu-language"">
+<div class=""submenu-inner"">
+<div class=""submenu-exit"">
+<i class=""material-icons Sitesync_No_Translate_ALL"">chevron_left</i> Language
+</div>
+<ul class=""submenu-list Sitesync_No_Translate_ALL"">
+<li>
+<a href=""https://www.entrustdatacard.com"" target=""_blank"">English</a>
+</li>
+<li>
+<a href=""https://entrustdatacard.com.cn/"" target=""_blank"">中文</a>
+</li>
+<li>
+<a href=""https://www.datacard.com.br"" target=""_blank"">Portugu&#234;s (Brasil)</a>
+</li>
+<li>
+<a href=""https://www.datacard.fr"" target=""_blank"">Fran&#231;ais (EU)</a>
+</li>
+<li>
+<a href=""https://www.datacard.de"" target=""_blank"">Deutsch</a>
+</li>
+<li>
+<a href=""http://www.entrustdatacard.co.kr"" target=""_blank"">한국어</a>
+</li>
+<li>
+<a href=""https://www.datacardgroup.ru"" target=""_blank"">Русский</a>
+</li>
+<li>
+<a href=""https://lac.entrustdatacard.com"" target=""_blank"">Espa&#241;ol (America latina)</a>
+</li>
+<li>
+<a href=""https://www.datacard.co.jp"" target=""_blank"">日本語 – Datacard</a>
+</li>
+<li>
+<a href=""https://japan.entrust.com"" target=""_blank"">日本語 – Entrust</a>
+</li>
+</ul>
+</div>
+</div>
+
+</li>
+<li>
+<a class=""slideout-toplevel slideout-parent"" href="""">
+Customer &amp; Partner Logins <i class=""material-icons inline-icon"">lock</i> <i class=""material-icons"">navigate_next</i>
+</a>
+
+<div class=""submenu submenu-language"">
+<div class=""submenu-inner"">
+<div class=""submenu-exit"">
+<i class=""material-icons"">chevron_left</i> Customer &amp; Partner Logins
+</div>
+<ul class=""submenu-list"">
+<li>
+<a href=""https://cloud.entrust.net/"" target=""_blank"">Entrust Certificate Services Portal</a>
+</li>
+<li>
+<a href=""https://trustedcare.entrustdatacard.com/"" target=""_blank"">TrustedCare</a>
+</li>
+<li>
+<a href=""https://partners.entrust.net/"" target=""_blank"">SSL Partner Ordering Portal</a>
+</li>
+<li>
+<a href=""https://partnerlink.entrust.com/"" target=""_blank"">PartnerLink</a>
+</li>
+<li>
+<a href=""https://www.partnerpage.com/"" target=""_blank"">PartnerPage</a>
+</li>
+</ul>
+</div>
+</div>
+
+</li>
+<li>
+<a class=""slideout-toplevel"" href=""/pages/contact-support"">
+ Contact Support
+</a>
+</li>
+<li>
+<a class=""btn btn-large liveagent_button_online"" name=""liveagent_button_online"" href=""javascript://Chat"" style=""display: none;"" onclick=""liveagent.startChat('573140000000TS8')"">
+CHAT WITH SALES<i class=""material-icons md-24"">chat bubble</i>
+</a>
+<div class=""btn btn-large btn-chat liveagent_button_offline"" name=""liveagent_button_offline"" style=""display: none;"">
+CHAT WITH SALES<i class=""material-icons md-24"">chat bubble</i>
+</div>
+</li>
+<li>
+<a class=""btn btn-large"" href=""/about/contact"">
+CONTACT SALES <i class=""material-icons md-24"">description</i>
+</a>
+</li>
+<li>
+<span class=""btn btn-large phone-number"">
+1-888-690-2424 <i class=""material-icons md-24"">phone</i>
+</span>
+</li>
+</ul>
+</div>
+</div>
+
+<section class=""kb-product-banner product-banner bg-gray"">
+<div class=""container"">
+<div class=""row"">
+<div class=""col-sm-12"">
+<h1 class=""product-title"">
+Certificate Services Support
+</h1>
+<form action=""/knowledgebase/search"" method=""get"">
+<div class=""row kb-search"" style=""padding:0;"">
+<div class=""col-md-6"">
+<input type=""text"" id=""knowledge-base-search-box"" name=""keyword"" />
+<button type=""submit""><i class=""material-icons"">search</i></button>
+</div>
+<div class=""col-md-6"">
+<div class=""kb-filters"">
+<p>Refine search by:</p>
+<select id=""productTypes"" name=""productType"" style=""width:auto; float:left; padding-right:50px; margin-right:20px;"">
+<option value="""">All Product Types</option>
+<option value=""Secure Email"">Secure Email</option>
+<option value=""Signing Certificates"">Signing Certificates</option>
+<option value=""SSL Certificates"">SSL Certificates</option>
+</select>
+<select id=""serverTypes"" name=""serverType"" style=""width:auto; float:left; padding-right:50px; margin-right:20px;"">
+<option value="""">All Server Types</option>
+<option value=""All"">All</option>
+<option value=""Apache/OpenSSL (Linux)"">Apache/OpenSSL (Linux)</option>
+<option value=""Apache/OpenSSL (Windows)"">Apache/OpenSSL (Windows)</option>
+<option value=""Barracuda"">Barracuda</option>
+<option value=""CheckPoint"">CheckPoint</option>
+<option value=""Cisco"">Cisco</option>
+<option value=""Citrix"">Citrix</option>
+<option value=""cPanel"">cPanel</option>
+<option value=""F5"">F5</option>
+<option value=""iPlanet"">iPlanet</option>
+<option value=""Juniper"">Juniper</option>
+<option value=""Lotus Domino"">Lotus Domino</option>
+<option value=""Mac OSX"">Mac OSX</option>
+ <option value=""Microsoft"">Microsoft</option>
+<option value=""Microsoft Exchange"">Microsoft Exchange</option>
+<option value=""Microsoft IIS"">Microsoft IIS</option>
+<option value=""N/A"">N/A</option>
+<option value=""NGINX"">NGINX</option>
+<option value=""Oracle"">Oracle</option>
+<option value=""Other"">Other</option>
+<option value=""Plesk Admin"">Plesk Admin</option>
+<option value=""SAP"">SAP</option>
+<option value=""Sun Java Web Server"">Sun Java Web Server</option>
+<option value=""Tomcat (Java Keystore)"">Tomcat (Java Keystore)</option>
+<option value=""Weblogic"">Weblogic</option>
+</select>
+</div>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+<div class=""kb-content-wrapper kb-home"">
+<div class=""container"">
+<div class=""row"">
+<div class=""col-md-3 kb-category-block"">
+<a href=""/knowledgebase/category-ssl"">
+<img src=""/-/media/images/knowledge-base/kb-icon-shield.png?h=91&amp;la=en&amp;w=75&amp;hash=2389D3917493306706F9048D37E11F89"" class=""kb-category-icon"" alt=""kb-icon-shield"" width=""75"" height=""91"" />
+<h2>SSL / TLS Certificates</h2>
+</a>
+</div>
+<div class=""col-md-3 kb-category-block"">
+<a href=""/knowledgebase/category-digital-signing-certificates"">
+<img src=""/-/media/images/knowledge-base/kb-icon-ribbon.png?h=89&amp;la=en&amp;w=75&amp;hash=AEE1C93841A2C8E6457CD78FA2349908"" class=""kb-category-icon"" alt=""kb-icon-ribbon"" width=""75"" height=""89"" />
+<h2>Digital Signing Certificates</h2>
+</a>
+</div>
+<div class=""col-md-3 kb-category-block"">
+<a href=""/knowledgebase/category-secure-email-certificates"">
+<img src=""/-/media/images/knowledge-base/kb-icon-arrows.png?h=69&amp;la=en&amp;w=65&amp;hash=CBFEBBA60EB264B5CB8E9A2FE1F12173"" class=""kb-category-icon"" alt=""kb-icon-arrows"" width=""65"" height=""69"" />
+<h2>Secure Email Certificates</h2>
+</a>
+</div>
+<div class=""col-md-3"">
+<div class=""kb-contact-support"">
+<h3>Contact Support</h3>
+<ul class=""kb-support"">
+<li class=""kb-support"">
+<a id=""liveagent_button_online_573140000000TS3"" href=""javascript://Chat"" style=""display: none;"" onclick=""liveagent.startChat('573140000000TS3')"">Chat Now <i class=""material-icons"">chat_bubble</i></a>
+<a id=""liveagent_button_offline_573140000000TS3"" style=""display: none; color: #ccc;"">Chat Offline <i class=""material-icons"" style=""color:inherit;"">chat_bubble</i></a>
+</li>
+<li class=""kb-support"">1-866-267-9297 <i class=""material-icons"">smartphone</i></li>
+<li class=""kb-support""><small>Sunday 8:00pm to Friday 8:00pm (EST)</small></li>
+<li class=""kb-support""><a href=""/resource-center/certificate-services-support/contact"">Global Directory <i class=""material-icons"">language</i></a></li>
+<li class=""kb-support""><a href=""/cdn-cgi/l/email-protection#c0858393ee93b5b0b0afb2b480a5aeb4b2b5b3b4a4a1b4a1a3a1b2a4eea3afad"">Email Support <i class=""material-icons"">email</i></a></li>
+</ul>
+</div>
+<script data-cfasync=""false"" src=""/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js""></script><script type=""text/javascript"">
+    if (!window._laq) { window._laq = []; }
+    window._laq.push(function () {
+        liveagent.showWhenOnline('573140000000TS3', document.getElementById('liveagent_button_online_573140000000TS3'));
+        liveagent.showWhenOffline('573140000000TS3', document.getElementById('liveagent_button_offline_573140000000TS3'));
+    });
+</script>
+</div>
+</div>
+<div class=""row"">
+<div class=""col-md-6 kb-home-popular-articles"">
+<div class=""kb-icon-header"">
+<svg xmlns=""http://www.w3.org/2000/svg"" xmlns:xlink=""http://www.w3.org/1999/xlink"" version=""1.1"" id=""Layer_1"" x=""0px"" y=""0px"" viewBox=""0 0 30 30"" xml:space=""preserve"">
+<g>
+<defs>
+<rect id=""SVGID_1_"" x=""3.7"" y=""3.4"" width=""22.6"" height=""23.2"" />
+</defs>
+<clipPath id=""SVGID_2_"">
+<use xlink:href=""#SVGID_1_"" style=""overflow:visible;"" />
+</clipPath>
+<g class=""st0"">
+<path class=""st1"" d=""M7.7,26.6c-0.2,0-0.4-0.1-0.5-0.4l-3.5-12c-0.1-0.3,0-0.5,0.3-0.6l6-1.8c0.1,0,0.3,0,0.4,0    c0.1,0.1,0.2,0.2,0.2,0.3l3.5,12c0.1,0.3-0.1,0.5-0.3,0.6c0,0,0,0,0,0L7.7,26.6L7.7,26.6 M4.8,14.4l3.2,11l5.1-1.4L9.9,13    L4.8,14.4z"" />
+<path class=""st1"" d=""M20.9,21.8c-0.2,0-0.5,0-0.7,0c-0.6-0.1-1.5-0.2-2.6-0.2L16,21.4c-1.1-0.1-2.2-0.1-3.2,0.1    c-0.3,0.1-0.5-0.1-0.6-0.3L10,13.9c-0.1-0.2,0-0.4,0.2-0.5c1.7-1.4,3.2-3.1,4.4-5C14.9,7.2,15,6,14.9,4.8c0-0.3,0.1-0.6,0.3-0.8    c0.5-0.4,1.1-0.6,1.8-0.6c0.4,0,0.8,0.2,1.1,0.6c0.8,1.2,1.2,2.7,0.9,4.1c0,0.2-0.1,0.5-0.1,0.8s0,0.3-0.1,0.5c0,0.3,0,0.7,0,1    s1.5,0.6,4.4,0.6h0.4c1.6,0,2.8,1.2,2.8,2.8c0,0,0,0,0,0c0,0.7-0.2,1.3-0.7,1.8c0.1,0.3,0.1,0.5,0.1,0.8c-0.1,0.7-0.4,1.3-1,1.7    c0,0.1,0,0.2,0,0.2c-0.1,0.9-0.6,1.6-1.4,2c0,0.1-0.1,0.2-0.1,0.4C23,21.4,22.2,21.8,20.9,21.8 M14.6,20.3c0.5,0,1,0,1.5,0.1    l1.5,0.1c1.1,0.1,2,0.2,2.6,0.2c0.2,0,0.4,0,0.6,0c0.3,0,1.3,0,1.4-0.5c0-0.1,0.1-0.3,0.1-0.4c0-0.2,0.1-0.4,0.3-0.4    c0.6-0.2,1-0.7,1-1.3c0-0.1,0-0.2,0-0.3c0-0.2,0.1-0.4,0.2-0.5c0.4-0.2,0.7-0.7,0.7-1.2c0-0.2,0-0.5-0.1-0.7    c-0.1-0.2,0-0.4,0.1-0.6c0.4-0.3,0.6-0.8,0.6-1.3c0-1-0.8-1.8-1.8-1.8h-0.4c-1.9,0-4.3-0.2-5.1-0.9c-0.2-0.2-0.3-0.4-0.3-0.7    c0-0.3,0-0.6,0-1c0-0.2,0-0.4,0.1-0.5s0.1-0.5,0.1-0.7c0.2-1.2,0-2.4-0.7-3.3c-0.1-0.1-0.2-0.2-0.3-0.2c-0.4,0-1,0.2-1,0.3    c0.1,1.3,0,2.7-0.3,4c-1.2,1.9-2.7,3.7-4.5,5.2l1.8,6.6C13.5,20.4,14,20.3,14.6,20.3"" />
+</g>
+</g>
+</svg>
+</div>
+<h3>Popular Support Articles</h3>
+<ul class=""kb-links-list"">
+<li><a href=""/knowledgebase/how-to-generate-ecc-certificate-signing-request-using-microsoft-management-console-mmc-on-microsoft-windows-2012"">How to generate Certificate Signing Request using Microsoft Management Console (MMC) on Windows 2012</a></li>
+<li><a href=""/knowledgebase/best-practices-for-code-signing-certificates"">Best Practices for Code Signing certificates</a></li>
+<li><a href=""/knowledgebase/ssl-tls-certificate-installation-guide-tomcat"">Entrust Datacard SSL/TLS Certificate Installation Guide - Tomcat</a></li>
+<li><a href=""/knowledgebase/multifactor-authentication-faq"">Multifactor Authentication - FAQ</a></li>
+<li><a href=""/knowledgebase/how-do-i-convert-a-pfx-to-be-used-with-an-apache-server"">How do I convert a .pfx to be used with an Apache server?</a></li>
+</ul>
+</div>
+<div class=""col-md-3 kb-home-ssl-tools"">
+<div class=""kb-icon-header"">
+<svg xmlns=""http://www.w3.org/2000/svg"" xmlns:xlink=""http://www.w3.org/1999/xlink"" version=""1.1"" id=""Layer_1"" x=""0px"" y=""0px"" viewBox=""0 0 30 30"" style=""enable-background:new 0 0 30 30;"" xml:space=""preserve"">
+<g id=""Layer_2"">
+<g id=""Layer_3"">
+<path class=""st0"" d=""M13.6,25.9c-0.3,0-0.5-0.2-0.5-0.5c0-0.1,0-0.1,0-0.2c0.8-2,0.6-4.3-0.7-6.1c-0.3,0-0.7-0.1-1-0.1    c-0.2,0-0.3-0.2-0.4-0.4c-0.1-0.3-0.1-0.7-0.1-1c-1.8-1.3-4.1-1.5-6.1-0.7c-0.2,0.2-0.5,0.1-0.7-0.1c-0.1-0.2-0.1-0.4,0-0.6    c0.4-0.8,0.9-1.6,1.6-2.2c1.6-1.6,3.9-2.3,6.1-2c0.6-1.5,1.6-2.9,2.7-4c2.3-2.3,5.4-3.7,8.6-3.8c0.7,0,1.3,0.1,2,0.2    c0.2,0,0.3,0.2,0.4,0.4c0.7,3.9-0.6,7.9-3.5,10.7c-1.1,1.2-2.5,2.1-4,2.7c0.3,2.2-0.4,4.5-2,6.1c-0.6,0.7-1.4,1.2-2.3,1.5    C13.8,25.8,13.8,25.8,13.6,25.9L13.6,25.9z M12,18c0.2,0,0.5,0.1,0.8,0.1c0.1,0,0.3,0.1,0.4,0.2c1.3,1.7,1.8,3.9,1.3,6    c0.3-0.2,0.6-0.5,0.9-0.8c1.5-1.5,2.1-3.6,1.7-5.6c-0.1-0.2,0.1-0.5,0.3-0.6c1.5-0.6,2.9-1.5,4.1-2.7c2.5-2.4,3.8-5.9,3.3-9.4    c-3.5-0.4-7,0.8-9.4,3.3c-1.2,1.2-2.1,2.6-2.7,4.1c-0.1,0.2-0.3,0.4-0.6,0.3c-2-0.4-4.2,0.2-5.6,1.7c-0.3,0.3-0.5,0.6-0.8,0.9    c2.1-0.4,4.3,0,6,1.3c0.1,0.1,0.2,0.2,0.2,0.4C11.9,17.5,11.9,17.8,12,18L12,18z"" />
+<path class=""st0"" d=""M19.9,12.6c-1.4,0-2.5-1.1-2.5-2.5c0-0.7,0.3-1.3,0.7-1.8c1-0.9,2.6-0.9,3.5,0c1,1,1,2.6,0,3.5    C21.2,12.3,20.6,12.6,19.9,12.6L19.9,12.6z M19.9,8.6c-0.8,0-1.5,0.6-1.5,1.5c0,0.4,0.2,0.8,0.5,1.1c0.6,0.6,1.5,0.6,2.1,0    c0.6-0.6,0.6-1.5,0-2.1C20.7,8.7,20.3,8.6,19.9,8.6L19.9,8.6z"" />
+<path class=""st0"" d=""M8.6,22.9c-0.3,0-0.7,0-1-0.1c-0.2,0-0.4-0.2-0.4-0.4c-0.3-2.2,0.4-4.3,2-5.8c0.2-0.2,0.5-0.2,0.7,0    s0.2,0.5,0,0.7c-1.2,1.2-1.8,2.9-1.7,4.6c1.7,0.1,3.4-0.5,4.6-1.8c0.2-0.2,0.5-0.2,0.7,0c0.2,0.2,0.2,0.5,0,0.7    C12.1,22.2,10.4,22.9,8.6,22.9L8.6,22.9z"" />
+</g>
+</g>
+</svg>
+</div>
+<h3>Certificate Tools</h3>
+<ul class=""kb-links-list"">
+<li><a rel=""noopener noreferrer"" href=""https://entrust.ssllabs.com/"" target=""_blank"">SSL Server Test</a></li>
+<li><a rel=""noopener noreferrer"" href=""https://www.entrust.com/ct-search/"" target=""_blank"">Certificate Transparency (CT) Search</a></li>
+<li><a rel=""noopener noreferrer"" href=""http://www.entrust.net/ssl-technical/revoked.cfm"" target=""_blank"">Certificate Revocation List</a></li>
+<li><a href=""https://www.entrust.net/customer/revoke_form.cfm"">Revoke a Certificate</a></li>
+<li><a rel=""noopener noreferrer"" href=""https://www.entrust.net/ev/misuse.cfm"" target=""_blank"">EV Misuse Form</a></li>
+</ul>
+<p>
+<a class=""arrow-link"" href=""/resource-center/tools"">View All <i class=""material-icons"">navigate_next</i></a></p>
+</div>
+<div class=""col-md-3 kb-home-whitepapers"">
+<div class=""kb-icon-header"">
+<svg xmlns=""http://www.w3.org/2000/svg"" xmlns:xlink=""http://www.w3.org/1999/xlink"" version=""1.1"" id=""Layer_1"" x=""0px"" y=""0px"" viewBox=""0 0 25 25"" style=""enable-background:new 0 0 25 25;"" xml:space=""preserve"">
+<g id=""Layer_2"">
+<g id=""Layer_1-2"">
+<path class=""st0"" d=""M16.1,24.7c-0.3,0-0.5-0.2-0.5-0.5v-6c0-0.3,0.2-0.5,0.5-0.5h6c0.3,0,0.5,0.2,0.5,0.5s-0.2,0.5-0.5,0.5h-5.5    v5.5C16.6,24.5,16.3,24.8,16.1,24.7L16.1,24.7z"" />
+<path class=""st0"" d=""M16.1,24.7H5.7c-0.3,0-0.5-0.2-0.5-0.5V3.7c0-0.3,0.2-0.5,0.5-0.5h16.3c0.3,0,0.5,0.2,0.5,0.5v14.5    c0,0.1-0.1,0.3-0.1,0.3l-6,6C16.3,24.7,16.2,24.8,16.1,24.7L16.1,24.7z M6.2,23.7h9.6l5.7-5.7V4.3H6.2C6.2,4.3,6.2,23.7,6.2,23.7z    "" />
+<path class=""st0"" d=""M15,8H9.1C8.8,8,8.6,7.8,8.6,7.5S8.8,7,9.1,7H15c0.3,0,0.5,0.2,0.5,0.5S15.3,8,15,8z"" />
+<path class=""st0"" d=""M18.9,10.4H9.1c-0.3,0-0.5-0.2-0.5-0.5s0.2-0.5,0.5-0.5h9.8c0.3,0,0.5,0.2,0.5,0.5S19.1,10.4,18.9,10.4z"" />
+<path class=""st0"" d=""M18.9,12.8H9.1c-0.3,0-0.5-0.2-0.5-0.5s0.2-0.5,0.5-0.5h9.8c0.3,0,0.5,0.2,0.5,0.5S19.1,12.8,18.9,12.8z"" />
+<path class=""st0"" d=""M13.2,15.3H9.1c-0.3,0-0.5-0.2-0.5-0.5s0.2-0.5,0.5-0.5h4.1c0.3,0,0.5,0.2,0.5,0.5S13.5,15.3,13.2,15.3z"" />
+<path class=""st0"" d=""M2.9,22.4c-0.3,0-0.5-0.2-0.5-0.5V1.8c0-0.8,0.7-1.5,1.5-1.5h15.3c0.3,0,0.5,0.2,0.5,0.5s-0.2,0.5-0.5,0.5    H3.9c-0.3,0-0.5,0.2-0.5,0.5v20.1C3.4,22.2,3.2,22.4,2.9,22.4z"" />
+</g>
+</g>
+</svg>
+</div>
+<h3>White Papers</h3>
+<ul class=""kb-links-list"">
+<li><a rel=""noopener noreferrer"" href=""https://www.entrustdatacard.com/-/media/documentation/userguides/ecs_getting-started-pdf-signing-guide.pdf"" target=""_blank"">Document Signing Certificate Getting Started Guide</a></li>
+<li><a rel=""noopener noreferrer"" href=""https://www.entrustdatacard.com/-/media/documentation/userguides/ecs_getting_started_code_signing_guide.pdf"" target=""_blank"">Code Signing and EV Code Signing Guide</a></li>
+<li><a rel=""noopener noreferrer"" href=""https://www.entrustdatacard.com/-/media/documentation/userguides/ecs_ev_auth_code_signing_guide.pdf"" target=""_blank"">EV Code Signing Certificate Authenticode Signing Guide</a></li>
+<li><a rel=""noopener noreferrer"" href=""https://www.entrustdatacard.com/-/media/documentation/userguides/ecs_11_java_code_signing_guide.pdf"" target=""_blank"">EV Code Signing Certificate Java Code Signing Guide</a></li>
+</ul>
+</div>
+</div>
+<div class=""row"">
+<div class=""col-md-6 kb-home-blog"">
+<div class=""rte"" style=""padding-top: 0px; padding-bottom: 20px; color: #1e1e1e"">
+<div class=""result"" data-itemid=""{0B04A11D-4F90-444D-84E1-1D4FFE11671A}"">
+<div class=""card card-plain shadow"">
+<div class=""card-inner has-thumbnail"">
+<img src=""-/media/images/social/blog-images/2018/chrome-will-shot-not-securesearch.jpg"" class=""card-thumbnail"">
+<div class=""card-tags"">
+<span style=""color:#C7446C"">Blog</span>
+</div>
+<div class=""card-heading"">
+<h3 class=""card-title"">
+<a href=""/blog/2018/march/chrome-will-show-not-secure-for-all-http-sites-starting-july-2018"" target="""">
+Chrome Will Show Not Secure for all HTTP Sites Starting July 2018
+</a>
+</h3>
+</div>
+<div class=""card-body"">
+<div class=""row post-excerpt-meta"">
+<div class=""col-sm-8"">
+<h3>By Bruce Morton</h3>
+</div>
+<div class=""col-sm-4"">
+<h3 class=""text-right"">March 09, 2018</h3>
+</div>
+</div>
+In Chrome 68, which will be released in July 2018, we can expect “Not secure” to be provided for all HTTP pages.
+</div>
+</div>
+</div>
+<div class=""card-footer"">
+<a class=""arrow-link"" href=""/blog/2018/march/chrome-will-show-not-secure-for-all-http-sites-starting-july-2018"" target="""">
+Read <i class=""material-icons"">navigate_next</i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class=""col-md-3 kb-home-video"">
+<div class=""rte"" style=""padding-top: 0px; padding-bottom: 20px; color: #1e1e1e"">
+<div class=""result"" data-itemid=""{706BAC68-9B14-4974-9751-7ACE72882A8B}"">
+<div class=""card card-plain shadow"">
+<div class=""card-inner"">
+<a href=""https://www.youtube.com/watch?v=-cFDqhNRbcQ&feature=youtu.be"" target=""_blank""><img src=""/-/media/images/knowledge-base/kb-video-thumb-01.png?la=en&amp;hash=BFB8251EBA2664E3925ABB963542A73C"" class=""kb-home-video-thumb"" style=""display:block; margin-bottom:10px;""></a>
+<div class=""card-heading"">
+<h3 class=""card-title"" style=""font-size:12px;"">
+<a href=""https://www.youtube.com/watch?v=-cFDqhNRbcQ&feature=youtu.be"" target=""_blank"">
+How to recover an SSL/TLS certificate private key in an IIS environment
+</a>
+</h3>
+</div>
+</div>
+</div>
+<div class=""card-footer"">
+<a class=""arrow-link"" href=""https://www.youtube.com/watch?v=-cFDqhNRbcQ&feature=youtu.be"" target=""_blank"">
+Watch <i class=""material-icons"">navigate_next</i>
+</a>
+</div>
+ </div>
+</div>
+</div>
+<div class=""col-md-3"">
+<ul class=""kb-links-list"">
+<li><a class=""arrow-link"" href=""https://login.entrust.net/IdentityGuardFederation/authentication/firstFactorAuthentication"">Customer Login <i class=""material-icons"">navigate_next</i></a></li>
+<li><a class=""arrow-link"" href=""/knowledgebase/ssl/comparison-chart"">Compare SSL Certificates <i class=""material-icons"">navigate_next</i></a></li>
+<li><a class=""arrow-link"" href=""https://login.entrust.net/IdentityGuardFederation/authentication/firstFactorAuthentication"">Check Order Status <i class=""material-icons"">navigate_next</i></a></li>
+<li><a class=""arrow-link"" href=""/pages/digital-certificate-faq"">FAQ <i class=""material-icons"">navigate_next</i></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<footer>
+<div class=""topfooter"">
+<div class=""container footer-about"">
+<a href=""https://www.entrust.net/customer/profile.cfm?domain=www.entrustdatacard.com&amp;amp;lang=en"" target=""_blank"" style=""position: relative;"">
+<img src=""/-/media/images/library/logos/entrust_site_seal.png"" alt=""entrust_site_seal"" style=""border: 0px;max-width: 100%;width: auto;float: left;margin-right: 20px;"">
+</a>
+<h4>ABOUT ENTRUST DATACARD CORPORATION</h4>
+<p>
+Consumers, citizens and employees increasingly expect anywhere-anytime
+experiences—whether they are making purchases, crossing borders,
+accessing e-gov services or logging onto corporate networks. Entrust
+Datacard offers the trusted identity and secure transaction technologies
+that make those experiences reliable and secure. Solutions range from
+the physical world of financial cards, passports and ID cards to the
+digital realm of authentication, certificates and secure communications.
+</p>
+</div>
+</div>
+<div class=""subfooter cf"">
+<div class=""subfooter-container cf"">
+<nav class=""social-nav"">
+<ul class=""social-nav-list"">
+<li>
+<a href=""https://twitter.com/EntrustDatacard"">
+<img src=""/images/assets/soc-twitter.svg"" alt=""Twitter"">
+</a>
+</li>
+<li>
+<a href=""https://www.facebook.com/EntrustDatacard/"">
+<img src=""/images/assets/soc-facebook.svg"" alt=""FaceBook"">
+</a>
+</li>
+<li>
+<a href=""https://www.linkedin.com/company/entrustdatacard/"">
+<img src=""/images/assets/soc-linkedin.svg"" alt=""LinkedIn"">
+</a>
+</li>
+<li>
+<a href=""https://www.youtube.com/user/datacardgrp"">
+<img src=""/images/assets/soc-youtube.svg"" alt=""YouTube"">
+</a>
+</li>
+<li>
+<a href=""/blog"">
+<img src=""/images/assets/soc-rss.svg"" alt=""Rss Feed"">
+</a>
+</li>
+</ul>
+</nav>
+<nav class=""subfooter-nav"">
+<ul class=""subfooter-nav-list cf"">
+<li>
+<a href=""/resource-center/licensing-and-agreements"">Legal</a>
+</li>
+<li>
+<a href=""/pages/privacy-statement"">Privacy Statement</a>
+</li>
+<li>
+<a href=""/pages/terms-of-use"">Terms Of Use</a>
+</li>
+<li>
+<a href=""/about/contact"">Contact</a>
+</li>
+<li>
+ <a href=""/pages/contact-support"">Support</a>
+</li>
+<li>
+<a href=""/pages/company-policies"">Company Policies</a>
+</li>
+</ul>
+</nav>
+<div class=""copyright"">
+© Entrust Datacard Corporation. All rights reserved.
+</div>
+</div>
+</div>
+</footer>
+<script src=""https://cdnjs.cloudflare.com/ajax/libs/picturefill/3.0.2/picturefill.min.js""></script>
+<script src=""https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js""></script>
+<script src=""https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js""></script>
+<script src='/js/site.min.js'></script>
+</body>
+</html>
+"
+275;uvps.gov.si;"User-agent: sistrix
+Disallow: /
+
+User-agent: *
+Crawl-delay: 10
+Allow: /
+Disallow: /fileadmin/common/
+Disallow: /typo3/
+Disallow: /urednik/
+Disallow: /typo3conf/
+Disallow: /typo3temp/
+Disallow: /%2A%3Fid%3D%2A
+Disallow: /%2Atype%3D98%2A
+Disallow: /%2A%26type%3D100
+Disallow: /si/article/14/
+Disallow: /%2A%3FeID%3D%2A
+
+";None
+276;id.gov.si;"User-agent: sistrix
+Disallow: /
+
+User-agent: *
+Crawl-delay: 10
+Allow: /
+Disallow: /fileadmin/common/
+Disallow: /typo3/
+Disallow: /urednik/
+Disallow: /typo3conf/
+Disallow: /typo3temp/
+Disallow: /%2A%3Fid%3D%2A
+Disallow: /%2Atype%3D98%2A
+Disallow: /%2A%26type%3D100
+Disallow: /si/article/14/
+Disallow: /%2A%3FeID%3D%2A
+
+";None
+277;mju.gov.si;"User-agent: sistrix
+Disallow: /
+
+User-agent: *
+Crawl-delay: 10
+Allow: /
+Disallow: /fileadmin/common/
+Disallow: /typo3/
+Disallow: /urednik/
+Disallow: /typo3conf/
+Disallow: /typo3temp/
+Disallow: /%2A%3Fid%3D%2A
+Disallow: /%2Atype%3D98%2A
+Disallow: /%2A%26type%3D100
+Disallow: /si/article/14/
+Disallow: /%2A%3FeID%3D%2A
+
+";None
+278;eugo.gov.si;"User-agent: *
+Disallow: /data/templates/
+Disallow: /t3lib/
+Disallow: /typo3/
+Disallow: /typo3conf/
+Disallow: /typo3temp/
+Disallow: /uploads/
+Disallow: /si/
+Disallow: /%2A%3Fid%3D%2A
+
+";None
+279;arhiv.gov.si;"User-agent: sistrix
+Disallow: /
+
+User-agent: *
+Crawl-delay: 10
+Allow: /
+Disallow: /fileadmin/common/
+Disallow: /typo3/
+Disallow: /urednik/
+Disallow: /typo3conf/
+Disallow: /typo3temp/
+Disallow: /%2A%3Fid%3D%2A
+Disallow: /%2Atype%3D98%2A
+Disallow: /%2A%26type%3D100
+Disallow: /si/article/14/
+Disallow: /%2A%3FeID%3D%2A
+
+";None
