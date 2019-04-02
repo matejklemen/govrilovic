@@ -48,6 +48,21 @@ cd crawler
 python3 core.py
 ```
 
+## Folder structure
+```
+.
+├── ...
+├── crawler                    # Web crawler
+│   ├── core.py                # Core crawler function
+│   └── ...                    # etc.
+├── docker                     # Database setup
+├── ...                        # etc.
+├── db                         # Database dump for 2 seed URLs
+└──report.pdf                  # Final report PDF
+
+```
+
+
 ## Brief guidelines (for development)
 1. When writing regex, either explain it (comment the code) like you would explain it to a monkey
 or use something other than regex for solving the problem.
