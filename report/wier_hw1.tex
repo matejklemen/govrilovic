@@ -122,6 +122,9 @@ For observing the results and current status of the database, we use a tool call
 \textbf{TODO: ER diagram, maybe just the page table}
 
 \section{Link}
+
+
+
 \textbf{TODO}
 
 \section{Image and files extracting}
@@ -169,27 +172,28 @@ Nonetheless, using the LSH deduplication method provides a major improvement com
 
 
 \section{Results - 2 seed URLs}
-For the first run of the crawler, we used 2 seed URLs, which were "http://evem.gov.si"and "http://e-prostor.gov.si". We set the maximum crawl depth to None, which means it will run untill there are no more links produced. The maximum number of workers was \textbf{NUM OF WORKERS WE USED}.
+For the first run of the crawler, we used 2 seed URLs, which were "http://evem.gov.si"and "http://e-prostor.gov.si". We set the maximum crawl depth to None, which means it will run untill there are no more links produced. The maximum number of workers/threads we used was 20.
 
-The crawling process took XXXX minutes in total and retrieved XXX pages,links, images...
-
-For the sites that are given in the instructions’ seed list and also for the whole crawldb together (for both separately) report general statistics of crawldb (number of sites, number of web pages, number of duplicates, number of binary documents by type, number of images, average number of images per web page, …). Visualize links and include images into the report. If the network is too big, take only a portion of it. Use visualization libraries such as D3js, visjs, sigmajs or gephi.
-
+The crawling process took 30 minutes in total and retrieved results as seen in table ~\ref{tab:results2}.
+\textbf{TODO: number of binary documents by type
+average number of images per web page}
 
 \begin{table}[H]
     \begin{center}
     \caption{Results of the crawling 2 initial seed urls.}
         \begin{tabular}{ l | r }
-        
-        Links & xxx \\
-        Images & xxx \\
-        Duplicates xxx \\
-        Files & xxx \\
+        Pages & 544 \\
+        Images & 254 \\
+        Duplicates & 5 \\
+        Files & 265 \\
+        Sites & 3
         \end{tabular}
     \label{tab:results2}
     \end{center}
 \end{table}
 
+
+\textbf{TODO: graph, average degree and stuff}
 \section{Results - 9 seed URLs}
 The second run consisted of 9 seed urls. For the extra 5 urls of our choice, we have choosen "http://www.mz.gov.si/", "http://www.mnz.gov.si/","http://www.up.gov.si/", "http://www.ti.gov.si/" and "http://www.mf.gov.si/". 
 
@@ -204,7 +208,7 @@ Another thing that could be tweaked further is the ability of the crawler to han
 As an example, in our implementation, we keep the frontier in memory at all times, which could become problematic when encountering a large amount of different domains.
 The obvious solution would be to connect the frontier with the database as well, while also thinking about what proportion of the frontier one could keep in memory in order to gain a performance boost.
 
-The last improvement we mention is the posibility of task-specific parameter tuning of locality sensitive hashing.
+The last improvement we mention is the possibility of task-specific parameter tuning of locality sensitive hashing.
 As already mentioned, the performance of our deduplication method could be improved by using a part of the crawled data for parameter tuning.
 More specifically, one could combine the data of known duplicate pages with known non-duplicate pages into a dataset, on which parameter tuning could be performed with the goal of maximizing classification accuracy (documents are classified as duplicates or non-duplicates with the help of locality-sensitive hashing).
 

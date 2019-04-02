@@ -1,7 +1,6 @@
 Results on 2 root urls
 
-
-
+crawl time 1700s
 254 images
 265 files
 5 duplicate websites
