@@ -123,14 +123,6 @@ For observing the results and current status of the database, we use a tool call
 
 \section{Link}
 
-
-
-\textbf{TODO}
-
-\section{Image and files extracting}
-
-TODO: the following 2 paragraphs should probably in ``Link'' section.
-
 To work with links correctly, we need to normalize them.
 The first thing we do is we contruct an absolute path for each link, so that we get rid of issues with relative paths.
 To do that correctly, we take into consideration the ``<base href="somelink">'' tags in the webpages, which set the base URL for all the relative paths used in the HTML on the currently crawled webpage.
@@ -141,7 +133,14 @@ The next thing we have to take care of is to get rid of deeply nested URLs to av
 We pass every link through a sanitizer which removes anything after the tenth slash in the URL to avoid looping of URLs.
 Then, we sanitize the links further to get rid of any positional arguments after the hash symbol in the url.
 We also URL encode the query parameters to prevent different issues which can arise by maybe injecting some malicious code or SQL queries in the URLs.
-This encoding also normalizes the capitalization for each URL (the part that is not case sensitive).
+This encoding also normalizes the capitalization for each URL (the part that is not case sensitive). It is also somewhat useful in optimization terms for our specific case to remove the 'www' subdomain prefixes from links as they generally lead to the same page. Some servers do not redirect links correctly and there might be some inconsistencies, thus we optimize the crawling and reduce duplicates by removing that part from our URLs (in our case, that was useful to treat 'www.e-prostor.gov.si' the same as 'e-prostor.gov.si').
+
+
+\textbf{TODO}
+
+\section{Image and files extracting}
+
+TODO: the following 2 paragraphs should probably in ``Link'' section.
 
 We store images and files into the file system, since it gives a nice overview of the gathered information. 
 This was made possible by creating a folder for each new site in which we stored the information. 
