@@ -39,29 +39,9 @@ Matej Klemen, Andraž Povše, Jaka Stavanja
 \maketitle
 
 \begin{abstract}
-BOII
-\begin{lstlisting}
-***************************************
-***************************************
-*************/##***********************
-*************%%%%**********************
-*//*(*********%&&%%%%%*****************
-***(%%%%(*/##%&&%%%%&&%%***************
-****#//%%%%&&&&%%&&&&%&&%***********,,,
-***************/%%&&&&%%%%***,,,,,,,,,,
-**,,,,*,,,,,,,,,#%%&&&&&%%%(,,,,,,,,,,,
-******,,,*,,,,,,,/#%&&&&&&&%*,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,*(%&&&&&&&***,,,,,,,,
-,,,,,,,,,,,,,,,,,,,/,/%&&&&&%(,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,(*,%%&/%&%(**,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,**#&%&&%%***,,,,,
-,,,,,,,*/,,,,,,,,,,,,,,,(#&%&%%%/*,,,,,
-,,,,*///(/(/,,,,,,,,,,,,/#(((((((((((**
-***/((/(((((((**,,,,,,,(((((((/(((###**
-**(((((/#((#(((********/(#(((((((####/*
-*((((##########/********(###(((((####//
-//(((((#(#((((#//******/(((#(((((####//
-\end{lstlisting}
+In this work we present our implementation of a crawler that navigates the government websites.
+It starts from a few given seed pages and crawls pages that are part of the ``\textit{.gov.si}'' network, meanwhile storing binary data and the text on crawled websites.
+Using a starting seed of 2 URLs, our crawler visits \textbf{XXX} links, \textbf{[TODO: other stats]}.
 \end{abstract}
 
 \section{Introduction}
@@ -97,75 +77,89 @@ The first two parameters are self-explanatory.
 The maximum crawling depth is optional and specifies at what depth we want our crawler to stop. 
 If this parameter is not provided, the crawler will stop when there are no more links being produced.
 
-[\textbf{TODO: describe each component briefly (mention its role).}]
-
-
-
+[\textbf{TODO: describe each component briefly - and possibly mention that it's described further in a separate section (if applicable).}]
 
 We used Selenium to make requests, because it also renders the Javascript code on the website. It does, however, not include HTTP status code, which is why we also had to make another request to get that information.
 
-
-EXPLAIN HOW BREADTH FIRST STRATEGY WORKS
-The crawler uses (parallel) breadth-first traversal to crawl the websites. Figure \ref{fig:parallel_bfs} shows an example of how work is divided among workers in our implementation.
-
-The master (the initial process) keeps a structure with visited links and links that still need to be visited (frontier).
-On each level, the frontier is emptied and the links are divided among workers as evenly as possible.
+The crawler uses (parallel) breadth-first traversal to crawl the websites. The master (the initial process) keeps a structure with visited links and links that still need to be visited (frontier).
+On each level, the frontier is emptied and the links are divided among workers in the following way.
+First, the links are grouped by their base domain.
+The base domains are split among workers as evenly as possible and the workers then crawl links that were found in previous level for the particular base link.
+This means that a certain worker is responsible for crawling links of 1 or more domains.
 Each worker keeps a local copy of its visited websites and a local copy of its newly produced links.
-Each worker also checks if a newly visited website is present in the global visited structure, but it does not add new links into it as we want to keep the synchronization between threads to a minimum.
+Each worker also checks if a newly visited website is present in the global visited structure, but it does not add new links into it as we want to keep the synchronization between workers to a minimum.
 We must wait for all the workers to finish so that breadth-first strategy is ensured.
 After they are all done, the master collects newly collected links from workers and checks for duplicate links.
 It also marks the links from current level as visited.
 This process is repeated with the newly collected links, which represent the next level of search process.
 
-\begin{figure}[h] \centering
-    \includegraphics[width=0.45\textwidth]{parallel_bfs.pdf}
-    \caption{{How the work is divided among workers in our implementation of parallel breadth-first traversal. The process starts with a set of seed pages, in this case 2. Note that even though we have 3 workers available, we only actually create 2 workers for level 0 as the 3rd one would not receive any work. Workers then gather new outgoing links, which get collected by the master. The work is divided among workers again every time a new level is started.}}
-    \label{fig:parallel_bfs}
-\end{figure}
+While our implementation does not use parallelism as effectively as possible, it does fully respect the crawled sites' rules (for example, the specified crawl delay).
+Prior to the current implementation, our strategy was to distribute links as evenly as possible among workers, ignoring any information about the domains they belong to.
+Although this was a much faster strategy, it did not fully respect the sites' rules.
+The information about the time of last request to a website was not synchronized fast enough in order for all the workers to respect it.
 
-We did not use the database as a frontier storage ----- We stored our frontier in the program itself.
+[TODO: kam to paše?] We did not use the database as a frontier storage ----- We stored our frontier in the program itself.
 
 \section{Robots and Sitemaps}
-Key element of the crawler is also reading the 'robots.txt' file and sitemap. Based on the robots file, we know whether we can visit a certain link or whether it is not allowed for a crawler to visit that link.
-We identify our agent as '*' as it is not well known.
-What the possibly existent robots file tells us is also the request delay which specifies how much time we have to wait between crawling a page from the same url.
-For that reason, we check if either the request delay specified in the 'robots.txt' file or the default delay of 3 seconds has passed to not overload the website we are crawling.
+Key element of the crawler is also reading the ``robots.txt'' file and sitemap. 
+Based on the robots file, we know whether we can visit a certain link or whether it is not allowed for a crawler to visit that link.
+We make the simplification of only checking the robots file for the wildcard agent (``*'') as our crawler is not known to the public and therefore there are likely no special rules for our crawler.
+What the possibly existent robots file also tells us is the request delay which specifies how much time we have to wait between crawling a page from the same url.
+For that reason, we check if either the request delay specified in the ``robots.txt'' file or the default delay of 3 seconds has passed to not overload the website we are crawling.
 Another thing we can read from the same file is the location of the sitemap.
-What we do is we check if there is a sitemap property in the 'robots.txt' file and if there is one, we save its contents to our sitemaps dictionary and the database, else we try and do the same by going to the sites URL and appending it the default sitemap location ('/sitemap.xml').
-When we read a sitemap, we add all the URLs mentioned in it, into the frontier. 
+What we do is we check if there is a sitemap property in the ``robots.txt'' file and if there is one, we save its contents to our sitemap's dictionary and the database. Otherwise, we try and do the same by going to the site's URL and checking the default sitemap location (``/sitemap.xml'').
+When we read a sitemap, we add all the URLs listed in it into the frontier. 
 
 
 \section{Database}\label{section:database}
-The database was build inside a Docker container. We used the same schema, with one minor change, which is adding a column 'lsh\_hash' into the page table. The column stores the value that LSH hash produced for the content of that website. Access to database is made by each worker when he visits a new page. The database can handle multiple workers making read and write operations by proper locking of the operations.
-
-For viewing the results and current status in the database, we also used Adminer application, which also runs as a docker container and is then accessable on localhost.
+The database is built inside a Docker container. 
+We use the schema, provided in the instructions, with one minor change, which is adding a column 'lsh\_hash' into the page table. 
+The column stores the value that our content deduplication method (locality sensitive hashing) produced for the content of the website. 
+Access to database is made by each worker when it visits a new page. 
+The database can handle multiple workers making read and write operations by proper locking of the operations.
+For observing the results and current status of the database, we use a tool called Adminer, which also is also run as a Docker container.
 
 
 \section{Link}
-
+\textbf{TODO}
 
 \section{Image and files extracting}
-To work with links correctly, we needed to somehow normalize them.
+
+TODO: the following 2 paragraphs should probably in ``Link'' section.
+
+To work with links correctly, we need to normalize them.
 The first thing we do is we contruct an absolute path for each link, so that we get rid of issues with relative paths.
-To do that correctly, we take into consideration the '<base href="somelink">' tags in the webpages, which set the base URL for all the relative paths used in the HTML on the currently crawled webpage.
-If there is no base URL on a website, we can treat the URL we are currently crawling as the base one.
-What is left is only to append the relative path to the base URL.
+To do that correctly, we take into consideration the ``<base href="somelink">'' tags in the webpages, which set the base URL for all the relative paths used in the HTML on the currently crawled webpage.
+If there is no base URL on a website, we treat the URL we are currently crawling as the base one.
+What is left is to append the relative path to the base URL.
+
 The next thing we have to take care of is to get rid of deeply nested URLs to avoid spider traps.
 We pass every link through a sanitizer which removes anything after the tenth slash in the URL to avoid looping of URLs.
 Then, we sanitize the links further to get rid of any positional arguments after the hash symbol in the url.
 We also URL encode the query parameters to prevent different issues which can arise by maybe injecting some malicious code or SQL queries in the URLs.
 This encoding also normalizes the capitalization for each URL (the part that is not case sensitive).
-We stored images and files into the file system, since it gives a nicer overview of the gathered information. This was made possible by creating a folder for each new site in which we stored the information. We then stored the location of the file/image into the provided data field in the database.
+
+We store images and files into the file system, since it gives a nice overview of the gathered information. 
+This was made possible by creating a folder for each new site in which we stored the information. 
+We then stored the location of the file or image into the provided data field in the database.
 
 
+\section{Locality sensitive hashing deduplication}
 
+In order to not waste resources on websites we have already visited it is essential that we have some form of a deduplication mechanism.
+Its job is to find duplicates and near-duplicates of webpages based on their content.
+For this purpose, we implement the locality sensitive hashing algorithm \cite{Gionis1999} with min-hashing.
 
-\section{LSH deduplication}
-We implemented LSH algorithm, which is being used to compare hashed content of different websites. 
+It takes a document $D_{input}$ as input and returns its signature, which is a $d$-dimensional vector.
+First, the document is represented with a set, which contains the triples of a document which are present in our used vocabulary.
+This sparse representation is then converted into a dense representation by using a range of hash functions on the sparse representation.
+To increase the robustness of this method, the dense representation (vector) is divided into equally sized bands and the contents of each band are transformed using another hash function.
+The result is the document's signature.
+To find \textit{candidates} for duplicates of the current query document, the signature for the query document is obtained and compared against the signatures of other documents, stored in the database.
+This way, we obtain a small amount of candidates, which are then compared with the query document again, this time using \textbf{TODO} similarity measure.
+The query document is marked as duplicate if the similarity is higher than $0.9$.
 
-\textbf{How it works}
-
-For the set of words, we hash it on, we used top 1000 Slovenian words. Or maybe triples of characters?
+\textbf{TODO @Andraž: setting the parameters, which hash functions are used; [Dodej še neki v tem smislu:] due to time constraints we did not give it much attention, could be done better by preparing a more task-specific corpus, from which we would extract a vocabulary and tweak the possibly tweak the parameters on.}
 
 
 \section{Results - 2 seed URLs}
@@ -178,8 +172,20 @@ For the sites that are given in the instructions’ seed list and also for the w
 \section{Results - 9 seed URLs}
 The second run consisted of 9 seed urls. For the extra 5 urls of our choice, we have choosen "http://www.mz.gov.si/", "http://www.mnz.gov.si/","http://www.up.gov.si/", "http://www.ti.gov.si/" and "http://www.mf.gov.si/". 
 
+\section{Conclusion}
+We presented the overall architecture of our crawler that navigates the government websites and provided some implementation challenges that we have had to deal with.
+Although our crawler works relatively well, there are many thing that could be improved.
+First thing that could be improved is better use of concurrency to speed up the crawler.
+A possible way could be to use our previous strategy of implementing parallel breadth-first traversal, but making it more sophisticated by taking care of communication between workers.
+This way, better efficiency could be achieved while also following the crawling rules.
 
+Another thing that could be tweaked further is the ability of the crawler to handle large amounts of data.
+As an example, in our implementation, we keep the frontier in memory at all times, which could become problematic when encountering a large amount of different domains.
+The obvious solution would be to connect the frontier with the database as well, while also thinking about what proportion of the frontier one could keep in memory in order to gain a performance boost.
 
+The last improvement we mention is the posibility of task-specific parameter tuning of locality sensitive hashing.
+As already mentioned, the performance of our deduplication method could be improved by using a part of the crawled data for parameter tuning.
+More specifically, one could combine the data of known duplicate pages with known non-duplicate pages into a dataset, on which parameter tuning could be performed with the goal of maximizing classification accuracy (documents are classified as duplicates or non-duplicates with the help of locality-sensitive hashing).
 
 \begin{figure}[h] \centering
     \includegraphics[width=0.4\textwidth]{karate.png}
