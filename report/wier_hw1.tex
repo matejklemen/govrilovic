@@ -51,7 +51,7 @@ It begins with some amount of seed URLs, which are put into a frontier.
 The crawler then selects a web page from frontier according to some strategy, visits the web page and extracts the web page's content and outgoing links.
 The outgoing links are put into the frontier and the content is used for some purpose or stored.
 This process is then repeated until a certain stopping criteria is reached (e.g. the frontier being empty) \cite{Manning2008}.
-The crawling can also be a continuous process (``without end''), but we do not study these in this project. 
+The crawling can also be a continuous process (``without end''), but we do not study this in the project. 
 
 In this project we implement a web crawler that crawls Slovenian government websites. 
 We are given a set of 4 government websites and choose additional 5 of them and proclaim them as seed websites, from which we start the crawling.
@@ -72,9 +72,9 @@ The rest of the report is structured as follows.
     \item In chapter ~\ref{sec:crawlerArchitecture} we present general architecture of the built crawler.
     \item In chapter ~\ref{sec:robotsSitemaps} we present how we got content from Robots and Sitemaps.
     \item In chapter ~\ref{sec:database} we present how the database is built.
-    \item In chapter ~\ref{sec:Links} we present how we took care of link sanitizing and base urls.
+    \item In chapter ~\ref{sec:Links} we present how we took care of link sanitizing and base URLs.
     \item In chapter ~\ref{sec:imgFiles} we present how images and files are stored.
-    \item In chapter ~\ref{sec:lsh} we present how Locality sensitive hashing deduplication works.
+    \item In chapter ~\ref{sec:lsh} we present how we implemented locality-sensitive-hashing-based deduplication.
     \item In chapters~\ref{sec:results1} and~\ref{sec:results2} we present the results of the crawler runs.
     \item In chapter~\ref{sec:Conclusion} we conclude our work and present possible future improvements.
 
@@ -125,10 +125,10 @@ When we read a sitemap, we add all the URLs listed in it into the frontier.
 \section{Database}\label{sec:database}
 The database is built inside a Docker container.
 We also mount the database on our local file system, so we have access to the saved files even when the container is shut down.
-We use the schema, provided in the instructions, with one minor change, which is adding a column 'lsh\_hash' into the page table. 
+We use the schema, provided in the instructions, with one minor change, which is adding a column ``lsh\_hash'' into the page table. 
 The column stores the value that our content deduplication method (locality sensitive hashing) produced for the website. 
-Access to database is made by each worker when he visits a new page and saves its content.
-We figured this will not be an issue, since the bottleneck of the entire crawler is the network and time that requests take.
+Access to database is made by each worker when it visits a new page and saves its content.
+We figured this will not be an issue, since the bottleneck of the entire crawler is the network and the time that requests take.
 The database can handle multiple workers making read and write operations by proper locking of the operations.
 For observing the results and current status of the database, we use Adminer, which is also running as a Docker container.
 
@@ -143,13 +143,13 @@ What is left is to append the relative path to the base URL.
 The next thing we have to take care of is to get rid of deeply nested URLs to avoid spider traps.
 We pass every link through a sanitizer which removes anything after the tenth slash in the URL to avoid looping of URLs.
 Then, we sanitize the links further to get rid of any positional arguments after the hash symbol in the url.
-We also URL encode the query parameters to prevent different issues which can arise by maybe injecting some malicious code or SQL queries in the URLs.
-This encoding also normalizes the capitalization for each URL (the part that is not case sensitive). It is also somewhat useful in optimization terms for our specific case to remove the 'www' subdomain prefixes from links as they generally lead to the same page. Some servers do not redirect links correctly and there might be some inconsistencies, thus we optimize the crawling and reduce duplicates by removing that part from our URLs (in our case, that was useful to treat 'www.e-prostor.gov.si' the same as 'e-prostor.gov.si').
+We also URL encode the query parameters to prevent different issues which can arise by possibly injecting some malicious code or SQL queries in the URLs.
+This encoding also normalizes the capitalization for each URL (the part that is not case sensitive). It is also somewhat useful in optimization terms for our specific case to remove the ``www'' subdomain prefixes from links as they generally lead to the same page. Some servers do not redirect links correctly and there might be some inconsistencies, thus we optimize the crawling and reduce duplicates by removing that part from our URLs (in our case, it was useful to treat ``www.e-prostor.gov.si'' the same as ``e-prostor.gov.si'').
 
 \section{Image and files extracting}\label{sec:imgFiles}
 We store images and files into the file system, since it gives a nicer overview of the gathered information. 
 We have created a subfolder for each new site we visited, that had any images.
-Files were stored in a simmilar way, but we also had different folders based on file type (PDF, DOC, ...).
+Files were stored in a similar way, but we also had different folders based on file type (e.g. PDF, DOC, etc. ).
 We stored the location of the file/image in the database under the provided data field.
 
 \section{Locality sensitive hashing deduplication}\label{sec:lsh}
@@ -163,21 +163,21 @@ First, the document is represented with a set, which contains the triples of a d
 This sparse representation is then converted into a dense representation by using a range of hash functions on the sparse representation.
 To increase the robustness of this method, the dense representation (vector) is divided into equally sized bands and the contents of each band are transformed using another hash function.
 The result is the document's signature.
-To find \textit{candidates} for duplicates of the current query document, the signature for the query document is obtained and compared against the signatures of other documents, stored in the database.
+To find \textit{candidates} for duplicates of the query document, the signature for the query document is obtained and compared against the signatures of other documents, stored in the database.
 This way, we obtain a small amount of candidates, which are then compared with the query document again, this time using Python SequenceMatcher similarity measure.
 The query document is marked as duplicate if the similarity is higher than $0.9$.
 For setting the parameters of the LSH, we tried different vocabularies and hashing methods. 
 In the end, we use a single hash method, because it performs just like tests with multiple ones.
 The one we used is the built in Python $hash()$ function.
 The vocabularies we tried were top 1000 Slovenian words, triplets from such words, triplets from HTML content of visited websites and finally what we are using in the final version, triplets made from most frequently used Slovenian words. 
-Due to time constraints, we could not configure excellent LSH parameters, which would probably require an even more task-specific corpus, from which we would extract a vocabulary and tweak the possibly tweak the parameters on.
-Because of that, we are getting more equal hashes, than we would in a perfect scenario.
+Due to time constraints, we could not configure LSH parameters optimally, which would probably require an even more task-specific corpus, from which we would extract a vocabulary and tweak the parameters on.
+Because of that, we are getting more false positives (candidates), than we would in a perfect scenario.
 Nonetheless, using the LSH deduplication method provides a major improvement compared to checking HTML content of every single website in the database and making similarity comparison.
 
 
 \section{Results - 2 seed URLs}\label{sec:results1}
-For the first run of the crawler, we used 2 seed URLs, which were "http://evem.gov.si"and "http://e-prostor.gov.si". We set the maximum crawl depth to None, which means it will run untill there are no more links produced. The maximum number of workers/threads we used was 20.
-The crawling process took 30 minutes in total and retrieved results as seen in table ~\ref{tab:results2}. Total number of links our crawler had visited in this run was about 1300. These include HTML websites and also other data types, such as PDF or DOC files.
+For the first run of the crawler, we used 2 seed URLs, which were ``http://evem.gov.si'' and ``http://e-prostor.gov.si''. We set the maximum crawl depth to None, which means it will run untill there are no more links produced (unlimited crawling depth). The maximum number of workers (threads) we used was 20.
+The crawling process took 30 minutes in total and retrieved results that can be seen in Table ~\ref{tab:results2}. Total number of links our crawler had visited in this run was about 1300. These include HTML websites and also other data types, such as PDF or DOC files.
 % Average images per website which contain images:  2.9080459770114944
 % Maximum images on a website:  15
 % Counter({'PDF': 229, 'DOC': 31, 'PPT': 2, 'DOCX': 2})
@@ -203,9 +203,10 @@ The crawling process took 30 minutes in total and retrieved results as seen in t
     \end{center}
 \end{table}
 \section{Results - 9 seed URLs}\label{sec:results2}
-The second run consisted of 9 seed urls. For the extra 5 urls of our choice, we have choosen "http://www.mz.gov.si/", "http://www.mnz.gov.si/","http://www.up.gov.si/", "http://www.ti.gov.si/" and "http://www.mf.gov.si/". 
+The second run consisted of 9 seed urls. 
+For the extra 5 URLs of our choice, we chose ``http://www.mz.gov.si/'', ``http://www.mnz.gov.si/'', \ ``http://www.up.gov.si/'', ``http://www.ti.gov.si/'' and ``http://www.mf.gov.si/''. 
 
-We have firstly done a run up to 3000 crawled links and enabled file and image downloading, which we have then terminated due to issues with space on the local machine and slower performance. We received around $1GB$ of binary files, of which their specific sizes are shown in Table \ref{tab:results_files}.
+We have first done a run up to 3000 crawled links and enabled file and image downloading, which we have then terminated due to issues with space on the local machine and slower performance. We received around $1GB$ of binary files, of which their specific sizes are shown in Table \ref{tab:results_files}.
 
 \begin{table}[H]
     \begin{center}
@@ -221,9 +222,9 @@ We have firstly done a run up to 3000 crawled links and enabled file and image d
 \end{table}
 
 Most of the images were actually thumbnails of certain posts, found on the site, which had pictures that resembled things that should be on a certain page (judging by the url).
-For example, images from 'e-prostor.gov.si' were mostly related to maps of Slovenia and its nature and landscape while 'mnz.gov.si' contained more images from ministers' meetings and police related issues.
+For example, images from ``e-prostor.gov.si'' were mostly related to maps of Slovenia and its nature and landscape while ``mnz.gov.si'' contained more images from ministers' meetings and police related issues.
 
-The PDF and Microsoft Word documents were mostly application forms for different purposes (e.g. applications for registering companies from 'evem.gov.si') and periodical reports from different governmental institutions (e.g. reports for years 2007-2016 on Slovenia's national real estate market from 'e-prostor.gov.si').
+The PDF and Microsoft Word documents were mostly application forms for different purposes (e.g. applications for registering companies from ``evem.gov.si'') and periodical reports from different governmental institutions (e.g. reports for years 2007-2016 on Slovenia's national real estate market from ``e-prostor.gov.si'').
 
 In the next test run, we used same 9 seed URLs as above, and disabled image and file downloading. The data we have gathered from it is displayed in table~\ref{tab:results2}.
 \begin{table}[H]
@@ -247,24 +248,25 @@ The average degree for nodes in the graph is $1.99$.
 To visualize the graphs, we can represent crawled sites as nodes and link one to the other, if the crawler took that path between them as well.
 We can then plot the network using different layouts.
 In our case we will use force-directed algorithms for layouts, taken from the OpenOrd software \cite{Martin2011} and an algorithm from Yifan Hu \cite{Hu2005}.
-As this was a simple crawling procedure, we should expect get many hubs (meaning nodes with high degree) and a number of pages attached to them.
-From that we should see which site produced the most links in our frontier and which site had 'Disallow: /' in its 'robots.txt' file.
-To prove that, we use Gephi to plot the graphs using seen on Figures \ref{fig:openord} and \ref{fig:hu} and come to the expected results.
+As this was a simple crawling procedure, we expect to get many hubs (nodes having a degree much higher than the average degree) and a number of pages attached to them.
+From that we should see which site produced the most links in our frontier and which site had ``Disallow: /'' in its ``robots.txt'' file.
+To prove that, we use Gephi to plot the graphs - they can be seen on Figures \ref{fig:openord} and \ref{fig:hu}, on which we can see the expected results.
 
 \begin{figure}[h] \centering
-    \includegraphics[width=0.4\textwidth]{img/openord.png}
+    \includegraphics[width=0.4\textwidth]{../analysis/openord.png}
     \caption{{Page network plotted using OpenOrd's force-directed algorithm.}}
     \label{fig:openord}
 \end{figure}
 
 
 \begin{figure}[h] \centering
-    \includegraphics[width=0.4\textwidth]{img/hu.png}
+    \includegraphics[width=0.4\textwidth]{../analysis/hu.png}
     \caption{{Page network plotted using Hu's force-directed algorithm.}}
     \label{fig:hu}
 \end{figure}
 
-We can also retrieve the URL of the biggest hub node and see that it is 'mz.gov.si', the page that we have chosen as an additional seed for our crawling task. It produced around $88$ percent of all links that we have crawled.
+We can also retrieve the URL of the biggest hub node and see that it is ``mz.gov.si'', the page that we have chosen as an additional seed for our crawling task. 
+It produced around $88$ percent of all links that we have crawled.
 
 \section{Conclusion}\label{sec:Conclusion}
 We presented the overall architecture of our crawler that navigates the government websites and provided some implementation challenges that we have had to deal with.
