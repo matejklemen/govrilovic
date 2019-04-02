@@ -119,6 +119,7 @@ Access to database is made by each worker when it visits a new page.
 The database can handle multiple workers making read and write operations by proper locking of the operations.
 For observing the results and current status of the database, we use a tool called Adminer, which also is also run as a Docker container.
 
+\textbf{TODO: ER diagram, maybe just the page table}
 
 \section{Link}
 \textbf{TODO}
@@ -156,10 +157,15 @@ This sparse representation is then converted into a dense representation by usin
 To increase the robustness of this method, the dense representation (vector) is divided into equally sized bands and the contents of each band are transformed using another hash function.
 The result is the document's signature.
 To find \textit{candidates} for duplicates of the current query document, the signature for the query document is obtained and compared against the signatures of other documents, stored in the database.
-This way, we obtain a small amount of candidates, which are then compared with the query document again, this time using \textbf{TODO} similarity measure.
+This way, we obtain a small amount of candidates, which are then compared with the query document again, this time using Python SequenceMatcher similarity measure.
 The query document is marked as duplicate if the similarity is higher than $0.9$.
-
-\textbf{TODO @Andraž: setting the parameters, which hash functions are used; [Dodej še neki v tem smislu:] due to time constraints we did not give it much attention, could be done better by preparing a more task-specific corpus, from which we would extract a vocabulary and tweak the possibly tweak the parameters on.}
+For setting the parameters of the LSH, we tried different vocabularies and hashing methods. 
+In the end, we use a single hash method, because it performs just like tests with multiple ones.
+The one we used is the built in Python $hash()$ function.
+The vocabularies we tried were top 1000 Slovenian words, triplets from such words, triplets from HTML content of visited websites and finally what we are using in the final version, triplets made from most frequently used Slovenian words. 
+Due to time constraints, we could not configure excellent LSH parameters, which would probably require an even more task-specific corpus, from which we would extract a vocabulary and tweak the possibly tweak the parameters on.
+Because of that, we are getting more equal hashes, than we would in a perfect scenario.
+Nonetheless, using the LSH deduplication method provides a major improvement compared to checking HTML content of every single website in the database and making similarity comparison.
 
 
 \section{Results - 2 seed URLs}
@@ -168,6 +174,21 @@ For the first run of the crawler, we used 2 seed URLs, which were "http://evem.g
 The crawling process took XXXX minutes in total and retrieved XXX pages,links, images...
 
 For the sites that are given in the instructions’ seed list and also for the whole crawldb together (for both separately) report general statistics of crawldb (number of sites, number of web pages, number of duplicates, number of binary documents by type, number of images, average number of images per web page, …). Visualize links and include images into the report. If the network is too big, take only a portion of it. Use visualization libraries such as D3js, visjs, sigmajs or gephi.
+
+
+\begin{table}[H]
+    \begin{center}
+    \caption{Results of the crawling 2 initial seed urls.}
+        \begin{tabular}{ l | r }
+        
+        Links & xxx \\
+        Images & xxx \\
+        Duplicates xxx \\
+        Files & xxx \\
+        \end{tabular}
+    \label{tab:results2}
+    \end{center}
+\end{table}
 
 \section{Results - 9 seed URLs}
 The second run consisted of 9 seed urls. For the extra 5 urls of our choice, we have choosen "http://www.mz.gov.si/", "http://www.mnz.gov.si/","http://www.up.gov.si/", "http://www.ti.gov.si/" and "http://www.mf.gov.si/". 
@@ -195,25 +216,7 @@ More specifically, one could combine the data of known duplicate pages with know
 
 
  
-\begin{table}
-    \begin{center}
-    \caption{Example of a table.}
-        \begin{tabular}{ l | r }
-        
-        Richard Karstark & 0.013661 \\
-        Jon Arryn & 0.012869 \\
-        Joyeuse Erenford & 0.012869 \\
-        Trystane Martell & 0.010761 \\
-        Willen Lannister & 0.010684 \\
-        Martyn Lannister & 0.010684 \\
-        Robb Stark & 0.010304 \\
-        Joffrey Baratheon & 0.009875 \\
-        Master Caleotte & 0.009495 \\
-        Lysa Arryn & 0.009383 \\
-        \end{tabular}
-    \label{tab:pagerankGOT}
-    \end{center}
-\end{table}
+
 
 
 
